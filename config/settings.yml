@@ -1,0 +1,10 @@
+static-dir:     "_env:YESOD_STATIC_DIR:static"
+host:           "_env:YESOD_HOST:*4" # any IPv4 host
+port:           "_env:YESOD_PORT:3000" # NB: The port `yesod devel` uses is distinct from this value. Set the `yesod devel` port from the command line.
+ip-from-header: "_env:YESOD_IP_FROM_HEADER:false"
+
+database:
+  database: "_env:YESOD_SQLITE_DATABASE:associations.db"
+  poolsize: "_env:YESOD_SQLITE_POOLSIZE:10"
+
+copyright: "© 2018 − Frédéric BISSON"

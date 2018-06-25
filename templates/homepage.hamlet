@@ -1,0 +1,11 @@
+<div .masthead.space-after>
+    <div .container>
+        <div .row>
+            <h1 .header>Bazasso
+            <h2>Consultation de la base nationale des associations
+
+<div .container.space-after>
+    <div .row>
+        <div .col-lg-12.minus-button>
+            <form .form-horizontal method=post action=@{SearchR} enctype=#{formEnctype}>
+                ^{formWidget}

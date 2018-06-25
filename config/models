@@ -1,0 +1,123 @@
+Rnawaldec
+    ident Text sql=id
+    identex Text sql=id_ex
+    siret Text
+    rupmi Text sql=rup_mi
+    gestion Text
+    creation Day sql=date_creat
+    declaration Day sql=date_decla
+    publication Day sql=date_publi
+    dissolution Day sql=date_disso
+    nature Text
+    groupement Text
+    titre Text
+    titrecourt Text sql=titre_court
+    objet Text
+    objetsocial1 Text sql=objet_social1
+    objetsocial2 Text sql=objet_social2
+    adrscomplement Text sql=adrs_complement
+    adrsnumvoie Text sql=adrs_numvoie
+    adrsrepetition Text sql=adrs_repetition
+    adrstypevoie Text sql=adrs_typevoie
+    adrslibvoie Text sql=adrs_libvoie
+    adrsdistrib Text sql=adrs_distrib
+    adrscodeinsee Text sql=adrs_codeinsee
+    adrscodepostal Text sql=adrs_codepostal
+    adrslibcommune Text sql=adrs_libcommune
+    adrgdeclarant Text sql=adrg_declarant
+    adrgcomplemid Text sql=adrg_complemid
+    adrgcomplemgeo Text sql=adrg_complemgeo
+    adrglibvoie Text sql=adrg_libvoie
+    adrgdistrib Text sql=adrg_distrib
+    adrgcodepostal Text sql=adrg_codepostal
+    adrgachemine Text sql=adrg_achemine
+    adrgpays Text sql=adrg_pays
+    dircivilite Text sql=dir_civilite
+    telephone Text
+    siteweb Text
+    email Text
+    publiweb Text
+    observation Text
+    position Text
+    majtime Day sql=maj_time
+    Primary ident
+
+Rnaimport
+    ident Text sql=id
+    identex Text sql=id_ex
+    siret Text
+    gestion Text
+    creation Day sql=date_creat
+    publication Day sql=date_publi
+    nature Text
+    groupement Text
+    titre Text
+    objet Text
+    objetsocial1 Text sql=objet_social1
+    objetsocial2 Text sql=objet_social2
+    adr1 Text
+    adr2 Text
+    adr3 Text
+    adrscodepostal Text sql=adrs_codepostal
+    libcom Text
+    adrscodeinsee Text sql=adrs_codeinsee
+    dircivilite Text sql=dir_civilite
+    telephone Text
+    siteweb Text
+    email Text
+    observation Text
+    position Text
+    rupmi Text sql=rup_mi
+    majtime Day sql=maj_time
+    Primary ident
+    
+Region
+    ident Int sql=id
+    libelle Text
+    cheflieu Text sql=chef_lieu
+    Primary ident
+
+Departement
+    ident Text sql=id
+    libelle Text
+    prefecture Text
+    Primary ident
+
+Commune
+    idregion Int sql=id_region
+    iddepartement Text sql=id_departement
+    libelle Text
+    codepostal Text sql=code_postal
+    codeinsee Text sql=code_insee
+    latitude Text
+    longitude Text
+    Primary codepostal
+
+Jotheme
+    theme Text
+    libelle Text
+    Primary theme
+
+Jotypeavis
+    ident Int sql=id
+    libelle Text
+    Primary ident
+
+Joannonce
+    parution Day sql=date_parution
+    numparution Int sql=num_parution
+    numannonce Int sql=num_annonce
+    iddepartement Text sql=id_departement
+    codepostal Text sql=code_postal
+    waldec Text
+    titre Text
+    siegesocial Text sql=siege_social
+    idtype Int sql=id_type
+    objet Text
+    Primary numparution numannonce
+
+Joanntheme
+    numparution Int sql=num_parution
+    numannonce Int sql=num_annonce
+    theme Text
+    Primary numparution numannonce theme

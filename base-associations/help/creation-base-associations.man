@@ -1,0 +1,37 @@
+.\" Manpage for creation-base-associations.bash.
+.\" Contact fbisson@rouen.fr to correct errors or typos.
+.TH cba 8 "24 mai 2018" "1.0" "creation-base-associations.bash"
+.SH NOM
+creation-base-associations.bash \- crée une base de données des associations
+.SH SYNOPSIS
+creation-base-associations.bash [*]
+.SH DESCRIPTION
+Le script creation-base-associations.bash crée une base de données SQLite3 à
+partir des informations disponibles en Données Ouvertes.
+
+Les données brutes doivent être installées dans le répertoire source.
+
+.SH OPTIONS
+Le script ne prend aucune option. Si une option est fournie, cette aide est
+automatiquement affichée.
+.SH FICHIERS
+.PP
+source/ASS*.taz
+.RS 4
+Annonces du Journal Officiel. À récupérer à l’adresse
+https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/
+.RE
+.PP
+source/EUCircos_Regions_departements_circonscriptions_communes_gps.csv.gz
+.RS 4
+Liste des communes, départements et régions de France. À récupérer à l’adresse
+http://www.nosdonnees.fr/wiki/index.php/Fichier:EUCircos_Regions_departements_circonscriptions_communes_gps.csv.gz
+.RE
+.PP
+source/rna_import_*.zip, source/rna_waldec_*.zip
+.RS 4
+Répertoire National des Associations. À récupérer à l’adresse
+https://www.data.gouv.fr/fr/datasets/repertoire-national-des-associations/
+.RE
+.SH AUTEUR
+Frédéric BISSON (fbisson@rouen.fr)

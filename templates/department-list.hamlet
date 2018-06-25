@@ -1,0 +1,13 @@
+<div .container.space-after>
+    <div .row>
+        <div .col-lg-12>
+            <h1 .header>Départements de France
+
+<div .container.space-after>
+    <div .row>
+        <div .col-lg-12>
+            <ul>
+                $forall Entity _ dept <- departments
+                    <li>
+                        <a href=@{DepartmentCitiesR (departementIdent dept)}>
+                            #{departementLibelle dept}

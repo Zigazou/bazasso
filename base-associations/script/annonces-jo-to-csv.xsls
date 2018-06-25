@@ -1,0 +1,79 @@
+// Extraction of JOAFE announces
+stylesheet(
+    version="1.0",
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+) {
+    output(method="text", encoding="utf-8");
+
+    // Convert DD/MM/YYYY to YYYY-MM-DD
+    template("convert-date") {
+        param $date;
+
+        value-of("substring($date, 7, 4)"); [-]
+        value-of("substring($date, 4, 2)"); [-]
+        value-of("substring($date, 1, 2)");
+    }
+
+    // XSLT 1.0 has no search and replace function
+    template("string-replace-all") {
+        param $text;
+        param $replace;
+        param $by;
+
+        choose() {
+            when("$text = '' or $replace = '' or not($replace)") {
+                value-of("$text");
+            }
+
+            when("contains($text, $replace)") {
+                value-of("substring-before($text,$replace)");
+                value-of("$by");
+                call-template("string-replace-all") {
+                    with-param $text = "substring-after($text,$replace)";
+                    with-param $replace = "$replace";
+                    with-param $by = "$by";
+                }
+            }
+            
+            otherwise() {
+                value-of("$text");
+            }
+        }
+    }
+
+    // Escape a string for inclusion in a CSV field
+    template("to-csv-string") {
+        param $string;
+
+        ["]
+        call-template("string-replace-all") {
+            with-param $text = "$string";
+            with-param $replace = "'\"'";
+            with-param $by = "'\"\"'";
+        }
+        ["]
+    }
+
+    match("PARUTION_JO_ASSOCIATION") {
+        apply-templates();
+    }
+
+    match("ANNONCE_REF") {
+        call-template("convert-date") { with-param $date = "../@dateparution"; } [;]
+        value-of("../@numparution"); [;]
+        value-of("@numannonce"); [;]
+        value-of("@dept"); [;]
+        value-of("@cp"); [;]
+        value-of("IDASSOC"); [;]
+        call-template("to-csv-string") { with-param $string = "TITRE"; } [;]
+        call-template("to-csv-string") { with-param $string = "SIEGE_SOCIAL"; } [;]
+        value-of("TYPE/@code"); [;]
+        call-template("to-csv-string") { with-param $string = "OBJET"; }
+        text() { [&#10;] }
+    }
+
+    // Parse every tag
+    match("@*|node()") {
+        apply-templates("@*|node()");
+    }
+}
