@@ -16,6 +16,22 @@ import Helpers.Like (match)
 import Database.Persist.Class (toPersistValue)
 import Database.Persist.Sql (rawSql)
 
+longPosition :: Text -> Text
+longPosition "A" = "active"
+longPosition "D" = "dissoute"
+longPosition "S" = "supprimée"
+longPosition _ = ""
+
+longGroupement :: Text -> Text
+longGroupement "S" = "simple"
+longGroupement "U" = "union"
+longGroupement "F" = "fédération"
+longGroupement _ = ""
+
+longNature :: Text -> Text
+longNature "" = ""
+longNature a = a
+
 getAssociation :: DBparam Text [Entity Rnawaldec]
 getAssociation txt = selectList [RnawaldecIdent `match` txt] [LimitTo 1]
 

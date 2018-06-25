@@ -85,6 +85,20 @@ $maybe association <- mAssociation
                     <strong>Courriel&nbsp;:
                     ^{clean id (rnawaldecEmail association)}
 
+        <div .row>
+            <div .col-md-6>
+                <h2>Infos
+                <p>
+                    <strong>Nature&nbsp;:
+                    ^{clean longNature (rnawaldecNature association)}
+                <p>
+                    <strong>Groupement&nbsp;:
+                    ^{clean longGroupement (rnawaldecGroupement association)}
+                <p>
+                    <strong>Position&nbsp;:
+                    ^{clean longPosition (rnawaldecPosition association)}
+
+
     <div .container>
         <h2>Journal Officiel
         <table .table.table-striped.table-bordered>
