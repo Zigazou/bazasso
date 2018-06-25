@@ -4,7 +4,8 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
 module Handler.Search
-    ( postSearchR
+    ( getSearchR
+    , postSearchR
     ) where
 
 import Import
@@ -29,6 +30,16 @@ lookForAssociations (SearchForm title (Just themes)) = selectList
                     ||. [RnawaldecObjetsocial2 `startsLike` b]
         addTheme a b = a ||. addTheme [] b
         themesFilter ts = foldl addTheme [] ts
+
+getSearchR :: Handler Html
+getSearchR = do
+    (formWidget, formEnctype) <- generateFormPost searchForm
+
+    let associations = []
+
+    defaultLayout $ do
+        setTitle "Rechercher par mots-clés"
+        $(widgetFile "search")
 
 postSearchR :: Handler Html
 postSearchR = do

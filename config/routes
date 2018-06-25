@@ -9,7 +9,7 @@
 / HomeR GET
 
 /association/#Text AssociationR GET
-/search SearchR POST
+/search SearchR GET POST
 
 /department/#Text DepartmentCitiesR GET
 /department DepartmentListR GET

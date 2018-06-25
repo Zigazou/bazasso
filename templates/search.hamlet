@@ -12,18 +12,19 @@
 <div .container.space-after>
     <div .row>
         <div .col-lg-12>
-            <p>
-                <strong>Note&nbsp;:
-                Seules les 1000 premières associations trouvées apparaissent
-            <table .table.table-stripped>
-                <tr>
-                    <th>Identifiant
-                    <th>Nom abrégé
-                    <th>Création
-                $forall Entity _ asso <- associations
-                    <tr :not (isEmpty (rnawaldecDissolution asso)):class="danger">
-                        <td>
-                            <a href=@{AssociationR (rnawaldecIdent asso)}>
-                                #{rnawaldecIdent asso}
-                        <td>#{rnawaldecTitrecourt asso}
-                        <td>^{clean jjmmaaaa (rnawaldecCreation asso)}
+            $if not (null associations)
+                <p>
+                    <strong>Note&nbsp;:
+                    Seules les 1000 premières associations trouvées apparaissent
+                <table .table.table-stripped>
+                    <tr>
+                        <th>Identifiant
+                        <th>Nom abrégé
+                        <th>Création
+                    $forall Entity _ asso <- associations
+                        <tr :not (isEmpty (rnawaldecDissolution asso)):class="danger">
+                            <td>
+                                <a href=@{AssociationR (rnawaldecIdent asso)}>
+                                    #{rnawaldecIdent asso}
+                            <td>#{rnawaldecTitrecourt asso}
+                            <td>^{clean jjmmaaaa (rnawaldecCreation asso)}
