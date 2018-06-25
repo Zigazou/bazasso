@@ -11,7 +11,7 @@ module Handler.Search
 import Import
 import Helpers.Empty (clean, Empty(..))
 import Helpers.DateFormat (jjmmaaaa)
-import Helpers.Like (like, startsLike)
+import Helpers.Like (match)
 
 import Widgets.SearchForm (searchForm, SearchForm(..))
 
@@ -20,14 +20,18 @@ import Data.List (foldl)
 
 lookForAssociations :: DBparam SearchForm [Entity Rnawaldec]
 lookForAssociations (SearchForm title Nothing) = selectList
-    [RnawaldecTitre `like` (T.toUpper title)]
+    [RnawaldecTitre `match` (T.toUpper title)]
     [LimitTo 1000]
 lookForAssociations (SearchForm title (Just themes)) = selectList
-    ([RnawaldecTitre `like` (T.toUpper title)] ++ themesFilter themes)
+    ([RnawaldecTitre `match` (T.toUpper title)] ++ themesFilter themes)
     [LimitTo 1000]
     where
-        addTheme [] b = [RnawaldecObjetsocial1 `startsLike` b]
-                    ||. [RnawaldecObjetsocial2 `startsLike` b]
+        addTheme [] b = [ RnawaldecObjetsocial1 >=. T.concat [b, "000"]
+                        , RnawaldecObjetsocial1 <=. T.concat [b, "999"]
+                        ]
+                    ||. [ RnawaldecObjetsocial2 >=. T.concat [b, "000"]
+                        , RnawaldecObjetsocial2 <=. T.concat [b, "999"]
+                        ]
         addTheme a b = a ||. addTheme [] b
         themesFilter ts = foldl addTheme [] ts
 

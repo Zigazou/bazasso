@@ -11,12 +11,13 @@ module Handler.Association
 import Import
 import Helpers.Empty (clean)
 import Helpers.DateFormat (jjmmaaaa)
+import Helpers.Like (match)
 
 import Database.Persist.Class (toPersistValue)
 import Database.Persist.Sql (rawSql)
 
 getAssociation :: DBparam Text [Entity Rnawaldec]
-getAssociation txt = selectList [RnawaldecIdent ==. txt] [LimitTo 1]
+getAssociation txt = selectList [RnawaldecIdent `match` txt] [LimitTo 1]
 
 getAnnonces :: DBparam Text [Entity Joannonce]
 getAnnonces txt = selectList [JoannonceWaldec ==. txt] [LimitTo 1000]

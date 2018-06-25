@@ -11,19 +11,24 @@ module Handler.City
 import Import
 import Helpers.Empty (clean, Empty(..))
 import Helpers.DateFormat (jjmmaaaa)
-import Helpers.Like (startsLike)
+import Helpers.Like (match)
 
 import Widgets.ActivityForm (activityForm, ActivityForm(..))
 
 import Data.List (foldl)
+import qualified Data.Text as T
 
 lookForAssociations :: DBparam ActivityForm [Entity Rnawaldec]
 lookForAssociations (ActivityForm insee themes) = selectList
-    ([RnawaldecAdrscodeinsee ==. insee] ++ themesFilter themes)
+    ([RnawaldecAdrscodeinsee `match` insee] ++ themesFilter themes)
     [LimitTo 1000]
     where
-        addTheme [] b = [RnawaldecObjetsocial1 `startsLike` b]
-                    ||. [RnawaldecObjetsocial2 `startsLike` b]
+        addTheme [] b = [ RnawaldecObjetsocial1 >=. T.concat [b, "000"]
+                        , RnawaldecObjetsocial1 <=. T.concat [b, "999"]
+                        ]
+                    ||. [ RnawaldecObjetsocial2 >=. T.concat [b, "000"]
+                        , RnawaldecObjetsocial2 <=. T.concat [b, "999"]
+                        ]
         addTheme a b = a ||. addTheme [] b
         themesFilter ts = foldl addTheme [] ts
 

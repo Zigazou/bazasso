@@ -7,6 +7,7 @@ module Helpers.Like
     ( like
     , startsLike
     , endsLike
+    , match
     ) where
 
 import Import
@@ -26,4 +27,6 @@ endsLike :: EntityField record Text -> Text -> Filter record
 endsLike field val = Filter field
     (Left $ T.concat ["%", val])
     (BackendSpecificFilter "like")
-    
+
+match :: EntityField record Text -> Text -> Filter record
+match field val = Filter field (Left val) (BackendSpecificFilter "match")

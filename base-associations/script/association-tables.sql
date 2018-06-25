@@ -1,4 +1,4 @@
-CREATE TABLE rnawaldec
+CREATE VIRTUAL TABLE rnawaldec USING fts4
     -- La table rnawaldec contient la liste actuelle des associations
     ( id                VARCHAR(10)  -- Numéro Waldec national unique de
                                      -- l’associatiuon
@@ -60,10 +60,9 @@ CREATE TABLE rnawaldec
     , position          CHAR(1)      -- Position d’activité de l’association
                                      -- (Active, Dissoute ou Supprimée)
     , maj_time          VARCHAR(14)  -- Date de mise à jour de l’article
-    , PRIMARY KEY(id)
     );
 
-CREATE TABLE rnaimport
+CREATE VIRTUAL TABLE rnaimport USING fts4
     -- La table rnaimport contient la liste historique des associations
     ( id                VARCHAR(14)  -- Code gestionnaire + Id_ex = Numéro de
                                      -- l'association
@@ -157,6 +156,8 @@ CREATE TABLE joannonce
     , objet             TEXT
     , PRIMARY KEY(num_parution, num_annonce)
     );
+
+CREATE INDEX joannoncewaldec ON joannonce(waldec);
 
 CREATE TABLE joanntheme
     -- Thèmes présents dans une annonce
