@@ -1,0 +1,76 @@
+<div .jumbotron>
+    <div .container>
+        $maybe association <- mAssociation
+            <h1 .header>#{rnaimportTitre association}
+            <p>
+                <div>
+                    Activité principale 1&nbsp;:
+                    ^{themeIdentifiedBy (rnaimportObjetsocial1 association)}
+                <div>
+                    Activité principale 2&nbsp;:
+                    ^{themeIdentifiedBy (rnaimportObjetsocial2 association)}
+                <div>
+                    SIRET&nbsp;:
+                    ^{clean id (rnaimportSiret association)}
+        $nothing
+            <h1>Association introuvable
+
+$maybe association <- mAssociation
+    <div .container>
+        <div .row>
+            <div .col-lg-12>
+                <blockquote>#{rnaimportObjet association}
+
+        $if isWaldec (rnaimportObservation association)
+            <div .row>
+                <div .col-lg-12>
+                    <a href=@{NewAssociationR (rnaimportObservation association)}>
+                        Cette association dispose également d'une nouvelle fiche
+
+        <div .row>
+            <div .col-md-6>
+                <h2>Adresse du siège
+                <div>
+                    #{rnaimportAdr1 association}
+                    #{rnaimportAdr2 association}
+                    #{rnaimportAdr3 association}
+                <div>
+                    #{rnaimportAdrscodepostal association}
+                    #{rnaimportLibcom association}
+
+            <div .col-md-6>
+                <h2>Dates
+                <p>
+                    <strong>Création&nbsp;:
+                    ^{clean jjmmaaaa (rnaimportCreation association)}
+                <p>
+                    <strong>Publication&nbsp;:
+                    ^{clean jjmmaaaa (rnaimportPublication association)}
+                <p>
+                    <strong>MÀJ&nbsp;:
+                    ^{clean jjmmaaaa (rnaimportMajtime association)}
+
+        <div .row>
+            <div .col-md-6>
+                <h2>Contact
+                <div>
+                    <strong>Téléphone&nbsp;:
+                    ^{clean id (rnaimportTelephone association)}
+                <div>
+                    <strong>Site web&nbsp;:
+                    ^{clean id (rnaimportSiteweb association)}
+                <div>
+                    <strong>Courriel&nbsp;:
+                    ^{clean id (rnaimportEmail association)}
+
+            <div .col-md-6>
+                <h2>Infos
+                <p>
+                    <strong>Nature&nbsp;:
+                    ^{clean longNature (rnaimportNature association)}
+                <p>
+                    <strong>Groupement&nbsp;:
+                    ^{clean longGroupement (rnaimportGroupement association)}
+                <p>
+                    <strong>Position&nbsp;:
+                    ^{clean longPosition (rnaimportPosition association)}

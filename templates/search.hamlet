@@ -12,7 +12,10 @@
 <div .container.space-after>
     <div .row>
         <div .col-lg-12>
-            $if not (null associations)
+            <h1>Base Waldec
+            $if null newassos
+                <p>aucune association trouvée
+            $else
                 <p>
                     <strong>Note&nbsp;:
                     Seules les 1000 premières associations trouvées apparaissent
@@ -21,10 +24,33 @@
                         <th>Identifiant
                         <th>Nom abrégé
                         <th>Création
-                    $forall Entity _ asso <- associations
+                    $forall Entity _ asso <- newassos
                         <tr :not (isEmpty (rnawaldecDissolution asso)):class="danger">
                             <td>
-                                <a href=@{AssociationR (rnawaldecIdent asso)}>
+                                <a href=@{NewAssociationR (rnawaldecIdent asso)}>
                                     #{rnawaldecIdent asso}
                             <td>#{rnawaldecTitrecourt asso}
                             <td>^{clean jjmmaaaa (rnawaldecCreation asso)}
+
+<div .container.space-after>
+    <div .row>
+        <div .col-lg-12>
+            <h1>Base historique
+            $if null oldassos
+                <p>aucune association trouvée
+            $else
+                <p>
+                    <strong>Note&nbsp;:
+                    Seules les 1000 premières associations trouvées apparaissent
+                <table .table.table-stripped>
+                    <tr>
+                        <th>Identifiant
+                        <th>Nom
+                        <th>Création
+                    $forall Entity _ asso <- oldassos
+                        <tr>
+                            <td>
+                                <a href=@{OldAssociationR (rnaimportIdent asso)}>
+                                    #{rnaimportIdent asso}
+                            <td>#{rnaimportTitre asso}
+                            <td>^{clean jjmmaaaa (rnaimportCreation asso)}

@@ -18,8 +18,8 @@ import Widgets.ActivityForm (activityForm, ActivityForm(..))
 import Data.List (foldl)
 import qualified Data.Text as T
 
-lookForAssociations :: DBparam ActivityForm [Entity Rnawaldec]
-lookForAssociations (ActivityForm insee themes) = selectList
+lookForNewAssociations :: DBparam ActivityForm [Entity Rnawaldec]
+lookForNewAssociations (ActivityForm insee themes) = selectList
     ([RnawaldecAdrscodeinsee `match` insee] ++ themesFilter themes)
     [LimitTo 1000]
     where
@@ -32,11 +32,25 @@ lookForAssociations (ActivityForm insee themes) = selectList
         addTheme a b = a ||. addTheme [] b
         themesFilter ts = foldl addTheme [] ts
 
+lookForOldAssociations :: DBparam ActivityForm [Entity Rnaimport]
+lookForOldAssociations (ActivityForm insee themes) = selectList
+    ([RnaimportAdrscodeinsee `match` insee] ++ themesFilter themes)
+    [LimitTo 1000]
+    where
+        addTheme [] b = [ RnaimportObjetsocial1 >=. T.concat [b, "000"]
+                        , RnaimportObjetsocial1 <=. T.concat [b, "999"]
+                        ]
+                    ||. [ RnaimportObjetsocial2 >=. T.concat [b, "000"]
+                        , RnaimportObjetsocial2 <=. T.concat [b, "999"]
+                        ]
+        addTheme a b = a ||. addTheme [] b
+        themesFilter ts = foldl addTheme [] ts
+
 getCityActivityR :: Text -> Handler Html
 getCityActivityR insee = do
     (formWidget, formEnctype) <- generateFormPost (activityForm insee)
 
-    let associations = []
+    let (newassos, oldassos) = ([], [])
 
     defaultLayout $ do
         setTitle "Domaines d'activités"
@@ -46,8 +60,13 @@ postCityActivityR :: Text -> Handler Html
 postCityActivityR insee = do
     ((formResult, formWidget), formEnctype) <- runFormPost (activityForm insee)
 
-    associations <- case formResult of
-        FormSuccess search -> runDB $ lookForAssociations search
+    newassos <- case formResult of
+        FormSuccess search -> runDB $ lookForNewAssociations search
+        FormMissing -> return []
+        FormFailure _ -> return []
+
+    oldassos <- case formResult of
+        FormSuccess search -> runDB $ lookForOldAssociations search
         FormMissing -> return []
         FormFailure _ -> return []
 

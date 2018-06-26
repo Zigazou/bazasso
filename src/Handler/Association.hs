@@ -5,7 +5,8 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE QuasiQuotes #-}
 module Handler.Association
-    ( getAssociationR
+    ( getOldAssociationR
+    , getNewAssociationR
     ) where
 
 import Import
@@ -15,6 +16,8 @@ import Helpers.Like (match)
 
 import Database.Persist.Class (toPersistValue)
 import Database.Persist.Sql (rawSql)
+
+import qualified Data.Text as T
 
 longPosition :: Text -> Text
 longPosition "A" = "active"
@@ -32,8 +35,11 @@ longNature :: Text -> Text
 longNature "" = ""
 longNature a = a
 
-getAssociation :: DBparam Text [Entity Rnawaldec]
-getAssociation txt = selectList [RnawaldecIdent `match` txt] [LimitTo 1]
+getNewAssociation :: DBparam Text [Entity Rnawaldec]
+getNewAssociation txt = selectList [RnawaldecIdent `match` txt] [LimitTo 1]
+
+getOldAssociation :: DBparam Text [Entity Rnaimport]
+getOldAssociation txt = selectList [RnaimportIdent `match` txt] [LimitTo 1]
 
 getAnnonces :: DBparam Text [Entity Joannonce]
 getAnnonces txt = selectList [JoannonceWaldec ==. txt] [LimitTo 1000]
@@ -97,12 +103,27 @@ typeAvisIdentifiedBy ident = do
             <span .text-muted>non renseigné
     |]
 
-getAssociationR :: Text -> Handler Html
-getAssociationR waldec = do
-    mAssociation <- runDB $ getAssociation waldec >>= return . entitiesToMaybe
+isWaldec ::Text -> Bool
+isWaldec txt
+    | T.null txt = False
+    | T.head txt /= 'W' = False
+    | T.length txt /= 10 = False
+    | otherwise = True
+
+getNewAssociationR :: Text -> Handler Html
+getNewAssociationR waldec = do
+    mAssociation <- runDB $ getNewAssociation waldec >>= return . entitiesToMaybe
 
     annonces <- runDB $ getAnnonces waldec
 
     defaultLayout $ do
         setTitle "Fiche association"
-        $(widgetFile "association")
+        $(widgetFile "association-new")
+
+getOldAssociationR :: Text -> Handler Html
+getOldAssociationR ident = do
+    mAssociation <- runDB $ getOldAssociation ident >>= return . entitiesToMaybe
+
+    defaultLayout $ do
+        setTitle "Fiche association"
+        $(widgetFile "association-old")

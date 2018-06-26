@@ -170,7 +170,8 @@ instance Yesod App where
 instance YesodBreadcrumbs App where
     breadcrumb :: Route App -> Handler (Text, Maybe (Route App))
     breadcrumb HomeR = return ("Home", Nothing)
-    breadcrumb (AssociationR _) = return ("Association", Just HomeR)
+    breadcrumb (OldAssociationR _) = return ("Association", Just HomeR)
+    breadcrumb (NewAssociationR _) = return ("Association", Just HomeR)
     breadcrumb SearchR = return ("Recherche", Just HomeR)
     breadcrumb (DepartmentCitiesR _) = return ("Villes", Just HomeR)
     breadcrumb DepartmentListR = return ("Départements", Just HomeR)

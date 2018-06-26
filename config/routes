@@ -8,7 +8,8 @@
 
 / HomeR GET
 
-/association/#Text AssociationR GET
+/association/waldec/#Text NewAssociationR GET
+/association/legacy/#Text OldAssociationR GET
 /search SearchR GET POST
 
 /department/#Text DepartmentCitiesR GET
