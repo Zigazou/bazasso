@@ -33,7 +33,6 @@ activityForm insee extra = do
         <div>
             <button .btn.btn-default type="submit">
                 Rechercher
-                <i .glyphicon.glyphicon-search>
         |]
 
     return (search, widget)

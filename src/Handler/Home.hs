@@ -8,11 +8,14 @@ module Handler.Home
     ) where
 
 import Import
-import Widgets.SearchForm (searchForm)
+import Helpers.UnsafeCount (unsafeCount)
+import Helpers.EntitiesToMaybe (singlesToMaybe)
 
 getHomeR :: Handler Html
 getHomeR = do
-    (formWidget, formEnctype) <- generateFormPost searchForm
+    mNbNewAssos <- runDB $ unsafeCount "rnawaldec" >>= return . singlesToMaybe
+    mNbOldAssos <- runDB $ unsafeCount "rnaimport" >>= return . singlesToMaybe
+    mNbJOEntries <- runDB $ unsafeCount "joannonce" >>= return . singlesToMaybe
 
     defaultLayout $ do
         setTitle "Bazasso"

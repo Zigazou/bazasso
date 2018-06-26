@@ -125,8 +125,11 @@ CREATE TABLE commune
     , code_insee        CHAR(5) NOT NULL
     , latitude          FLOAT NULL
     , longitude         FLOAT NULL
-    , PRIMARY KEY(code_postal)
     );
+
+CREATE INDEX communeregion ON commune(id_region);
+CREATE INDEX communedepartement ON commune(id_departement);
+CREATE INDEX communeinsee ON commune(code_insee);
 
 CREATE TABLE jotheme
     -- La table jotheme donne la description des thèmes du JO

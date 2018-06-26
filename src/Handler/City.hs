@@ -12,6 +12,7 @@ import Import
 import Helpers.Empty (clean, Empty(..))
 import Helpers.DateFormat (jjmmaaaa)
 import Helpers.Like (match)
+import Helpers.EntitiesToMaybe (entitiesToMaybe)
 
 import Widgets.ActivityForm (activityForm, ActivityForm(..))
 
@@ -50,6 +51,9 @@ getCityActivityR :: Text -> Handler Html
 getCityActivityR insee = do
     (formWidget, formEnctype) <- generateFormPost (activityForm insee)
 
+    mCity <- runDB $ selectList [CommuneCodeinsee ==. insee] [LimitTo 1]
+                     >>= return . entitiesToMaybe
+
     let (newassos, oldassos) = ([], [])
 
     defaultLayout $ do
@@ -59,6 +63,9 @@ getCityActivityR insee = do
 postCityActivityR :: Text -> Handler Html
 postCityActivityR insee = do
     ((formResult, formWidget), formEnctype) <- runFormPost (activityForm insee)
+
+    mCity <- runDB $ selectList [CommuneCodeinsee ==. insee] [LimitTo 1]
+                     >>= return . entitiesToMaybe
 
     newassos <- case formResult of
         FormSuccess search -> runDB $ lookForNewAssociations search

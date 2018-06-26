@@ -83,3 +83,7 @@ select.big-select {
     height: 20em;
     padding: 1em;
 }
+
+.footer {
+    margin-top: 4em;
+}

@@ -11,13 +11,15 @@ module Handler.Department
 
 import Import
 
+import Helpers.EntitiesToMaybe (entitiesToMaybe)
+
 getDepartmentCitiesR :: Text -> Handler Html
 getDepartmentCitiesR codedept = do
-    let query :: DB [Entity Commune]
-        query = selectList [CommuneIddepartement ==. codedept]
-                           [Asc CommuneLibelle]
+    cities <- runDB $ selectList [CommuneIddepartement ==. codedept]
+                                 [Asc CommuneLibelle]
 
-    cities <- runDB query
+    mDept <- runDB $ selectList [DepartementIdent ==. codedept] [LimitTo 1]
+                     >>= return . entitiesToMaybe
 
     defaultLayout $ do
         setTitle "Villes du départment"

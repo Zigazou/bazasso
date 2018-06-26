@@ -22,3 +22,4 @@ cabal.sandbox.config
 \#*
 associations.cabal
 .dir-locals.el
+associations.db.gz

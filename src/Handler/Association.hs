@@ -13,6 +13,7 @@ import Import
 import Helpers.Empty (clean)
 import Helpers.DateFormat (jjmmaaaa)
 import Helpers.Like (match)
+import Helpers.EntitiesToMaybe (entitiesToMaybe)
 
 import Database.Persist.Class (toPersistValue)
 import Database.Persist.Sql (rawSql)
@@ -70,10 +71,6 @@ themesOf annonce = do
                 $forall Entity _ theme <- themes
                     <li>#{jothemeLibelle theme}
     |]
-
-entitiesToMaybe:: [Entity a] -> Maybe a
-entitiesToMaybe [Entity _ x] = Just x
-entitiesToMaybe _ = Nothing
 
 getTheme :: DBparam Text [Entity Jotheme]
 getTheme ident = selectList [JothemeTheme ==. ident] [LimitTo 1]
