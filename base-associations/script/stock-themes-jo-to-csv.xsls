@@ -1,0 +1,19 @@
+// Extraction of links between stock JOAFE announces and themes
+stylesheet(
+    version="1.0",
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+) {
+    output(method="text", encoding="utf-8");
+
+    match("THEME") {
+        value-of("../PARUTION_JO_ASSOCIATION/@numparution"); [;]
+        value-of("../../@numannonce"); [;]
+        value-of("@code");
+        text() { [&#10;] }
+    }
+
+    // Parse every tag
+    match("@*|node()") {
+        apply-templates("@*|node()");
+    }
+}

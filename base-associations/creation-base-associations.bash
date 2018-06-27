@@ -23,6 +23,8 @@ EUCIRCOS=$(find_first source "EUCircos_*.csv.gz")
 assert "Python3 n'est pas installé" which python3
 assert "zcat n'est pas installé" which zcat
 assert "unzip n'est pas installé" which unzip
+assert "sed n'est pas installé" which sed
+assert "7zr n'est pas installé" which 7zr
 assert "SQLite3 n'est pas installé" which sqlite3
 assert "iconv n'est pas installé" which iconv
 assert "XSLTproc n'est pas installé" which xsltproc
@@ -35,6 +37,9 @@ assert "aucun fichier source/rna_waldec_AAAAMMJJ.csv trouvé"
     test "$RNAIMPORT" != ""
 assert "aucun fichier source/rna_import_AAAAMMJJ.csv trouvé" \
     test "$RNAWALDEC" != ""
+
+# Create the temporary directory if it does not exist.
+mkdir --parents temp
 
 # Creating the tables before importing allows to select the right field types
 # and limits.
@@ -81,6 +86,28 @@ do
     exit_on_error
 done
 
+printf "Préparation des annonces stock du JO:\n"
+for stock in source/stock_assoc_????.7z
+do
+    printf "  - Lecture de %s..." "$stock"
+
+    7zr x -so "$stock" 2> /dev/null \
+        | sed '2,${/<?xml/d;}' \
+        | sed '1a<PARUTION_JO_ASSOCIATION>' \
+        | sed '$a</PARUTION_JO_ASSOCIATION>' \
+        | xslsproc script/stock-jo-to-csv.xsls - \
+        >> temp/annonces_jo.csv
+
+    7zr x -so "$stock" 2> /dev/null \
+        | sed '2,${/<?xml/d;}' \
+        | sed '1a<PARUTION_JO_ASSOCIATION>' \
+        | sed '$a</PARUTION_JO_ASSOCIATION>' \
+        | xslsproc script/stock-themes-jo-to-csv.xsls \
+        >> temp/annonces_themes_jo.csv
+
+    exit_on_error
+done
+
 # Imports.
 import "des régions" temp/regions.csv "region"
 import "des départements" temp/departements.csv "departement"
@@ -94,4 +121,3 @@ import "des thèmes d'annonces du JO" temp/annonces_themes_jo.csv "joanntheme"
 printf "Nettoyage des fichiers temporaires..."
 rm --force temp/*
 exit_on_error
-

@@ -1,8 +1,6 @@
 import sys
 import csv
 
-codes_postaux = {}
-
 cityreader = csv.reader(sys.stdin, delimiter=';', quotechar='"')
 for row in cityreader:
     # At this point, the row looks like this:
@@ -39,12 +37,6 @@ for row in cityreader:
     # 6 longitude
 
     for code_postal in row[3].split(' '):
-        # Eliminate duplicates
-        if code_postal in codes_postaux:
-            continue
-
-        codes_postaux[code_postal] = True
         new_row = list(row)
         new_row[3] = code_postal
         print(';'.join(new_row))
-

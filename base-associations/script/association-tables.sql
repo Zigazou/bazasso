@@ -157,9 +157,9 @@ CREATE TABLE joannonce
     , siege_social      VARCHAR(250)
     , id_type           INT
     , objet             TEXT
-    , PRIMARY KEY(num_parution, num_annonce)
     );
 
+CREATE INDEX joannonceparutionannonce ON joannonce(num_parution, num_annonce);
 CREATE INDEX joannoncewaldec ON joannonce(waldec);
 
 CREATE TABLE joanntheme
@@ -521,4 +521,3 @@ INSERT INTO jotypeavis (id, libelle) VALUES
     ( '7', 'Autre (Dont Décisions de justice)' ),
     ( '77', 'Rectificatif Autre (Dont Décisions de justice)' ),
     ( '777', 'Annulation Autre (Dont Décisions de justice)' );
-
