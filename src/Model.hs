@@ -19,6 +19,7 @@ import Data.ActivityPosition
 import Data.Group
 import Data.Nature
 import Data.PhoneNumber
+import Data.WebSite
 
 -- You can define all of your database entities in the entities file.
 -- You can find more information on persistent and how to declare entities

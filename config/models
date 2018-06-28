@@ -34,7 +34,7 @@ Rnawaldec
     adrgpays Text sql=adrg_pays
     dircivilite Text sql=dir_civilite
     telephone PhoneNumber
-    siteweb Text
+    siteweb WebSite
     email Text
     publiweb Text
     observation Text

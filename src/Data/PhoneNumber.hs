@@ -10,9 +10,9 @@ module Data.PhoneNumber
 import Database.Persist.Class (PersistField, toPersistValue, fromPersistValue)
 import Database.Persist.Sql
     (PersistFieldSql, sqlType, PersistValue(PersistText), SqlType(SqlString))
-import Text.Blaze (ToMarkup, toMarkup, string)
+import Text.Blaze (ToMarkup, toMarkup)
 import qualified Data.Text as T
-import Text.Hamlet (shamlet)
+import Text.Hamlet (hamlet, shamlet)
 
 import Helpers.Empty (Empty, isEmpty)
 
@@ -35,11 +35,10 @@ instance PersistFieldSql PhoneNumber where
 
 instance ToMarkup PhoneNumber where
     toMarkup UndefinedPhoneNumber = [shamlet|<span .text-muted>non renseigné|]
-    toMarkup (PhoneNumber t) = string
-                             . T.unpack
-                             . T.intercalate " "
-                             . T.chunksOf 2
-                             $ t
+    toMarkup (PhoneNumber t) = [hamlet|<a href=@{t}>#{human}|] renderTel
+        where
+            human = T.intercalate " " . T.chunksOf 2 $ t
+            renderTel u _ = T.concat [ "tel:+33", T.tail u ]
 
 instance Empty PhoneNumber where
     isEmpty UndefinedPhoneNumber = True
