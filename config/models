@@ -124,23 +124,23 @@ Sirene
     siren Text
     nic Text
     epci Text
-    siege Char
+    siege Text
     apet700 Text
     tefet Text
     origine Text
     saisonat Text
-    modet Char
-    prodet Char
-    prodpart Char
-    auxilt Char
+    modet Text
+    prodet Text
+    prodpart Text
+    auxilt Text
     nicsiege Text
     nj Text
     apen700 Text
-    ess Char
+    ess Text
     tefen Text
     categorie Text
-    moden Char
-    proden Char
+    moden Text
+    proden Text
 
 Naf
     ident Text sql=id
