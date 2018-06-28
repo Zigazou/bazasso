@@ -102,22 +102,15 @@ $maybe association <- mAssociation
         $if null annonces
             <p>Aucune parution trouvée.
         $else
-            <table .table.table-striped.table-bordered>
-                <tr>
-                    <th>N°/Date
-                    <th>Type
-                    <th>Thèmes
-                    <th>Titre
-                    <th>Objet
-                $forall Entity _ annonce <- annonces
-                    <tr>
-                        <td>
-                            #{joannonceNumparution annonce}-
-                            #{joannonceNumannonce annonce}
-                            <br>
-                            ^{clean jjmmaaaa (joannonceParution annonce)}
-                        <td>
-                            ^{typeAvisIdentifiedBy (joannonceIdtype annonce)}
-                        <td>^{themesOf annonce}
-                        <td>#{joannonceTitre annonce}
-                        <td>#{joannonceObjet annonce}
+            $forall Entity _ annonce <- annonces
+                <div .panel.panel-default>
+                    <div .panel-heading>
+                        #{joannonceNumparution annonce}-#{joannonceNumannonce annonce}
+                        ^{clean jjmmaaaa (joannonceParution annonce)}
+                        −
+                        ^{typeAvisIdentifiedBy (joannonceIdtype annonce)}
+                    <div .panel-body>
+                        <p>Thèmes&nbsp;:
+                        ^{themesOf annonce}
+                        <p>#{joannonceTitre annonce}
+                        <p>#{joannonceObjet annonce}
