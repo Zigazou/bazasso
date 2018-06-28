@@ -18,8 +18,8 @@ getDepartmentCitiesR codedept = do
     cities <- runDB $ selectList [CommuneIddepartement ==. codedept]
                                  [Asc CommuneLibelle]
 
-    mDept <- runDB $ selectList [DepartementIdent ==. codedept] [LimitTo 1]
-                     >>= return . entitiesToMaybe
+    mDept <- runDB $ entitiesToMaybe
+                    <$> selectList [DepartementIdent ==. codedept] [LimitTo 1]
 
     defaultLayout $ do
         setTitle "Villes du départment"

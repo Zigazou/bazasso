@@ -10,7 +10,7 @@ module Handler.Association
     ) where
 
 import Import
-import Helpers.Empty (clean)
+import Helpers.Clean (clean)
 import Helpers.DateFormat (jjmmaaaa)
 import Helpers.Like (match)
 import Helpers.EntitiesToMaybe (entitiesToMaybe)
@@ -77,7 +77,7 @@ getTheme ident = selectList [JothemeTheme ==. ident] [LimitTo 1]
 
 themeIdentifiedBy :: Text -> Widget
 themeIdentifiedBy ident = do
-    mTheme <- handlerToWidget $ runDB $ getTheme ident >>= return . entitiesToMaybe
+    mTheme <- handlerToWidget $ runDB $ entitiesToMaybe <$> getTheme ident
 
     [whamlet|
         $maybe theme <- mTheme
@@ -91,7 +91,7 @@ getType ident = selectList [JotypeavisIdent ==. ident] [LimitTo 1]
 
 typeAvisIdentifiedBy :: Int -> Widget
 typeAvisIdentifiedBy ident = do
-    mTypeAvis <- handlerToWidget $ runDB $ getType ident >>= return . entitiesToMaybe
+    mTypeAvis <- handlerToWidget $ runDB $ entitiesToMaybe <$> getType ident
 
     [whamlet|
         $maybe typeAvis <- mTypeAvis
@@ -109,7 +109,7 @@ isWaldec txt
 
 getNewAssociationR :: Text -> Handler Html
 getNewAssociationR waldec = do
-    mAssociation <- runDB $ getNewAssociation waldec >>= return . entitiesToMaybe
+    mAssociation <- runDB $ entitiesToMaybe <$> getNewAssociation waldec
 
     annonces <- runDB $ getAnnonces waldec
 
@@ -119,7 +119,7 @@ getNewAssociationR waldec = do
 
 getOldAssociationR :: Text -> Handler Html
 getOldAssociationR ident = do
-    mAssociation <- runDB $ getOldAssociation ident >>= return . entitiesToMaybe
+    mAssociation <- runDB $ entitiesToMaybe <$> getOldAssociation ident
 
     defaultLayout $ do
         setTitle "Fiche association"

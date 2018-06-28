@@ -9,7 +9,8 @@ module Handler.City
     ) where
 
 import Import
-import Helpers.Empty (clean, Empty(..))
+import Helpers.Empty (Empty(..))
+import Helpers.Clean (clean)
 import Helpers.DateFormat (jjmmaaaa)
 import Helpers.Like (match)
 import Helpers.EntitiesToMaybe (entitiesToMaybe)
@@ -31,7 +32,7 @@ lookForNewAssociations (ActivityForm insee themes) = selectList
                         , RnawaldecObjetsocial2 <=. T.concat [b, "999"]
                         ]
         addTheme a b = a ||. addTheme [] b
-        themesFilter ts = foldl addTheme [] ts
+        themesFilter = foldl addTheme []
 
 lookForOldAssociations :: DBparam ActivityForm [Entity Rnaimport]
 lookForOldAssociations (ActivityForm insee themes) = selectList
@@ -45,14 +46,14 @@ lookForOldAssociations (ActivityForm insee themes) = selectList
                         , RnaimportObjetsocial2 <=. T.concat [b, "999"]
                         ]
         addTheme a b = a ||. addTheme [] b
-        themesFilter ts = foldl addTheme [] ts
+        themesFilter = foldl addTheme []
 
 getCityActivityR :: Text -> Handler Html
 getCityActivityR insee = do
     (formWidget, formEnctype) <- generateFormPost (activityForm insee)
 
-    mCity <- runDB $ selectList [CommuneCodeinsee ==. insee] [LimitTo 1]
-                     >>= return . entitiesToMaybe
+    mCity <- runDB $ entitiesToMaybe <$> selectList [CommuneCodeinsee ==. insee]
+                                                    [LimitTo 1]
 
     let (newassos, oldassos) = ([], [])
 
@@ -64,8 +65,8 @@ postCityActivityR :: Text -> Handler Html
 postCityActivityR insee = do
     ((formResult, formWidget), formEnctype) <- runFormPost (activityForm insee)
 
-    mCity <- runDB $ selectList [CommuneCodeinsee ==. insee] [LimitTo 1]
-                     >>= return . entitiesToMaybe
+    mCity <- runDB $ entitiesToMaybe <$> selectList [CommuneCodeinsee ==. insee]
+                                                    [LimitTo 1]
 
     newassos <- case formResult of
         FormSuccess search -> runDB $ lookForNewAssociations search

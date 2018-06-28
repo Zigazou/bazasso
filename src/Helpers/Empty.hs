@@ -1,16 +1,10 @@
-{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
-module Helpers.Empty
-    ( Empty(..)
-    , clean
-    ) where
+module Helpers.Empty (Empty(..)) where
 
-import Import
-import Text.Blaze (ToMarkup, Markup)
+import Data.Text (Text)
+import Data.Time.Calendar (Day, toGregorian)
 
 class Empty a where
     isEmpty :: a -> Bool
@@ -23,8 +17,3 @@ instance Empty Text where
     isEmpty txt | txt == "" = True
                 | txt == "000000" = True
                 | otherwise = False
-
-clean :: (ToMarkup a, Empty t) => (t -> a) -> t -> p -> Markup
-clean after a = if isEmpty a
-                    then [hamlet|<span .text-muted>non renseigné|]
-                    else [hamlet|#{after a}|]

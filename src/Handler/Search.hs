@@ -9,7 +9,8 @@ module Handler.Search
     ) where
 
 import Import
-import Helpers.Empty (clean, Empty(..))
+import Helpers.Empty (Empty(..))
+import Helpers.Clean (clean)
 import Helpers.DateFormat (jjmmaaaa)
 import Helpers.Like (match)
 
@@ -33,7 +34,7 @@ lookForNewAssociations (SearchForm title (Just themes)) = selectList
                         , RnawaldecObjetsocial2 <=. T.concat [b, "999"]
                         ]
         addTheme a b = a ||. addTheme [] b
-        themesFilter ts = foldl addTheme [] ts
+        themesFilter = foldl addTheme []
 
 lookForOldAssociations :: DBparam SearchForm [Entity Rnaimport]
 lookForOldAssociations (SearchForm title Nothing) = selectList
@@ -50,7 +51,7 @@ lookForOldAssociations (SearchForm title (Just themes)) = selectList
                         , RnaimportObjetsocial2 <=. T.concat [b, "999"]
                         ]
         addTheme a b = a ||. addTheme [] b
-        themesFilter ts = foldl addTheme [] ts
+        themesFilter = foldl addTheme []
 
 getSearchR :: Handler Html
 getSearchR = do

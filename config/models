@@ -1,7 +1,7 @@
 Rnawaldec
     ident Text sql=id
     identex Text sql=id_ex
-    siret Text
+    siret Siret
     rupmi Text sql=rup_mi
     gestion Text
     creation Day sql=date_creat
@@ -91,7 +91,7 @@ Commune
     codeinsee Text sql=code_insee
     latitude Text
     longitude Text
-    Primary codepostal
+    Primary codeinsee
 
 Jotheme
     theme Text
@@ -114,6 +114,7 @@ Joannonce
     siegesocial Text sql=siege_social
     idtype Int sql=id_type
     objet Text
+    Primary numparution numannonce
 
 Joanntheme
     numparution Int sql=num_parution

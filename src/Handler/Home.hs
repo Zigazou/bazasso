@@ -13,9 +13,9 @@ import Helpers.EntitiesToMaybe (singlesToMaybe)
 
 getHomeR :: Handler Html
 getHomeR = do
-    mNbNewAssos <- runDB $ unsafeCount "rnawaldec" >>= return . singlesToMaybe
-    mNbOldAssos <- runDB $ unsafeCount "rnaimport" >>= return . singlesToMaybe
-    mNbJOEntries <- runDB $ unsafeCount "joannonce" >>= return . singlesToMaybe
+    mNbNewAssos <- runDB $ singlesToMaybe <$> unsafeCount "rnawaldec"
+    mNbOldAssos <- runDB $ singlesToMaybe <$> unsafeCount "rnaimport"
+    mNbJOEntries <- runDB $ singlesToMaybe <$> unsafeCount "joannonce"
 
     defaultLayout $ do
         setTitle "Bazasso"
