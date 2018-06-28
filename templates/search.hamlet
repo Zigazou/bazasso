@@ -20,18 +20,22 @@ $if not (null newassos) || not (null oldassos)
                     <p>
                         <strong>Note&nbsp;:
                         Seules les 1000 premières associations trouvées apparaissent
-                    <table .table.table-stripped>
-                        <tr>
-                            <th>Identifiant
-                            <th>Nom abrégé
-                            <th>Création
-                        $forall Entity _ asso <- newassos
-                            <tr :not (isEmpty (rnawaldecDissolution asso)):class="danger">
-                                <td>
-                                    <a href=@{NewAssociationR (rnawaldecIdent asso)}>
-                                        #{rnawaldecIdent asso}
-                                <td>#{rnawaldecTitrecourt asso}
-                                <td>^{clean jjmmaaaa (rnawaldecCreation asso)}
+
+                    $forall Entity _ asso <- newassos
+                        <h3 .search-result>
+                            <a href=@{NewAssociationR (rnawaldecIdent asso)}>
+                                #{rnawaldecTitre asso}
+                        <p :not (isEmpty (rnawaldecDissolution asso)):class="muted">
+                            #{rnawaldecObjet asso}
+                            <br>
+                            <strong>RNA&nbsp;:
+                            #{rnawaldecIdent asso}
+                            −
+                            <strong>Code postal&nbsp;:
+                            #{rnawaldecAdrscodepostal asso}
+                            −
+                            <strong>Création&nbsp;:
+                            ^{clean jjmmaaaa (rnawaldecCreation asso)}
 
     <div .container.space-after>
         <div .row>
@@ -43,15 +47,19 @@ $if not (null newassos) || not (null oldassos)
                     <p>
                         <strong>Note&nbsp;:
                         Seules les 1000 premières associations trouvées apparaissent
-                    <table .table.table-stripped>
-                        <tr>
-                            <th>Identifiant
-                            <th>Nom
-                            <th>Création
-                        $forall Entity _ asso <- oldassos
-                            <tr>
-                                <td>
-                                    <a href=@{OldAssociationR (rnaimportIdent asso)}>
-                                        #{rnaimportIdent asso}
-                                <td>#{rnaimportTitre asso}
-                                <td>^{clean jjmmaaaa (rnaimportCreation asso)}
+
+                    $forall Entity _ asso <- oldassos
+                        <h3 .search-result>
+                            <a href=@{OldAssociationR (rnaimportIdent asso)}>
+                                #{rnaimportTitre asso}
+                        <p>
+                            #{rnaimportObjet asso}
+                            <br>
+                            <strong>RNA&nbsp;:
+                            #{rnaimportIdent asso}
+                            −
+                            <strong>Code postal&nbsp;:
+                            #{rnaimportAdrscodepostal asso}
+                            −
+                            <strong>Création&nbsp;:
+                            ^{clean jjmmaaaa (rnaimportCreation asso)}

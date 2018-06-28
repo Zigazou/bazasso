@@ -87,3 +87,8 @@ select.big-select {
 .footer {
     margin-top: 4em;
 }
+
+h3.search-result {
+    margin-bottom: 0;
+    margin-top: 1.5em;
+}
