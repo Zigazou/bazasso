@@ -11,7 +11,7 @@
                     ^{themeIdentifiedBy (rnaimportObjetsocial2 association)}
                 <div>
                     SIRET&nbsp;:
-                    ^{clean id (rnaimportSiret association)}
+                    #{rnaimportSiret association}
         $nothing
             <h1>Association introuvable
 
@@ -55,10 +55,10 @@ $maybe association <- mAssociation
                 <h2>Contact
                 <div>
                     <strong>Téléphone&nbsp;:
-                    ^{clean id (rnaimportTelephone association)}
+                    #{rnaimportTelephone association}
                 <div>
                     <strong>Site web&nbsp;:
-                    ^{clean id (rnaimportSiteweb association)}
+                    #{rnaimportSiteweb association}
                 <div>
                     <strong>Courriel&nbsp;:
                     ^{clean id (rnaimportEmail association)}

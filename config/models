@@ -45,12 +45,12 @@ Rnawaldec
 Rnaimport
     ident Text sql=id
     identex Text sql=id_ex
-    siret Text
+    siret Siret
     gestion Text
     creation Day sql=date_creat
     publication Day sql=date_publi
-    nature Text
-    groupement Text
+    nature Nature
+    groupement Group
     titre Text
     objet Text
     objetsocial1 Text sql=objet_social1
@@ -62,12 +62,12 @@ Rnaimport
     libcom Text
     adrscodeinsee Text sql=adrs_codeinsee
     dircivilite Text sql=dir_civilite
-    telephone Text
-    siteweb Text
+    telephone PhoneNumber
+    siteweb WebSite
     email Text
     observation Text
-    position Text
-    rupmi Text sql=rup_mi
+    position ActivityPosition
+    rupmi Rup sql=rup_mi
     majtime Day sql=maj_time
     Primary ident
     
