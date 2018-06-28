@@ -5,6 +5,7 @@ source script/lib-exit-on-error.bash
 source script/lib-get-region-link.bash
 source script/lib-get-jo-current-year.bash
 source script/lib-get-rna-links.bash
+source script/lib-get-sirene-link.bash
 
 LOGFILE="telecharge-donnees-ouvertes.log"
 REGIONBASE="http://www.nosdonnees.fr/wiki/index.php/Fichier"
@@ -13,6 +14,8 @@ REGIONFILE="EUCircos_Regions_departements_circonscriptions_communes_gps.csv.gz"
 JOANNONCE="https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS"
 
 RNAPAGE="https://www.data.gouv.fr/fr/datasets/repertoire-national-des-associations/"
+
+SIRENEPAGE="https://www.data.gouv.fr/fr/datasets/base-sirene-des-entreprises-et-de-leurs-etablissements-siren-siret"
 
 # Requirements.
 assert "Wget n'est pas installé" which wget
@@ -85,6 +88,14 @@ done
 
 printf "Récupération des bases de données RNA :\n"
 get_rna_links "$RNAPAGE" 2>> "$LOGFILE" | while read database
+do
+    printf "  - Récupération de %s..." "$database"
+    wget --content-disposition --no-clobber "$database" 2>> "$LOGFILE"
+    exit_on_error
+done
+
+printf "Récupération de la base Sirene :\n"
+get_sirene_link "$SIRENEPAGE" 2>> "$LOGFILE" | while read database
 do
     printf "  - Récupération de %s..." "$database"
     wget --content-disposition --no-clobber "$database" 2>> "$LOGFILE"

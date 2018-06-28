@@ -1,0 +1,70 @@
+$# ./telecharge-donnees-ouvertes.bash 
+Détermination de l'adresse du fichier des régions/départements... OK
+Récupération de http://www.nosdonnees.fr/wiki/images/b/b5/EUCircos_Regions_departements_circonscriptions_communes_gps.csv.gz... OK
+Récupération du Journal Officiel de l'année en cours :
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180001.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180002.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180003.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180004.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180005.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180006.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180007.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180008.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180009.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180010.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180011.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180012.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180013.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180014.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180015.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180016.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180017.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180018.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180019.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180020.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180021.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180022.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180023.taz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ASS_2018/ASS20180024.taz... OK
+Récupération du Journal Officiel 2004-2017 :
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2004.tar.gz... OK
+  - Décompression de ASS_2004.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2005.tar.gz... OK
+  - Décompression de ASS_2005.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2006.tar.gz... OK
+  - Décompression de ASS_2006.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2007.tar.gz... OK
+  - Décompression de ASS_2007.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2008.tar.gz... OK
+  - Décompression de ASS_2008.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2009.tar.gz... OK
+  - Décompression de ASS_2009.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2010.tar.gz... OK
+  - Décompression de ASS_2010.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2011.tar.gz... OK
+  - Décompression de ASS_2011.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2012.tar.gz... OK
+  - Décompression de ASS_2012.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2013.tar.gz... OK
+  - Décompression de ASS_2013.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2014.tar.gz... OK
+  - Décompression de ASS_2014.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2015.tar.gz... OK
+  - Décompression de ASS_2015.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2016.tar.gz... OK
+  - Décompression de ASS_2016.tar.gz... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/ASS_2017.tar.gz... OK
+  - Décompression de ASS_2017.tar.gz... OK
+Récupération du Journal Officiel 1997-2004 :
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/stock_assoc_1997.7z... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/stock_assoc_1998.7z... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/stock_assoc_1999.7z... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/stock_assoc_2000.7z... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/stock_assoc_2001.7z... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/stock_assoc_2002.7z... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/stock_assoc_2003.7z... OK
+  - Récupération de https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/FluxHistorique/stock_assoc_2004.7z... OK
+Récupération des bases de données RNA :
+  - Récupération de https://www.data.gouv.fr/fr/datasets/r/7ecb6c95-1534-4f14-97cc-956aa1e7f216... OK
+  - Récupération de https://www.data.gouv.fr/fr/datasets/r/4d8708b9-b765-4c19-9318-9d74b4a39b1e... OK
+

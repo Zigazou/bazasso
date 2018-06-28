@@ -7,6 +7,7 @@ source script/lib-extraction-regions.bash
 source script/lib-extraction-departements.bash
 source script/lib-extraction-annonces.bash
 source script/lib-extraction-annonces-themes.bash
+source script/lib-extraction-sirene.bash
 source script/lib-import.bash
 source script/lib-find-first.bash
 source script/lib-affiche-aide.bash
@@ -17,6 +18,7 @@ source script/lib-affiche-aide.bash
 # Find files to import in the source directory
 RNAIMPORT=$(find_first source "rna_import_????????.zip")
 RNAWALDEC=$(find_first source "rna_waldec_????????.zip")
+SIRENE=$(find_first source "sirene_*.zip")
 EUCIRCOS=$(find_first source "EUCircos_*.csv.gz")
 
 # Requirements
@@ -33,10 +35,12 @@ assert "associations.db existe déjà" test ! -f associations.db
 assert "script/association-tables.sql introuvable" \
     test -f script/association-tables.sql
 assert "aucun fichier eucircos* trouvé" test "$EUCIRCOS" != ""
-assert "aucun fichier source/rna_waldec_AAAAMMJJ.csv trouvé"
+assert "aucun fichier source/rna_waldec_AAAAMMJJ.zip trouvé"
     test "$RNAIMPORT" != ""
-assert "aucun fichier source/rna_import_AAAAMMJJ.csv trouvé" \
+assert "aucun fichier source/rna_import_AAAAMMJJ.zip trouvé" \
     test "$RNAWALDEC" != ""
+assert "aucun fichier source/sirene_AAAAMMJJ*.zip trouvé" \
+    test "$SIRENE" != ""
 
 # Create the temporary directory if it does not exist.
 mkdir --parents temp
@@ -68,6 +72,10 @@ exit_on_error
 
 printf "Préparation des communes..."
 zcat "$EUCIRCOS" | python3 script/extraction-communes.py > temp/communes.csv
+exit_on_error
+
+printf "Préparation de la base Sirene..."
+unzip -p "$SIRENE" | extraction_sirene > temp/sirene.csv
 exit_on_error
 
 printf "Préparation des annonces du JO:\n"
@@ -116,6 +124,7 @@ import "des associations historiques" temp/rna_import.csv "rnaimport"
 import "des associations Waldec" temp/rna_waldec.csv "rnawaldec"
 import "des annonces du JO" temp/annonces_jo.csv "joannonce"
 import "des thèmes d'annonces du JO" temp/annonces_themes_jo.csv "joanntheme"
+import "de la base Sirene" temp/sirene.csv "sirene"
 
 # Remove temporary files.
 printf "Nettoyage des fichiers temporaires..."

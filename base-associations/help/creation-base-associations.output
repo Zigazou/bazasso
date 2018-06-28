@@ -1,0 +1,1031 @@
+$# ./creation-base-associations.bash 
+Préparation de la base de données... OK
+Préparation des associations historiques... OK
+Préparation des associations Waldec... OK
+Préparation des régions... OK
+Préparation des départements... OK
+Préparation des communes... OK
+Préparation des annonces du JO:
+  - Lecture de source/ASS20040048.taz... OK
+  - Lecture de source/ASS20040052.taz... OK
+  - Lecture de source/ASS20050001.taz... OK
+  - Lecture de source/ASS20050002.taz... OK
+  - Lecture de source/ASS20050003.taz... OK
+  - Lecture de source/ASS20050004.taz... OK
+  - Lecture de source/ASS20050005.taz... OK
+  - Lecture de source/ASS20050006.taz... OK
+  - Lecture de source/ASS20050007.taz... OK
+  - Lecture de source/ASS20050008.taz... OK
+  - Lecture de source/ASS20050009.taz... OK
+  - Lecture de source/ASS20050010.taz... OK
+  - Lecture de source/ASS20050011.taz... OK
+  - Lecture de source/ASS20050012.taz... OK
+  - Lecture de source/ASS20050013.taz... OK
+  - Lecture de source/ASS20050014.taz... OK
+  - Lecture de source/ASS20050015.taz... OK
+  - Lecture de source/ASS20050016.taz... OK
+  - Lecture de source/ASS20050017.taz... OK
+  - Lecture de source/ASS20050018.taz... OK
+  - Lecture de source/ASS20050019.taz... OK
+  - Lecture de source/ASS20050020.taz... OK
+  - Lecture de source/ASS20050021.taz... OK
+  - Lecture de source/ASS20050022.taz... OK
+  - Lecture de source/ASS20050023.taz... OK
+  - Lecture de source/ASS20050024.taz... OK
+  - Lecture de source/ASS20050025.taz... OK
+  - Lecture de source/ASS20050026.taz... OK
+  - Lecture de source/ASS20050027.taz... OK
+  - Lecture de source/ASS20050028.taz... OK
+  - Lecture de source/ASS20050029.taz... OK
+  - Lecture de source/ASS20050030.taz... OK
+  - Lecture de source/ASS20050031.taz... OK
+  - Lecture de source/ASS20050032.taz... OK
+  - Lecture de source/ASS20050033.taz... OK
+  - Lecture de source/ASS20050034.taz... OK
+  - Lecture de source/ASS20050035.taz... OK
+  - Lecture de source/ASS20050036.taz... OK
+  - Lecture de source/ASS20050037.taz... OK
+  - Lecture de source/ASS20050038.taz... OK
+  - Lecture de source/ASS20050039.taz... OK
+  - Lecture de source/ASS20050040.taz... OK
+  - Lecture de source/ASS20050041.taz... OK
+  - Lecture de source/ASS20050042.taz... OK
+  - Lecture de source/ASS20050043.taz... OK
+  - Lecture de source/ASS20050044.taz... OK
+  - Lecture de source/ASS20050045.taz... OK
+  - Lecture de source/ASS20050046.taz... OK
+  - Lecture de source/ASS20050047.taz... OK
+  - Lecture de source/ASS20050048.taz... OK
+  - Lecture de source/ASS20050049.taz... OK
+  - Lecture de source/ASS20050050.taz... OK
+  - Lecture de source/ASS20050051.taz... OK
+  - Lecture de source/ASS20050052.taz... OK
+  - Lecture de source/ASS20050053.taz... OK
+  - Lecture de source/ASS20060001.taz... OK
+  - Lecture de source/ASS20060002.taz... OK
+  - Lecture de source/ASS20060003.taz... OK
+  - Lecture de source/ASS20060004.taz... OK
+  - Lecture de source/ASS20060005.taz... OK
+  - Lecture de source/ASS20060006.taz... OK
+  - Lecture de source/ASS20060007.taz... OK
+  - Lecture de source/ASS20060008.taz... OK
+  - Lecture de source/ASS20060009.taz... OK
+  - Lecture de source/ASS20060010.taz... OK
+  - Lecture de source/ASS20060011.taz... OK
+  - Lecture de source/ASS20060012.taz... OK
+  - Lecture de source/ASS20060013.taz... OK
+  - Lecture de source/ASS20060014.taz... OK
+  - Lecture de source/ASS20060015.taz... OK
+  - Lecture de source/ASS20060016.taz... OK
+  - Lecture de source/ASS20060017.taz... OK
+  - Lecture de source/ASS20060018.taz... OK
+  - Lecture de source/ASS20060019.taz... OK
+  - Lecture de source/ASS20060020.taz... OK
+  - Lecture de source/ASS20060021.taz... OK
+  - Lecture de source/ASS20060022.taz... OK
+  - Lecture de source/ASS20060023.taz... OK
+  - Lecture de source/ASS20060024.taz... OK
+  - Lecture de source/ASS20060025.taz... OK
+  - Lecture de source/ASS20060026.taz... OK
+  - Lecture de source/ASS20060027.taz... OK
+  - Lecture de source/ASS20060028.taz... OK
+  - Lecture de source/ASS20060029.taz... OK
+  - Lecture de source/ASS20060030.taz... OK
+  - Lecture de source/ASS20060031.taz... OK
+  - Lecture de source/ASS20060032.taz... OK
+  - Lecture de source/ASS20060033.taz... OK
+  - Lecture de source/ASS20060034.taz... OK
+  - Lecture de source/ASS20060035.taz... OK
+  - Lecture de source/ASS20060036.taz... OK
+  - Lecture de source/ASS20060037.taz... OK
+  - Lecture de source/ASS20060038.taz... OK
+  - Lecture de source/ASS20060039.taz... OK
+  - Lecture de source/ASS20060040.taz... OK
+  - Lecture de source/ASS20060041.taz... OK
+  - Lecture de source/ASS20060042.taz... OK
+  - Lecture de source/ASS20060043.taz... OK
+  - Lecture de source/ASS20060044.taz... OK
+  - Lecture de source/ASS20060045.taz... OK
+  - Lecture de source/ASS20060046.taz... OK
+  - Lecture de source/ASS20060047.taz... OK
+  - Lecture de source/ASS20060048.taz... OK
+  - Lecture de source/ASS20060049.taz... OK
+  - Lecture de source/ASS20060050.taz... OK
+  - Lecture de source/ASS20060051.taz... OK
+  - Lecture de source/ASS20060052.taz... OK
+  - Lecture de source/ASS20070001.taz... OK
+  - Lecture de source/ASS20070002.taz... OK
+  - Lecture de source/ASS20070003.taz... OK
+  - Lecture de source/ASS20070004.taz... OK
+  - Lecture de source/ASS20070005.taz... OK
+  - Lecture de source/ASS20070006.taz... OK
+  - Lecture de source/ASS20070007.taz... OK
+  - Lecture de source/ASS20070008.taz... OK
+  - Lecture de source/ASS20070009.taz... OK
+  - Lecture de source/ASS20070010.taz... OK
+  - Lecture de source/ASS20070011.taz... OK
+  - Lecture de source/ASS20070012.taz... OK
+  - Lecture de source/ASS20070013.taz... OK
+  - Lecture de source/ASS20070014.taz... OK
+  - Lecture de source/ASS20070015.taz... OK
+  - Lecture de source/ASS20070016.taz... OK
+  - Lecture de source/ASS20070017.taz... OK
+  - Lecture de source/ASS20070018.taz...-:15979: parser error : Entity 'infin' not defined
+  <TITRE>ASSOCIATION INDIGO &infin;. </TITRE>
+                                   ^
+unable to parse -
+-:15979: parser error : Entity 'infin' not defined
+  <TITRE>ASSOCIATION INDIGO &infin;. </TITRE>
+                                   ^
+unable to parse -
+ OK
+  - Lecture de source/ASS20070019.taz... OK
+  - Lecture de source/ASS20070020.taz... OK
+  - Lecture de source/ASS20070021.taz... OK
+  - Lecture de source/ASS20070022.taz... OK
+  - Lecture de source/ASS20070023.taz... OK
+  - Lecture de source/ASS20070024.taz... OK
+  - Lecture de source/ASS20070025.taz... OK
+  - Lecture de source/ASS20070026.taz... OK
+  - Lecture de source/ASS20070027.taz... OK
+  - Lecture de source/ASS20070028.taz... OK
+  - Lecture de source/ASS20070029.taz... OK
+  - Lecture de source/ASS20070030.taz... OK
+  - Lecture de source/ASS20070031.taz... OK
+  - Lecture de source/ASS20070032.taz... OK
+  - Lecture de source/ASS20070033.taz... OK
+  - Lecture de source/ASS20070034.taz... OK
+  - Lecture de source/ASS20070035.taz... OK
+  - Lecture de source/ASS20070036.taz... OK
+  - Lecture de source/ASS20070037.taz... OK
+  - Lecture de source/ASS20070038.taz... OK
+  - Lecture de source/ASS20070039.taz... OK
+  - Lecture de source/ASS20070040.taz... OK
+  - Lecture de source/ASS20070041.taz... OK
+  - Lecture de source/ASS20070042.taz... OK
+  - Lecture de source/ASS20070043.taz... OK
+  - Lecture de source/ASS20070044.taz... OK
+  - Lecture de source/ASS20070045.taz... OK
+  - Lecture de source/ASS20070046.taz... OK
+  - Lecture de source/ASS20070047.taz... OK
+  - Lecture de source/ASS20070048.taz... OK
+  - Lecture de source/ASS20070049.taz... OK
+  - Lecture de source/ASS20070050.taz... OK
+  - Lecture de source/ASS20070051.taz... OK
+  - Lecture de source/ASS20070052.taz... OK
+  - Lecture de source/ASS20080001.taz... OK
+  - Lecture de source/ASS20080002.taz... OK
+  - Lecture de source/ASS20080003.taz... OK
+  - Lecture de source/ASS20080004.taz... OK
+  - Lecture de source/ASS20080005.taz... OK
+  - Lecture de source/ASS20080006.taz... OK
+  - Lecture de source/ASS20080007.taz... OK
+  - Lecture de source/ASS20080008.taz... OK
+  - Lecture de source/ASS20080009.taz... OK
+  - Lecture de source/ASS20080010.taz... OK
+  - Lecture de source/ASS20080011.taz... OK
+  - Lecture de source/ASS20080012.taz... OK
+  - Lecture de source/ASS20080013.taz... OK
+  - Lecture de source/ASS20080014.taz... OK
+  - Lecture de source/ASS20080015.taz... OK
+  - Lecture de source/ASS20080016.taz... OK
+  - Lecture de source/ASS20080017.taz... OK
+  - Lecture de source/ASS20080018.taz... OK
+  - Lecture de source/ASS20080019.taz... OK
+  - Lecture de source/ASS20080020.taz... OK
+  - Lecture de source/ASS20080021.taz...-:22517: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOLA VIGNERONNEÛ0./TITRE_ASSOün13SiÕge soc
+^
+unable to parse -
+-:22517: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOLA VIGNERONNEÛ0./TITRE_ASSOün13SiÕge soc
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20080022.taz... OK
+  - Lecture de source/ASS20080023.taz... OK
+  - Lecture de source/ASS20080024.taz... OK
+  - Lecture de source/ASS20080025.taz... OK
+  - Lecture de source/ASS20080026.taz... OK
+  - Lecture de source/ASS20080027.taz... OK
+  - Lecture de source/ASS20080028.taz... OK
+  - Lecture de source/ASS20080029.taz... OK
+  - Lecture de source/ASS20080030.taz... OK
+  - Lecture de source/ASS20080031.taz... OK
+  - Lecture de source/ASS20080032.taz... OK
+  - Lecture de source/ASS20080033.taz... OK
+  - Lecture de source/ASS20080034.taz... OK
+  - Lecture de source/ASS20080035.taz... OK
+  - Lecture de source/ASS20080036.taz... OK
+  - Lecture de source/ASS20080037.taz... OK
+  - Lecture de source/ASS20080038.taz... OK
+  - Lecture de source/ASS20080039.taz... OK
+  - Lecture de source/ASS20080040.taz... OK
+  - Lecture de source/ASS20080041.taz... OK
+  - Lecture de source/ASS20080042.taz... OK
+  - Lecture de source/ASS20080043.taz... OK
+  - Lecture de source/ASS20080044.taz... OK
+  - Lecture de source/ASS20080045.taz... OK
+  - Lecture de source/ASS20080046.taz... OK
+  - Lecture de source/ASS20080047.taz... OK
+  - Lecture de source/ASS20080048.taz... OK
+  - Lecture de source/ASS20080049.taz... OK
+  - Lecture de source/ASS20080050.taz... OK
+  - Lecture de source/ASS20080051.taz... OK
+  - Lecture de source/ASS20080052.taz... OK
+  - Lecture de source/ASS20090001.taz... OK
+  - Lecture de source/ASS20090002.taz... OK
+  - Lecture de source/ASS20090003.taz... OK
+  - Lecture de source/ASS20090004.taz... OK
+  - Lecture de source/ASS20090005.taz... OK
+  - Lecture de source/ASS20090006.taz... OK
+  - Lecture de source/ASS20090007.taz... OK
+  - Lecture de source/ASS20090008.taz... OK
+  - Lecture de source/ASS20090009.taz... OK
+  - Lecture de source/ASS20090010.taz... OK
+  - Lecture de source/ASS20090011.taz... OK
+  - Lecture de source/ASS20090012.taz... OK
+  - Lecture de source/ASS20090013.taz... OK
+  - Lecture de source/ASS20090014.taz... OK
+  - Lecture de source/ASS20090015.taz... OK
+  - Lecture de source/ASS20090016.taz... OK
+  - Lecture de source/ASS20090017.taz... OK
+  - Lecture de source/ASS20090018.taz... OK
+  - Lecture de source/ASS20090019.taz... OK
+  - Lecture de source/ASS20090020.taz... OK
+  - Lecture de source/ASS20090021.taz... OK
+  - Lecture de source/ASS20090022.taz... OK
+  - Lecture de source/ASS20090023.taz... OK
+  - Lecture de source/ASS20090024.taz... OK
+  - Lecture de source/ASS20090025.taz... OK
+  - Lecture de source/ASS20090026.taz... OK
+  - Lecture de source/ASS20090027.taz... OK
+  - Lecture de source/ASS20090028.taz... OK
+  - Lecture de source/ASS20090029.taz... OK
+  - Lecture de source/ASS20090030.taz... OK
+  - Lecture de source/ASS20090031.taz... OK
+  - Lecture de source/ASS20090032.taz... OK
+  - Lecture de source/ASS20090033.taz... OK
+  - Lecture de source/ASS20090034.taz... OK
+  - Lecture de source/ASS20090035.taz... OK
+  - Lecture de source/ASS20090036.taz... OK
+  - Lecture de source/ASS20090037.taz... OK
+  - Lecture de source/ASS20090038.taz... OK
+  - Lecture de source/ASS20090039.taz... OK
+  - Lecture de source/ASS20090040.taz... OK
+  - Lecture de source/ASS20090041.taz... OK
+  - Lecture de source/ASS20090042.taz... OK
+  - Lecture de source/ASS20090043.taz... OK
+  - Lecture de source/ASS20090044.taz... OK
+  - Lecture de source/ASS20090045.taz... OK
+  - Lecture de source/ASS20090046.taz... OK
+  - Lecture de source/ASS20090047.taz... OK
+  - Lecture de source/ASS20090048.taz... OK
+  - Lecture de source/ASS20090049.taz... OK
+  - Lecture de source/ASS20090050.taz... OK
+  - Lecture de source/ASS20090051.taz... OK
+  - Lecture de source/ASS20090052.taz... OK
+  - Lecture de source/ASS20100001.taz... OK
+  - Lecture de source/ASS20100002.taz... OK
+  - Lecture de source/ASS20100003.taz... OK
+  - Lecture de source/ASS20100004.taz... OK
+  - Lecture de source/ASS20100005.taz... OK
+  - Lecture de source/ASS20100006.taz... OK
+  - Lecture de source/ASS20100007.taz... OK
+  - Lecture de source/ASS20100008.taz... OK
+  - Lecture de source/ASS20100009.taz... OK
+  - Lecture de source/ASS20100010.taz... OK
+  - Lecture de source/ASS20100011.taz... OK
+  - Lecture de source/ASS20100012.taz... OK
+  - Lecture de source/ASS20100013.taz... OK
+  - Lecture de source/ASS20100014.taz... OK
+  - Lecture de source/ASS20100015.taz... OK
+  - Lecture de source/ASS20100016.taz... OK
+  - Lecture de source/ASS20100017.taz... OK
+  - Lecture de source/ASS20100018.taz... OK
+  - Lecture de source/ASS20100019.taz... OK
+  - Lecture de source/ASS20100020.taz... OK
+  - Lecture de source/ASS20100021.taz... OK
+  - Lecture de source/ASS20100022.taz... OK
+  - Lecture de source/ASS20100023.taz... OK
+  - Lecture de source/ASS20100024.taz... OK
+  - Lecture de source/ASS20100025.taz... OK
+  - Lecture de source/ASS20100026.taz... OK
+  - Lecture de source/ASS20100027.taz... OK
+  - Lecture de source/ASS20100028.taz... OK
+  - Lecture de source/ASS20100029.taz... OK
+  - Lecture de source/ASS20100030.taz... OK
+  - Lecture de source/ASS20100031.taz... OK
+  - Lecture de source/ASS20100032.taz... OK
+  - Lecture de source/ASS20100033.taz... OK
+  - Lecture de source/ASS20100034.taz... OK
+  - Lecture de source/ASS20100035.taz... OK
+  - Lecture de source/ASS20100036.taz... OK
+  - Lecture de source/ASS20100037.taz... OK
+  - Lecture de source/ASS20100038.taz... OK
+  - Lecture de source/ASS20100039.taz... OK
+  - Lecture de source/ASS20100040.taz... OK
+  - Lecture de source/ASS20100041.taz... OK
+  - Lecture de source/ASS20100042.taz... OK
+  - Lecture de source/ASS20100043.taz... OK
+  - Lecture de source/ASS20100044.taz... OK
+  - Lecture de source/ASS20100045.taz... OK
+  - Lecture de source/ASS20100046.taz... OK
+  - Lecture de source/ASS20100047.taz... OK
+  - Lecture de source/ASS20100048.taz... OK
+  - Lecture de source/ASS20100049.taz... OK
+  - Lecture de source/ASS20100050.taz... OK
+  - Lecture de source/ASS20100051.taz... OK
+  - Lecture de source/ASS20100052.taz... OK
+  - Lecture de source/ASS20110001.taz... OK
+  - Lecture de source/ASS20110002.taz... OK
+  - Lecture de source/ASS20110003.taz... OK
+  - Lecture de source/ASS20110004.taz... OK
+  - Lecture de source/ASS20110005.taz... OK
+  - Lecture de source/ASS20110006.taz... OK
+  - Lecture de source/ASS20110007.taz... OK
+  - Lecture de source/ASS20110008.taz... OK
+  - Lecture de source/ASS20110009.taz... OK
+  - Lecture de source/ASS20110010.taz... OK
+  - Lecture de source/ASS20110011.taz... OK
+  - Lecture de source/ASS20110012.taz... OK
+  - Lecture de source/ASS20110013.taz... OK
+  - Lecture de source/ASS20110014.taz... OK
+  - Lecture de source/ASS20110015.taz... OK
+  - Lecture de source/ASS20110016.taz... OK
+  - Lecture de source/ASS20110017.taz... OK
+  - Lecture de source/ASS20110018.taz... OK
+  - Lecture de source/ASS20110019.taz... OK
+  - Lecture de source/ASS20110020.taz... OK
+  - Lecture de source/ASS20110021.taz... OK
+  - Lecture de source/ASS20110022.taz... OK
+  - Lecture de source/ASS20110023.taz...-:21460: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSO4L AIMANTSÛ0./TITRE_ASSOün13SiÕge social
+^
+unable to parse -
+-:21460: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSO4L AIMANTSÛ0./TITRE_ASSOün13SiÕge social
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110024.taz...-:26963: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOMUAAH EVENTÛ0./TITRE_ASSOün13SiÕge socia
+^
+unable to parse -
+-:26963: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOMUAAH EVENTÛ0./TITRE_ASSOün13SiÕge socia
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110025.taz...-:27472: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION GENERATIONS PONCINOISESÛ0./TITRE_A
+^
+unable to parse -
+-:27472: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION GENERATIONS PONCINOISESÛ0./TITRE_A
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110026.taz...-:21528: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION MAL LUNEEÛ0./TITRE_ASSOün13Si
+^
+unable to parse -
+-:21528: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION MAL LUNEEÛ0./TITRE_ASSOün13Si
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110027.taz...-:27121: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOALCOOL ECOUTE JOIE ET SANTE DE L'AINÛ0./TITRE_
+^
+unable to parse -
+-:27121: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOALCOOL ECOUTE JOIE ET SANTE DE L'AINÛ0./TITRE_
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110028.taz...-:25611: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOCOLLECTIF CITOYEN DE JARVONOZ, AUTRES HAMEAUX, S
+^
+unable to parse -
+-:25611: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOCOLLECTIF CITOYEN DE JARVONOZ, AUTRES HAMEAUX, S
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110029.taz...-:30856: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOPLACE PUBLIQUE : SAVOIRS ET DEBATS CITOYENSÛ0.
+^
+unable to parse -
+-:30856: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOPLACE PUBLIQUE : SAVOIRS ET DEBATS CITOYENSÛ0.
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110030.taz... OK
+  - Lecture de source/ASS20110031.taz...-:25656: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOT. L. D. (TORCIEU LOISIR DETENTE)Û0./TITRE_ASS
+^
+unable to parse -
+-:25656: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOT. L. D. (TORCIEU LOISIR DETENTE)Û0./TITRE_ASS
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110032.taz...-:27056: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOWHITE STAR PAINTBALLÛ0./TITRE_ASSOün13Si�
+^
+unable to parse -
+-:27056: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOWHITE STAR PAINTBALLÛ0./TITRE_ASSOün13Si�
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110033.taz...-:22957: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOAMICALE VOYAGE 7 ET 2 DE BANEINSÛ0./TITRE_ASSO
+^
+unable to parse -
+-:22957: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOAMICALE VOYAGE 7 ET 2 DE BANEINSÛ0./TITRE_ASSO
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110034.taz...-:21648: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION DES CITOYENS SOLIDAIRES DE CORBENY -
+^
+unable to parse -
+-:21648: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION DES CITOYENS SOLIDAIRES DE CORBENY -
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110035.taz...-:15748: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.ANC_TITRE_ASSOAGENCE DE DEVELOPPEMENT ECONOMIQUE DU PAYS D
+^
+unable to parse -
+-:15748: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.ANC_TITRE_ASSOAGENCE DE DEVELOPPEMENT ECONOMIQUE DU PAYS D
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110036.taz...-:19025: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOLES 3 CIRQUES DE L'ILE DE LA REUNIONÛ0./TITRE_
+^
+unable to parse -
+-:19025: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOLES 3 CIRQUES DE L'ILE DE LA REUNIONÛ0./TITRE_
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110037.taz...-:22104: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOREFLEXAVENIRÛ0./TITRE_ASSOün13SiÕge soci
+^
+unable to parse -
+-:22104: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOREFLEXAVENIRÛ0./TITRE_ASSOün13SiÕge soci
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110038.taz...-:20260: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOCONCEPT SONOÛ0./TITRE_ASSOün13SiÕge soci
+^
+unable to parse -
+-:20260: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOCONCEPT SONOÛ0./TITRE_ASSOün13SiÕge soci
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110039.taz...-:26175: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOIMAI-IMCI ALLIANCE , INCÛ0./TITRE_ASSOün13
+^
+unable to parse -
+-:26175: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOIMAI-IMCI ALLIANCE , INCÛ0./TITRE_ASSOün13
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110040.taz...-:21185: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOLET'S GO MUSICÛ0./TITRE_ASSOün13SiÕge so
+^
+unable to parse -
+-:21185: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOLET'S GO MUSICÛ0./TITRE_ASSOün13SiÕge so
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110041.taz...-:24396: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOEVALDOM ADESSADOMICILE RHÞNE ALPESÛ0./TITRE_A
+^
+unable to parse -
+-:24396: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSOEVALDOM ADESSADOMICILE RHÞNE ALPESÛ0./TITRE_A
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110042.taz...-:30636: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSORANDO-VALLIEREÛ0./TITRE_ASSOün13SiÕge so
+^
+unable to parse -
+-:30636: parser error : Extra content at the end of the document
+Û0.ANNONCEüÛ0.TITRE_ASSORANDO-VALLIEREÛ0./TITRE_ASSOün13SiÕge so
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20110043.taz... OK
+  - Lecture de source/ASS20110044.taz... OK
+  - Lecture de source/ASS20110045.taz... OK
+  - Lecture de source/ASS20110046.taz... OK
+  - Lecture de source/ASS20110047.taz... OK
+  - Lecture de source/ASS20110048.taz... OK
+  - Lecture de source/ASS20110049.taz... OK
+  - Lecture de source/ASS20110050.taz... OK
+  - Lecture de source/ASS20110051.taz... OK
+  - Lecture de source/ASS20110052.taz... OK
+  - Lecture de source/ASS20110053.taz... OK
+  - Lecture de source/ASS20120001.taz... OK
+  - Lecture de source/ASS20120002.taz... OK
+  - Lecture de source/ASS20120003.taz... OK
+  - Lecture de source/ASS20120004.taz... OK
+  - Lecture de source/ASS20120005.taz... OK
+  - Lecture de source/ASS20120006.taz... OK
+  - Lecture de source/ASS20120007.taz... OK
+  - Lecture de source/ASS20120008.taz... OK
+  - Lecture de source/ASS20120009.taz... OK
+  - Lecture de source/ASS20120010.taz... OK
+  - Lecture de source/ASS20120011.taz... OK
+  - Lecture de source/ASS20120012.taz...-:21512: parser error : EntityRef: expecting ';'
+  <INTERNET http="http://www.facebook.com/profile.php?id=100003478581046&sk=info
+                                                                           ^
+unable to parse -
+-:21512: parser error : EntityRef: expecting ';'
+  <INTERNET http="http://www.facebook.com/profile.php?id=100003478581046&sk=info
+                                                                           ^
+unable to parse -
+ OK
+  - Lecture de source/ASS20120013.taz... OK
+  - Lecture de source/ASS20120014.taz... OK
+  - Lecture de source/ASS20120015.taz... OK
+  - Lecture de source/ASS20120016.taz... OK
+  - Lecture de source/ASS20120017.taz... OK
+  - Lecture de source/ASS20120018.taz... OK
+  - Lecture de source/ASS20120019.taz... OK
+  - Lecture de source/ASS20120020.taz... OK
+  - Lecture de source/ASS20120021.taz... OK
+  - Lecture de source/ASS20120022.taz... OK
+  - Lecture de source/ASS20120023.taz... OK
+  - Lecture de source/ASS20120024.taz... OK
+  - Lecture de source/ASS20120025.taz... OK
+  - Lecture de source/ASS20120026.taz... OK
+  - Lecture de source/ASS20120027.taz... OK
+  - Lecture de source/ASS20120028.taz... OK
+  - Lecture de source/ASS20120029.taz... OK
+  - Lecture de source/ASS20120030.taz... OK
+  - Lecture de source/ASS20120031.taz... OK
+  - Lecture de source/ASS20120032.taz... OK
+  - Lecture de source/ASS20120033.taz... OK
+  - Lecture de source/ASS20120034.taz... OK
+  - Lecture de source/ASS20120035.taz... OK
+  - Lecture de source/ASS20120036.taz... OK
+  - Lecture de source/ASS20120037.taz... OK
+  - Lecture de source/ASS20120038.taz... OK
+  - Lecture de source/ASS20120039.taz... OK
+  - Lecture de source/ASS20120040.taz...-:30851: parser error : Extra content at the end of the document
+Ò0.0
+       0.0Û0.TETIER_R302-AisneÛ0./TETIER_R3üÛ0.TETIER_R4Avis
+^
+unable to parse -
+-:30851: parser error : Extra content at the end of the document
+Ò0.0
+       0.0Û0.TETIER_R302-AisneÛ0./TETIER_R3üÛ0.TETIER_R4Avis
+^
+unable to parse -
+ OK
+  - Lecture de source/ASS20120041.taz... OK
+  - Lecture de source/ASS20120042.taz... OK
+  - Lecture de source/ASS20120043.taz... OK
+  - Lecture de source/ASS20120044.taz... OK
+  - Lecture de source/ASS20120045.taz... OK
+  - Lecture de source/ASS20120046.taz... OK
+  - Lecture de source/ASS20120047.taz... OK
+  - Lecture de source/ASS20120048.taz... OK
+  - Lecture de source/ASS20120049.taz... OK
+  - Lecture de source/ASS20120050.taz... OK
+  - Lecture de source/ASS20120051.taz... OK
+  - Lecture de source/ASS20120052.taz... OK
+  - Lecture de source/ASS20130001.taz... OK
+  - Lecture de source/ASS20130002.taz... OK
+  - Lecture de source/ASS20130003.taz... OK
+  - Lecture de source/ASS20130004.taz... OK
+  - Lecture de source/ASS20130005.taz... OK
+  - Lecture de source/ASS20130006.taz... OK
+  - Lecture de source/ASS20130007.taz... OK
+  - Lecture de source/ASS20130008.taz... OK
+  - Lecture de source/ASS20130009.taz... OK
+  - Lecture de source/ASS20130010.taz... OK
+  - Lecture de source/ASS20130011.taz... OK
+  - Lecture de source/ASS20130012.taz... OK
+  - Lecture de source/ASS20130013.taz... OK
+  - Lecture de source/ASS20130014.taz... OK
+  - Lecture de source/ASS20130015.taz... OK
+  - Lecture de source/ASS20130016.taz... OK
+  - Lecture de source/ASS20130017.taz... OK
+  - Lecture de source/ASS20130018.taz... OK
+  - Lecture de source/ASS20130019.taz... OK
+  - Lecture de source/ASS20130020.taz... OK
+  - Lecture de source/ASS20130021.taz... OK
+  - Lecture de source/ASS20130022.taz... OK
+  - Lecture de source/ASS20130023.taz... OK
+  - Lecture de source/ASS20130024.taz... OK
+  - Lecture de source/ASS20130025.taz... OK
+  - Lecture de source/ASS20130026.taz... OK
+  - Lecture de source/ASS20130027.taz... OK
+  - Lecture de source/ASS20130028.taz... OK
+  - Lecture de source/ASS20130029.taz... OK
+  - Lecture de source/ASS20130030.taz... OK
+  - Lecture de source/ASS20130031.taz... OK
+  - Lecture de source/ASS20130032.taz... OK
+  - Lecture de source/ASS20130033.taz... OK
+  - Lecture de source/ASS20130034.taz... OK
+  - Lecture de source/ASS20130035.taz... OK
+  - Lecture de source/ASS20130036.taz... OK
+  - Lecture de source/ASS20130037.taz... OK
+  - Lecture de source/ASS20130038.taz... OK
+  - Lecture de source/ASS20130039.taz... OK
+  - Lecture de source/ASS20130040.taz... OK
+  - Lecture de source/ASS20130041.taz... OK
+  - Lecture de source/ASS20130042.taz... OK
+  - Lecture de source/ASS20130043.taz... OK
+  - Lecture de source/ASS20130044.taz... OK
+  - Lecture de source/ASS20130045.taz... OK
+  - Lecture de source/ASS20130046.taz... OK
+  - Lecture de source/ASS20130047.taz... OK
+  - Lecture de source/ASS20130048.taz... OK
+  - Lecture de source/ASS20130049.taz... OK
+  - Lecture de source/ASS20130050.taz... OK
+  - Lecture de source/ASS20130051.taz... OK
+  - Lecture de source/ASS20130052.taz... OK
+  - Lecture de source/ASS20140001.taz... OK
+  - Lecture de source/ASS20140002.taz... OK
+  - Lecture de source/ASS20140003.taz... OK
+  - Lecture de source/ASS20140004.taz... OK
+  - Lecture de source/ASS20140005.taz... OK
+  - Lecture de source/ASS20140006.taz... OK
+  - Lecture de source/ASS20140007.taz... OK
+  - Lecture de source/ASS20140008.taz... OK
+  - Lecture de source/ASS20140009.taz... OK
+  - Lecture de source/ASS20140010.taz... OK
+  - Lecture de source/ASS20140011.taz... OK
+  - Lecture de source/ASS20140012.taz... OK
+  - Lecture de source/ASS20140013.taz... OK
+  - Lecture de source/ASS20140014.taz... OK
+  - Lecture de source/ASS20140015.taz... OK
+  - Lecture de source/ASS20140016.taz... OK
+  - Lecture de source/ASS20140017.taz... OK
+  - Lecture de source/ASS20140018.taz... OK
+  - Lecture de source/ASS20140019.taz... OK
+  - Lecture de source/ASS20140020.taz... OK
+  - Lecture de source/ASS20140021.taz... OK
+  - Lecture de source/ASS20140022.taz... OK
+  - Lecture de source/ASS20140023.taz... OK
+  - Lecture de source/ASS20140024.taz... OK
+  - Lecture de source/ASS20140025.taz... OK
+  - Lecture de source/ASS20140026.taz... OK
+  - Lecture de source/ASS20140027.taz... OK
+  - Lecture de source/ASS20140028.taz... OK
+  - Lecture de source/ASS20140029.taz... OK
+  - Lecture de source/ASS20140030.taz... OK
+  - Lecture de source/ASS20140031.taz... OK
+  - Lecture de source/ASS20140032.taz... OK
+  - Lecture de source/ASS20140033.taz... OK
+  - Lecture de source/ASS20140034.taz... OK
+  - Lecture de source/ASS20140035.taz... OK
+  - Lecture de source/ASS20140036.taz... OK
+  - Lecture de source/ASS20140037.taz... OK
+  - Lecture de source/ASS20140038.taz... OK
+  - Lecture de source/ASS20140039.taz... OK
+  - Lecture de source/ASS20140040.taz... OK
+  - Lecture de source/ASS20140041.taz... OK
+  - Lecture de source/ASS20140042.taz... OK
+  - Lecture de source/ASS20140043.taz... OK
+  - Lecture de source/ASS20140044.taz... OK
+  - Lecture de source/ASS20140045.taz... OK
+  - Lecture de source/ASS20140046.taz... OK
+  - Lecture de source/ASS20140047.taz... OK
+  - Lecture de source/ASS20140048.taz... OK
+  - Lecture de source/ASS20140049.taz... OK
+  - Lecture de source/ASS20140050.taz... OK
+  - Lecture de source/ASS20140051.taz... OK
+  - Lecture de source/ASS20140052.taz... OK
+  - Lecture de source/ASS20150001.taz... OK
+  - Lecture de source/ASS20150002.taz... OK
+  - Lecture de source/ASS20150003.taz... OK
+  - Lecture de source/ASS20150004.taz... OK
+  - Lecture de source/ASS20150005.taz... OK
+  - Lecture de source/ASS20150006.taz... OK
+  - Lecture de source/ASS20150007.taz... OK
+  - Lecture de source/ASS20150008.taz... OK
+  - Lecture de source/ASS20150009.taz... OK
+  - Lecture de source/ASS20150010.taz... OK
+  - Lecture de source/ASS20150011.taz... OK
+  - Lecture de source/ASS20150012.taz... OK
+  - Lecture de source/ASS20150013.taz... OK
+  - Lecture de source/ASS20150014.taz... OK
+  - Lecture de source/ASS20150015.taz... OK
+  - Lecture de source/ASS20150016.taz... OK
+  - Lecture de source/ASS20150017.taz... OK
+  - Lecture de source/ASS20150018.taz... OK
+  - Lecture de source/ASS20150019.taz... OK
+  - Lecture de source/ASS20150020.taz... OK
+  - Lecture de source/ASS20150021.taz... OK
+  - Lecture de source/ASS20150022.taz... OK
+  - Lecture de source/ASS20150023.taz... OK
+  - Lecture de source/ASS20150024.taz... OK
+  - Lecture de source/ASS20150025.taz... OK
+  - Lecture de source/ASS20150026.taz... OK
+  - Lecture de source/ASS20150027.taz... OK
+  - Lecture de source/ASS20150028.taz... OK
+  - Lecture de source/ASS20150029.taz... OK
+  - Lecture de source/ASS20150030.taz... OK
+  - Lecture de source/ASS20150031.taz... OK
+  - Lecture de source/ASS20150032.taz... OK
+  - Lecture de source/ASS20150033.taz... OK
+  - Lecture de source/ASS20150034.taz... OK
+  - Lecture de source/ASS20150035.taz... OK
+  - Lecture de source/ASS20150036.taz... OK
+  - Lecture de source/ASS20150037.taz... OK
+  - Lecture de source/ASS20150038.taz... OK
+  - Lecture de source/ASS20150039.taz... OK
+  - Lecture de source/ASS20150040.taz... OK
+  - Lecture de source/ASS20150041.taz... OK
+  - Lecture de source/ASS20150042.taz... OK
+  - Lecture de source/ASS20150043.taz... OK
+  - Lecture de source/ASS20150044.taz... OK
+  - Lecture de source/ASS20150045.taz... OK
+  - Lecture de source/ASS20150046.taz... OK
+  - Lecture de source/ASS20150047.taz... OK
+  - Lecture de source/ASS20150048.taz... OK
+  - Lecture de source/ASS20150049.taz... OK
+  - Lecture de source/ASS20150050.taz... OK
+  - Lecture de source/ASS20150051.taz... OK
+  - Lecture de source/ASS20150052.taz... OK
+  - Lecture de source/ASS20160001.taz... OK
+  - Lecture de source/ASS20160002.taz... OK
+  - Lecture de source/ASS20160003.taz... OK
+  - Lecture de source/ASS20160004.taz... OK
+  - Lecture de source/ASS20160005.taz... OK
+  - Lecture de source/ASS20160006.taz... OK
+  - Lecture de source/ASS20160007.taz... OK
+  - Lecture de source/ASS20160008.taz... OK
+  - Lecture de source/ASS20160009.taz... OK
+  - Lecture de source/ASS20160010.taz... OK
+  - Lecture de source/ASS20160011.taz... OK
+  - Lecture de source/ASS20160012.taz... OK
+  - Lecture de source/ASS20160013.taz... OK
+  - Lecture de source/ASS20160014.taz... OK
+  - Lecture de source/ASS20160015.taz... OK
+  - Lecture de source/ASS20160016.taz... OK
+  - Lecture de source/ASS20160017.taz... OK
+  - Lecture de source/ASS20160018.taz... OK
+  - Lecture de source/ASS20160019.taz... OK
+  - Lecture de source/ASS20160020.taz... OK
+  - Lecture de source/ASS20160021.taz... OK
+  - Lecture de source/ASS20160022.taz... OK
+  - Lecture de source/ASS20160023.taz... OK
+  - Lecture de source/ASS20160024.taz... OK
+  - Lecture de source/ASS20160025.taz... OK
+  - Lecture de source/ASS20160026.taz... OK
+  - Lecture de source/ASS20160027.taz... OK
+  - Lecture de source/ASS20160028.taz... OK
+  - Lecture de source/ASS20160029.taz... OK
+  - Lecture de source/ASS20160030.taz... OK
+  - Lecture de source/ASS20160031.taz... OK
+  - Lecture de source/ASS20160032.taz... OK
+  - Lecture de source/ASS20160033.taz... OK
+  - Lecture de source/ASS20160034.taz... OK
+  - Lecture de source/ASS20160035.taz... OK
+  - Lecture de source/ASS20160036.taz... OK
+  - Lecture de source/ASS20160037.taz... OK
+  - Lecture de source/ASS20160038.taz... OK
+  - Lecture de source/ASS20160039.taz... OK
+  - Lecture de source/ASS20160040.taz... OK
+  - Lecture de source/ASS20160041.taz... OK
+  - Lecture de source/ASS20160042.taz... OK
+  - Lecture de source/ASS20160043.taz... OK
+  - Lecture de source/ASS20160044.taz... OK
+  - Lecture de source/ASS20160045.taz... OK
+  - Lecture de source/ASS20160046.taz... OK
+  - Lecture de source/ASS20160047.taz... OK
+  - Lecture de source/ASS20160048.taz... OK
+  - Lecture de source/ASS20160049.taz... OK
+  - Lecture de source/ASS20160050.taz... OK
+  - Lecture de source/ASS20160051.taz... OK
+  - Lecture de source/ASS20160052.taz... OK
+  - Lecture de source/ASS20160053.taz... OK
+  - Lecture de source/ASS20170001.taz... OK
+  - Lecture de source/ASS20170002.taz... OK
+  - Lecture de source/ASS20170003.taz... OK
+  - Lecture de source/ASS20170004.taz... OK
+  - Lecture de source/ASS20170005.taz... OK
+  - Lecture de source/ASS20170006.taz... OK
+  - Lecture de source/ASS20170007.taz... OK
+  - Lecture de source/ASS20170008.taz... OK
+  - Lecture de source/ASS20170009.taz... OK
+  - Lecture de source/ASS20170010.taz... OK
+  - Lecture de source/ASS20170011.taz... OK
+  - Lecture de source/ASS20170012.taz... OK
+  - Lecture de source/ASS20170013.taz... OK
+  - Lecture de source/ASS20170014.taz... OK
+  - Lecture de source/ASS20170015.taz... OK
+  - Lecture de source/ASS20170016.taz... OK
+  - Lecture de source/ASS20170017.taz... OK
+  - Lecture de source/ASS20170018.taz... OK
+  - Lecture de source/ASS20170019.taz... OK
+  - Lecture de source/ASS20170020.taz... OK
+  - Lecture de source/ASS20170021.taz... OK
+  - Lecture de source/ASS20170022.taz... OK
+  - Lecture de source/ASS20170023.taz... OK
+  - Lecture de source/ASS20170024.taz... OK
+  - Lecture de source/ASS20170025.taz... OK
+  - Lecture de source/ASS20170026.taz... OK
+  - Lecture de source/ASS20170027.taz... OK
+  - Lecture de source/ASS20170028.taz... OK
+  - Lecture de source/ASS20170029.taz... OK
+  - Lecture de source/ASS20170030.taz... OK
+  - Lecture de source/ASS20170031.taz... OK
+  - Lecture de source/ASS20170032.taz... OK
+  - Lecture de source/ASS20170033.taz... OK
+  - Lecture de source/ASS20170034.taz... OK
+  - Lecture de source/ASS20170035.taz... OK
+  - Lecture de source/ASS20170036.taz... OK
+  - Lecture de source/ASS20170037.taz... OK
+  - Lecture de source/ASS20170038.taz... OK
+  - Lecture de source/ASS20170039.taz... OK
+  - Lecture de source/ASS20170040.taz... OK
+  - Lecture de source/ASS20170041.taz... OK
+  - Lecture de source/ASS20170042.taz... OK
+  - Lecture de source/ASS20170043.taz... OK
+  - Lecture de source/ASS20170044.taz... OK
+  - Lecture de source/ASS20170045.taz... OK
+  - Lecture de source/ASS20170046.taz... OK
+  - Lecture de source/ASS20170047.taz... OK
+  - Lecture de source/ASS20170048.taz... OK
+  - Lecture de source/ASS20170049.taz... OK
+  - Lecture de source/ASS20170050.taz... OK
+  - Lecture de source/ASS20170051.taz... OK
+  - Lecture de source/ASS20170052.taz... OK
+  - Lecture de source/ASS20180001.taz... OK
+  - Lecture de source/ASS20180002.taz... OK
+  - Lecture de source/ASS20180003.taz... OK
+  - Lecture de source/ASS20180004.taz... OK
+  - Lecture de source/ASS20180005.taz... OK
+  - Lecture de source/ASS20180006.taz... OK
+  - Lecture de source/ASS20180007.taz... OK
+  - Lecture de source/ASS20180008.taz... OK
+  - Lecture de source/ASS20180009.taz... OK
+  - Lecture de source/ASS20180010.taz... OK
+  - Lecture de source/ASS20180011.taz... OK
+  - Lecture de source/ASS20180012.taz... OK
+  - Lecture de source/ASS20180013.taz... OK
+  - Lecture de source/ASS20180014.taz... OK
+  - Lecture de source/ASS20180015.taz... OK
+  - Lecture de source/ASS20180016.taz... OK
+  - Lecture de source/ASS20180017.taz... OK
+  - Lecture de source/ASS20180018.taz... OK
+  - Lecture de source/ASS20180019.taz... OK
+  - Lecture de source/ASS20180020.taz... OK
+  - Lecture de source/ASS20180021.taz... OK
+  - Lecture de source/ASS20180022.taz... OK
+  - Lecture de source/ASS20180023.taz... OK
+  - Lecture de source/ASS20180024.taz... OK
+Préparation des annonces stock du JO:
+  - Lecture de source/stock_assoc_1997.7z... OK
+  - Lecture de source/stock_assoc_1998.7z... OK
+  - Lecture de source/stock_assoc_1999.7z... OK
+  - Lecture de source/stock_assoc_2000.7z... OK
+  - Lecture de source/stock_assoc_2001.7z... OK
+  - Lecture de source/stock_assoc_2002.7z... OK
+  - Lecture de source/stock_assoc_2003.7z... OK
+  - Lecture de source/stock_assoc_2004.7z... OK
+Import des régions (table region)... OK
+Import des départements (table departement)... OK
+Import des communes (table commune)... OK
+Import des associations historiques (table rnaimport)... OK
+Import des associations Waldec (table rnawaldec)... OK
+Import des annonces du JO (table joannonce)... OK
+Import des thèmes d'annonces du JO (table joanntheme)...temp/annonces_themes_jo.csv:26880: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:61982: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:336841: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:367640: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:369393: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:369396: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:369401: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:369966: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:369985: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370014: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370020: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370230: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370237: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370260: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370292: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370351: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370393: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370709: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370776: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370777: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370778: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:370779: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:375953: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:375969: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:387826: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:414836: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:418561: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:439280: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:450795: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:473973: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:485923: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:507733: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:508028: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:511358: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:540578: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:545756: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:566468: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:588116: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:597756: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:600026: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:603882: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:649392: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:657478: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:698873: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:703583: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:740280: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:748009: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:748420: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:759316: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:765227: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:770675: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:780331: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:782724: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:795854: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:835219: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:876916: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:883847: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:907535: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:910952: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:946128: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:969221: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:976094: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1002722: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1002811: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1014834: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1018810: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1027226: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1028188: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1039281: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1041713: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1059917: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1066000: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1081199: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1096564: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1115718: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1128931: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1151688: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1156464: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1169450: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1170416: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1174092: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1174751: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1202756: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1228278: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1233199: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1266738: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1267202: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1270892: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1271842: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1274018: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1277439: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1298732: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1305954: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1312119: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1318574: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1340989: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1348826: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1349592: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1361079: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1367163: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1378304: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1378380: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1378596: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1389952: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1401025: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1401064: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1449701: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1453464: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1470642: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1529680: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1533449: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1562985: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1570109: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1579304: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+temp/annonces_themes_jo.csv:1598868: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
+ OK
+Nettoyage des fichiers temporaires... OK

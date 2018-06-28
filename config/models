@@ -114,10 +114,40 @@ Joannonce
     siegesocial Text sql=siege_social
     idtype Int sql=id_type
     objet Text
-    Primary numparution numannonce
 
 Joanntheme
     numparution Int sql=num_parution
     numannonce Int sql=num_annonce
     theme Text
-    Primary numparution numannonce theme
+
+Sirene
+    siren Text
+    nic Text
+    epci Text
+    siege Char
+    apet700 Text
+    tefet Text
+    origine Text
+    saisonat Text
+    modet Char
+    prodet Char
+    prodpart Char
+    auxilt Char
+    nicsiege Text
+    nj Text
+    apen700 Text
+    ess Char
+    tefen Text
+    categorie Text
+    moden Char
+    proden Char
+
+Naf
+    ident Text sql=id
+    libelle Text
+    Primary ident
+
+Natjur
+    ident Text sql=id
+    libelle Text
+    Primary ident
