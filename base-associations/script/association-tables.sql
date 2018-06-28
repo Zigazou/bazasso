@@ -224,6 +224,7 @@ CREATE TABLE sirene
                                      -- simple
     , proden            CHAR(1)      -- Caractère productif de l'entreprise
                                      -- O=Productif, N=Non productif
+    , PRIMARY KEY(siren)
     );
 
 CREATE TABLE naf
