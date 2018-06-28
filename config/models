@@ -2,14 +2,14 @@ Rnawaldec
     ident Text sql=id
     identex Text sql=id_ex
     siret Siret
-    rupmi Text sql=rup_mi
+    rupmi Rup sql=rup_mi
     gestion Text
     creation Day sql=date_creat
     declaration Day sql=date_decla
     publication Day sql=date_publi
     dissolution Day sql=date_disso
-    nature Text
-    groupement Text
+    nature Nature
+    groupement Group
     titre Text
     titrecourt Text sql=titre_court
     objet Text
@@ -38,7 +38,7 @@ Rnawaldec
     email Text
     publiweb Text
     observation Text
-    position Text
+    position ActivityPosition
     majtime Day sql=maj_time
     Primary ident
 

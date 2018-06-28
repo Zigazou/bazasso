@@ -20,22 +20,6 @@ import Database.Persist.Sql (rawSql)
 
 import qualified Data.Text as T
 
-longPosition :: Text -> Text
-longPosition "A" = "active"
-longPosition "D" = "dissoute"
-longPosition "S" = "supprimée"
-longPosition _ = ""
-
-longGroupement :: Text -> Text
-longGroupement "S" = "simple"
-longGroupement "U" = "union"
-longGroupement "F" = "fédération"
-longGroupement _ = ""
-
-longNature :: Text -> Text
-longNature "" = ""
-longNature a = a
-
 getNewAssociation :: DBparam Text [Entity Rnawaldec]
 getNewAssociation txt = selectList [RnawaldecIdent `match` txt] [LimitTo 1]
 

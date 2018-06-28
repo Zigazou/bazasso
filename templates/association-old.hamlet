@@ -67,10 +67,10 @@ $maybe association <- mAssociation
                 <h2>Infos
                 <p>
                     <strong>Nature&nbsp;:
-                    ^{clean longNature (rnaimportNature association)}
+                    #{rnaimportNature association}
                 <p>
                     <strong>Groupement&nbsp;:
-                    ^{clean longGroupement (rnaimportGroupement association)}
+                    #{rnaimportGroupement association}
                 <p>
                     <strong>Position&nbsp;:
-                    ^{clean longPosition (rnaimportPosition association)}
+                    #{rnaimportPosition association}

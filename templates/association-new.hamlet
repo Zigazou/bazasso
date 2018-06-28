@@ -12,8 +12,7 @@
                     Activité principale 2&nbsp;:
                     ^{themeIdentifiedBy (rnawaldecObjetsocial2 association)}
                 <div>
-                    SIRET&nbsp;:
-                    ^{clean id (rnawaldecSiret association)}
+                    SIRET&nbsp;: #{rnawaldecSiret association}
         $nothing
             <h1>Association introuvable
 
@@ -90,32 +89,35 @@ $maybe association <- mAssociation
                 <h2>Infos
                 <p>
                     <strong>Nature&nbsp;:
-                    ^{clean longNature (rnawaldecNature association)}
+                    #{rnawaldecNature association}
                 <p>
                     <strong>Groupement&nbsp;:
-                    ^{clean longGroupement (rnawaldecGroupement association)}
+                    #{rnawaldecGroupement association}
                 <p>
                     <strong>Position&nbsp;:
-                    ^{clean longPosition (rnawaldecPosition association)}
-
+                    #{rnawaldecPosition association}
 
     <div .container>
         <h2>Journal Officiel
-        <table .table.table-striped.table-bordered>
-            <tr>
-                <th>N°/Date
-                <th>Type
-                <th>Thèmes
-                <th>Titre
-                <th>Objet
-            $forall Entity _ annonce <- annonces
+        $if null annonces
+            <p>Aucune parution trouvée.
+        $else
+            <table .table.table-striped.table-bordered>
                 <tr>
-                    <td>
-                        #{joannonceNumparution annonce}-#{joannonceNumannonce annonce}
-                        <br>
-                        ^{clean jjmmaaaa (joannonceParution annonce)}
-                    <td>
-                        ^{typeAvisIdentifiedBy (joannonceIdtype annonce)}
-                    <td>^{themesOf annonce}
-                    <td>#{joannonceTitre annonce}
-                    <td>#{joannonceObjet annonce}
+                    <th>N°/Date
+                    <th>Type
+                    <th>Thèmes
+                    <th>Titre
+                    <th>Objet
+                $forall Entity _ annonce <- annonces
+                    <tr>
+                        <td>
+                            #{joannonceNumparution annonce}-
+                            #{joannonceNumannonce annonce}
+                            <br>
+                            ^{clean jjmmaaaa (joannonceParution annonce)}
+                        <td>
+                            ^{typeAvisIdentifiedBy (joannonceIdtype annonce)}
+                        <td>^{themesOf annonce}
+                        <td>#{joannonceTitre annonce}
+                        <td>#{joannonceObjet annonce}
