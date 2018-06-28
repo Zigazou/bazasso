@@ -33,7 +33,7 @@ Rnawaldec
     adrgachemine Text sql=adrg_achemine
     adrgpays Text sql=adrg_pays
     dircivilite Text sql=dir_civilite
-    telephone Text
+    telephone PhoneNumber
     siteweb Text
     email Text
     publiweb Text

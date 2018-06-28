@@ -18,20 +18,24 @@ import Text.Hamlet (shamlet)
 
 import Helpers.Empty (Empty, isEmpty)
 
-newtype Siret = Siret T.Text
+data Siret = Siret T.Text
+           | UndefinedSiret
 
 getSiren :: Siret -> T.Text
 getSiren (Siret s) = T.take 9 s
+getSiren _ = ""
 
 getNic :: Siret -> T.Text
 getNic (Siret s) = T.drop 9 s
+getNic _ = ""
 
 mkSiret :: T.Text -> Siret
 mkSiret t | T.length t == 14 = Siret t
-          | otherwise = Siret ""
+          | otherwise = UndefinedSiret
 
 instance PersistField Siret where
     toPersistValue (Siret t) = PersistText t
+    toPersistValue UndefinedSiret = PersistText ""
 
     fromPersistValue (PersistText t) = Right (mkSiret t)
     fromPersistValue _ = Left "Siret type works only with strings"
@@ -40,8 +44,9 @@ instance PersistFieldSql Siret where
     sqlType _ = SqlString
 
 instance ToMarkup Siret where
-    toMarkup (Siret t) | T.null t = [shamlet|<span .text-muted>non renseigné|]
-                       | otherwise = string . T.unpack $ t
+    toMarkup UndefinedSiret = [shamlet|<span .text-muted>non renseigné|]
+    toMarkup (Siret t) = string . T.unpack $ t
 
 instance Empty Siret where
-    isEmpty (Siret t) = T.null t
+    isEmpty UndefinedSiret = True
+    isEmpty _ = False

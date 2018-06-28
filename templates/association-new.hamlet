@@ -76,7 +76,7 @@ $maybe association <- mAssociation
                 <h2>Contact
                 <div>
                     <strong>Téléphone&nbsp;:
-                    ^{clean id (rnawaldecTelephone association)}
+                    #{rnawaldecTelephone association}
                 <div>
                     <strong>Site web&nbsp;:
                     ^{clean id (rnawaldecSiteweb association)}
