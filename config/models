@@ -129,8 +129,8 @@ Sirene
     apet700 Text
     tefet SalariedEmployees
     origine Text
-    saisonat Text
-    modet Text
+    saisonat SeasonalActivity
+    modet ActivityMode
     prodet Text
     prodpart Text
     auxilt Text
@@ -140,7 +140,7 @@ Sirene
     ess Text
     tefen SalariedEmployees
     categorie Text
-    moden Text
+    moden ActivityMode
     proden Text
     Primary siren nic
 

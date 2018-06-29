@@ -36,6 +36,18 @@ sireneInfo siret = do
                 <li>
                     <strong>Entreprise&nbsp;:
                     #{sireneTefen sirene}
+
+            <h4>Modalité de l'activité principale
+            <ul>
+                <li>
+                    <strong>Établissement&nbsp;:
+                    #{sireneModet sirene}
+                <li>
+                    <strong>Entreprise&nbsp;:
+                    #{sireneModen sirene}
+
+            <h4>Caractère saisonnier de l'activité
+            <p>Activité #{sireneSaisonat sirene}
         $nothing
             <span .text-muted>Pas de fiche Sirene associée
     |]
