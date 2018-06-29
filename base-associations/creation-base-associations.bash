@@ -91,7 +91,7 @@ do
 
     tar xzf "$jo" --wildcards --to-stdout "2???????.xml" \
         | extraction_annonces_themes \
-        >> temp/annonces_themes_jo.csv
+        >> temp/annonces_themes_jo.bad.csv
 
     exit_on_error
 done
@@ -115,10 +115,16 @@ do
         | sed '$a</PARUTION_JO_ASSOCIATION>' \
         | tidy -xml -quiet  2> /dev/null \
         | xslsproc script/stock-themes-jo-to-csv.xsls \
-        >> temp/annonces_themes_jo.csv
+        >> temp/annonces_themes_jo.bad.csv
 
     exit_on_error
 done
+
+printf "Nettoyage des thèmes des annonces..."
+sort temp/annonces_themes_jo.bad.csv \
+    | uniq \
+    > temp/annonces_themes_jo.csv
+exit_on_error
 
 # Imports.
 import "des régions" temp/regions.csv "region"
