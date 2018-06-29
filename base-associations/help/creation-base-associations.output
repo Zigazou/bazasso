@@ -5,6 +5,7 @@ Préparation des associations Waldec... OK
 Préparation des régions... OK
 Préparation des départements... OK
 Préparation des communes... OK
+Préparation de la base Sirene... OK
 Préparation des annonces du JO:
   - Lecture de source/ASS20040048.taz... OK
   - Lecture de source/ASS20040052.taz... OK
@@ -130,15 +131,7 @@ Préparation des annonces du JO:
   - Lecture de source/ASS20070015.taz... OK
   - Lecture de source/ASS20070016.taz... OK
   - Lecture de source/ASS20070017.taz... OK
-  - Lecture de source/ASS20070018.taz...-:15979: parser error : Entity 'infin' not defined
-  <TITRE>ASSOCIATION INDIGO &infin;. </TITRE>
-                                   ^
-unable to parse -
--:15979: parser error : Entity 'infin' not defined
-  <TITRE>ASSOCIATION INDIGO &infin;. </TITRE>
-                                   ^
-unable to parse -
- OK
+  - Lecture de source/ASS20070018.taz... OK
   - Lecture de source/ASS20070019.taz... OK
   - Lecture de source/ASS20070020.taz... OK
   - Lecture de source/ASS20070021.taz... OK
@@ -193,15 +186,7 @@ unable to parse -
   - Lecture de source/ASS20080018.taz... OK
   - Lecture de source/ASS20080019.taz... OK
   - Lecture de source/ASS20080020.taz... OK
-  - Lecture de source/ASS20080021.taz...-:22517: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOLA VIGNERONNEÛ0./TITRE_ASSOün13SiÕge soc
-^
-unable to parse -
--:22517: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOLA VIGNERONNEÛ0./TITRE_ASSOün13SiÕge soc
-^
-unable to parse -
- OK
+  - Lecture de source/ASS20080021.taz... OK
   - Lecture de source/ASS20080022.taz... OK
   - Lecture de source/ASS20080023.taz... OK
   - Lecture de source/ASS20080024.taz... OK
@@ -359,178 +344,26 @@ unable to parse -
   - Lecture de source/ASS20110020.taz... OK
   - Lecture de source/ASS20110021.taz... OK
   - Lecture de source/ASS20110022.taz... OK
-  - Lecture de source/ASS20110023.taz...-:21460: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSO4L AIMANTSÛ0./TITRE_ASSOün13SiÕge social
-^
-unable to parse -
--:21460: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSO4L AIMANTSÛ0./TITRE_ASSOün13SiÕge social
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110024.taz...-:26963: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOMUAAH EVENTÛ0./TITRE_ASSOün13SiÕge socia
-^
-unable to parse -
--:26963: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOMUAAH EVENTÛ0./TITRE_ASSOün13SiÕge socia
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110025.taz...-:27472: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION GENERATIONS PONCINOISESÛ0./TITRE_A
-^
-unable to parse -
--:27472: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION GENERATIONS PONCINOISESÛ0./TITRE_A
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110026.taz...-:21528: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION MAL LUNEEÛ0./TITRE_ASSOün13Si
-^
-unable to parse -
--:21528: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION MAL LUNEEÛ0./TITRE_ASSOün13Si
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110027.taz...-:27121: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOALCOOL ECOUTE JOIE ET SANTE DE L'AINÛ0./TITRE_
-^
-unable to parse -
--:27121: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOALCOOL ECOUTE JOIE ET SANTE DE L'AINÛ0./TITRE_
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110028.taz...-:25611: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOCOLLECTIF CITOYEN DE JARVONOZ, AUTRES HAMEAUX, S
-^
-unable to parse -
--:25611: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOCOLLECTIF CITOYEN DE JARVONOZ, AUTRES HAMEAUX, S
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110029.taz...-:30856: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOPLACE PUBLIQUE : SAVOIRS ET DEBATS CITOYENSÛ0.
-^
-unable to parse -
--:30856: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOPLACE PUBLIQUE : SAVOIRS ET DEBATS CITOYENSÛ0.
-^
-unable to parse -
- OK
+  - Lecture de source/ASS20110023.taz... OK
+  - Lecture de source/ASS20110024.taz... OK
+  - Lecture de source/ASS20110025.taz... OK
+  - Lecture de source/ASS20110026.taz... OK
+  - Lecture de source/ASS20110027.taz... OK
+  - Lecture de source/ASS20110028.taz... OK
+  - Lecture de source/ASS20110029.taz... OK
   - Lecture de source/ASS20110030.taz... OK
-  - Lecture de source/ASS20110031.taz...-:25656: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOT. L. D. (TORCIEU LOISIR DETENTE)Û0./TITRE_ASS
-^
-unable to parse -
--:25656: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOT. L. D. (TORCIEU LOISIR DETENTE)Û0./TITRE_ASS
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110032.taz...-:27056: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOWHITE STAR PAINTBALLÛ0./TITRE_ASSOün13Si�
-^
-unable to parse -
--:27056: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOWHITE STAR PAINTBALLÛ0./TITRE_ASSOün13Si�
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110033.taz...-:22957: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOAMICALE VOYAGE 7 ET 2 DE BANEINSÛ0./TITRE_ASSO
-^
-unable to parse -
--:22957: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOAMICALE VOYAGE 7 ET 2 DE BANEINSÛ0./TITRE_ASSO
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110034.taz...-:21648: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION DES CITOYENS SOLIDAIRES DE CORBENY -
-^
-unable to parse -
--:21648: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOASSOCIATION DES CITOYENS SOLIDAIRES DE CORBENY -
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110035.taz...-:15748: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.ANC_TITRE_ASSOAGENCE DE DEVELOPPEMENT ECONOMIQUE DU PAYS D
-^
-unable to parse -
--:15748: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.ANC_TITRE_ASSOAGENCE DE DEVELOPPEMENT ECONOMIQUE DU PAYS D
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110036.taz...-:19025: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOLES 3 CIRQUES DE L'ILE DE LA REUNIONÛ0./TITRE_
-^
-unable to parse -
--:19025: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOLES 3 CIRQUES DE L'ILE DE LA REUNIONÛ0./TITRE_
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110037.taz...-:22104: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOREFLEXAVENIRÛ0./TITRE_ASSOün13SiÕge soci
-^
-unable to parse -
--:22104: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOREFLEXAVENIRÛ0./TITRE_ASSOün13SiÕge soci
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110038.taz...-:20260: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOCONCEPT SONOÛ0./TITRE_ASSOün13SiÕge soci
-^
-unable to parse -
--:20260: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOCONCEPT SONOÛ0./TITRE_ASSOün13SiÕge soci
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110039.taz...-:26175: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOIMAI-IMCI ALLIANCE , INCÛ0./TITRE_ASSOün13
-^
-unable to parse -
--:26175: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOIMAI-IMCI ALLIANCE , INCÛ0./TITRE_ASSOün13
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110040.taz...-:21185: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOLET'S GO MUSICÛ0./TITRE_ASSOün13SiÕge so
-^
-unable to parse -
--:21185: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOLET'S GO MUSICÛ0./TITRE_ASSOün13SiÕge so
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110041.taz...-:24396: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOEVALDOM ADESSADOMICILE RHÞNE ALPESÛ0./TITRE_A
-^
-unable to parse -
--:24396: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSOEVALDOM ADESSADOMICILE RHÞNE ALPESÛ0./TITRE_A
-^
-unable to parse -
- OK
-  - Lecture de source/ASS20110042.taz...-:30636: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSORANDO-VALLIEREÛ0./TITRE_ASSOün13SiÕge so
-^
-unable to parse -
--:30636: parser error : Extra content at the end of the document
-Û0.ANNONCEüÛ0.TITRE_ASSORANDO-VALLIEREÛ0./TITRE_ASSOün13SiÕge so
-^
-unable to parse -
- OK
+  - Lecture de source/ASS20110031.taz... OK
+  - Lecture de source/ASS20110032.taz... OK
+  - Lecture de source/ASS20110033.taz... OK
+  - Lecture de source/ASS20110034.taz... OK
+  - Lecture de source/ASS20110035.taz... OK
+  - Lecture de source/ASS20110036.taz... OK
+  - Lecture de source/ASS20110037.taz... OK
+  - Lecture de source/ASS20110038.taz... OK
+  - Lecture de source/ASS20110039.taz... OK
+  - Lecture de source/ASS20110040.taz... OK
+  - Lecture de source/ASS20110041.taz... OK
+  - Lecture de source/ASS20110042.taz... OK
   - Lecture de source/ASS20110043.taz... OK
   - Lecture de source/ASS20110044.taz... OK
   - Lecture de source/ASS20110045.taz... OK
@@ -553,15 +386,7 @@ unable to parse -
   - Lecture de source/ASS20120009.taz... OK
   - Lecture de source/ASS20120010.taz... OK
   - Lecture de source/ASS20120011.taz... OK
-  - Lecture de source/ASS20120012.taz...-:21512: parser error : EntityRef: expecting ';'
-  <INTERNET http="http://www.facebook.com/profile.php?id=100003478581046&sk=info
-                                                                           ^
-unable to parse -
--:21512: parser error : EntityRef: expecting ';'
-  <INTERNET http="http://www.facebook.com/profile.php?id=100003478581046&sk=info
-                                                                           ^
-unable to parse -
- OK
+  - Lecture de source/ASS20120012.taz... OK
   - Lecture de source/ASS20120013.taz... OK
   - Lecture de source/ASS20120014.taz... OK
   - Lecture de source/ASS20120015.taz... OK
@@ -589,17 +414,7 @@ unable to parse -
   - Lecture de source/ASS20120037.taz... OK
   - Lecture de source/ASS20120038.taz... OK
   - Lecture de source/ASS20120039.taz... OK
-  - Lecture de source/ASS20120040.taz...-:30851: parser error : Extra content at the end of the document
-Ò0.0
-       0.0Û0.TETIER_R302-AisneÛ0./TETIER_R3üÛ0.TETIER_R4Avis
-^
-unable to parse -
--:30851: parser error : Extra content at the end of the document
-Ò0.0
-       0.0Û0.TETIER_R302-AisneÛ0./TETIER_R3üÛ0.TETIER_R4Avis
-^
-unable to parse -
- OK
+  - Lecture de source/ASS20120040.taz... OK
   - Lecture de source/ASS20120041.taz... OK
   - Lecture de source/ASS20120042.taz... OK
   - Lecture de source/ASS20120043.taz... OK
@@ -906,126 +721,13 @@ Préparation des annonces stock du JO:
   - Lecture de source/stock_assoc_2002.7z... OK
   - Lecture de source/stock_assoc_2003.7z... OK
   - Lecture de source/stock_assoc_2004.7z... OK
+Nettoyage des thèmes des annonces... OK
 Import des régions (table region)... OK
 Import des départements (table departement)... OK
 Import des communes (table commune)... OK
 Import des associations historiques (table rnaimport)... OK
 Import des associations Waldec (table rnawaldec)... OK
 Import des annonces du JO (table joannonce)... OK
-Import des thèmes d'annonces du JO (table joanntheme)...temp/annonces_themes_jo.csv:26880: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:61982: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:336841: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:367640: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:369393: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:369396: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:369401: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:369966: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:369985: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370014: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370020: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370230: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370237: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370260: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370292: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370351: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370393: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370709: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370776: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370777: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370778: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:370779: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:375953: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:375969: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:387826: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:414836: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:418561: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:439280: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:450795: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:473973: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:485923: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:507733: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:508028: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:511358: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:540578: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:545756: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:566468: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:588116: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:597756: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:600026: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:603882: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:649392: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:657478: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:698873: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:703583: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:740280: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:748009: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:748420: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:759316: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:765227: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:770675: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:780331: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:782724: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:795854: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:835219: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:876916: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:883847: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:907535: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:910952: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:946128: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:969221: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:976094: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1002722: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1002811: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1014834: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1018810: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1027226: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1028188: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1039281: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1041713: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1059917: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1066000: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1081199: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1096564: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1115718: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1128931: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1151688: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1156464: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1169450: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1170416: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1174092: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1174751: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1202756: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1228278: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1233199: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1266738: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1267202: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1270892: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1271842: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1274018: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1277439: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1298732: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1305954: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1312119: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1318574: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1340989: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1348826: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1349592: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1361079: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1367163: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1378304: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1378380: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1378596: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1389952: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1401025: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1401064: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1449701: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1453464: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1470642: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1529680: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1533449: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1562985: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1570109: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1579304: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
-temp/annonces_themes_jo.csv:1598868: INSERT failed: UNIQUE constraint failed: joanntheme.num_parution, joanntheme.num_annonce, joanntheme.theme
- OK
+Import des thèmes d'annonces du JO (table joanntheme)... OK
+Import de la base Sirene (table sirene)... OK
 Nettoyage des fichiers temporaires... OK
