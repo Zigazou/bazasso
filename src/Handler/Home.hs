@@ -18,6 +18,7 @@ getHomeR = do
     mNbOldAssos <- runDB $ singlesToMaybe <$> unsafeCount "rnaimport"
     mNbJOEntries <- runDB $ singlesToMaybe <$> unsafeCount "joannonce"
     mNbSiren <- runDB $ singlesToMaybe <$> unsafeCount "sirene"
+    mNbCities <- runDB $ singlesToMaybe <$> unsafeCount "commune"
 
     defaultLayout $ do
         setTitle "Bazasso"

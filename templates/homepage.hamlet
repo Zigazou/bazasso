@@ -50,3 +50,8 @@
                     <li>
                         <span .badge>#{humanNumber nbSiren}
                         établissements dans la base Sirene
+
+                $maybe nbCities <- mNbCities
+                    <li>
+                        <span .badge>#{humanNumber nbCities}
+                        communes connues
