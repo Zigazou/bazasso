@@ -26,6 +26,7 @@ assert "Python3 n'est pas installé" which python3
 assert "zcat n'est pas installé" which zcat
 assert "unzip n'est pas installé" which unzip
 assert "sed n'est pas installé" which sed
+assert "csvcut n'est pas installé" which csvcut
 assert "7zr n'est pas installé" which 7zr
 assert "SQLite3 n'est pas installé" which sqlite3
 assert "iconv n'est pas installé" which iconv
