@@ -114,3 +114,7 @@ $maybe association <- mAssociation
                         ^{themesOf annonce}
                         <p>#{joannonceTitre annonce}
                         <p>#{joannonceObjet annonce}
+
+    <div .container>
+        <h2>Base Sirene
+        ^{sireneInfo (rnawaldecSiret association)}

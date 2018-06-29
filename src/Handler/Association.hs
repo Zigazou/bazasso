@@ -18,6 +18,8 @@ import Helpers.EntitiesToMaybe (entitiesToMaybe)
 import Database.Persist.Class (toPersistValue)
 import Database.Persist.Sql (rawSql)
 
+import Widgets.SireneInfo (sireneInfo)
+
 import qualified Data.Text as T
 
 getNewAssociation :: DBparam Text [Entity Rnawaldec]

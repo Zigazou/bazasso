@@ -74,3 +74,7 @@ $maybe association <- mAssociation
                 <p>
                     <strong>Position&nbsp;:
                     #{rnaimportPosition association}
+
+    <div .container>
+        <h2>Base Sirene
+        ^{sireneInfo (rnaimportSiret association)}

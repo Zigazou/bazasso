@@ -127,7 +127,7 @@ Sirene
     epci Text
     siege Text
     apet700 Text
-    tefet Text
+    tefet SalariedEmployees
     origine Text
     saisonat Text
     modet Text
@@ -138,10 +138,11 @@ Sirene
     nj Text
     apen700 Text
     ess Text
-    tefen Text
+    tefen SalariedEmployees
     categorie Text
     moden Text
     proden Text
+    Primary siren nic
 
 Naf
     ident Text sql=id
