@@ -21,6 +21,7 @@ import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
+import Data.Maybe           (fromMaybe)
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -63,9 +64,8 @@ instance Yesod App where
     -- see: https://github.com/yesodweb/yesod/wiki/Overriding-approot
     approot :: Approot App
     approot = ApprootRequest $ \app req ->
-        case appRoot $ appSettings app of
-            Nothing -> getApprootText guessApproot app req
-            Just root -> root
+                                fromMaybe (getApprootText guessApproot app req)
+                                          (appRoot $ appSettings app)
 
     -- Store session data on the client in encrypted cookies,
     -- default session idle timeout is 120 minutes
@@ -96,17 +96,17 @@ instance Yesod App where
 
         -- Define the menu items of the header.
         let menuItems =
-                [ NavbarLeft $ MenuItem
+                [ NavbarLeft MenuItem
                     { menuItemLabel = "Accueil"
                     , menuItemRoute = HomeR
                     , menuItemAccessCallback = True
                     }
-                , NavbarLeft $ MenuItem
+                , NavbarLeft MenuItem
                     { menuItemLabel = "Rechercher par mot-clé"
                     , menuItemRoute = SearchR
                     , menuItemAccessCallback = True
                     }
-                , NavbarLeft $ MenuItem
+                , NavbarLeft MenuItem
                     { menuItemLabel = "Rechercher par ville"
                     , menuItemRoute = DepartmentListR
                     , menuItemAccessCallback = True

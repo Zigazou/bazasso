@@ -8,59 +8,7 @@
     <div .row>
         <div .col-lg-12.minus-button>
             <form .form-horizontal method=post enctype=#{formEnctype}>
-                ^{formWidget}
+               ^{formWidget}
 
 $if not (null newassos) || not (null oldassos)
-    <div .container.space-after>
-        <div .row>
-            <div .col-lg-12>
-                <h1>Base Waldec
-                $if null newassos
-                    <p>aucune association trouvée
-                $else
-                    <p>
-                        <strong>Note&nbsp;:
-                        Seules les 1000 premières associations trouvées apparaissent
-
-                    $forall Entity _ asso <- newassos
-                        <h3 .search-result>
-                            <a href=@{NewAssociationR (rnawaldecIdent asso)}>
-                                #{rnawaldecTitre asso}
-                        <p :not (isEmpty (rnawaldecDissolution asso)):class="muted">
-                            #{rnawaldecObjet asso}
-                            <br>
-                            <strong>RNA&nbsp;:
-                            #{rnawaldecIdent asso}
-                            −
-                            <strong>Code postal&nbsp;:
-                            #{rnawaldecAdrscodepostal asso}
-                            −
-                            <strong>Création&nbsp;:
-                            ^{clean jjmmaaaa (rnawaldecCreation asso)}
-
-    <div .container.space-after>
-        <div .row>
-            <div .col-lg-12>
-                <h1>Base historique
-                $if null oldassos
-                    <p>aucune association trouvée
-                $else
-                    <p>
-                        <strong>Note&nbsp;:
-                        Seules les 1000 premières associations trouvées apparaissent
-
-                    $forall Entity _ asso <- oldassos
-                        <h3 .search-result>
-                            <a href=@{OldAssociationR (rnaimportIdent asso)}>
-                                #{rnaimportTitre asso}
-                        <p>
-                            #{rnaimportObjet asso}
-                            <br>
-                            <strong>RNA&nbsp;:
-                            #{rnaimportIdent asso}
-                            −
-                            <strong>Code postal&nbsp;:
-                            #{rnaimportAdrscodepostal asso}
-                            −
-                            <strong>Création&nbsp;:
-                            ^{clean jjmmaaaa (rnaimportCreation asso)}
+    ^{searchResults newassos oldassos}

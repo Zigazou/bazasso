@@ -9,20 +9,18 @@ module Handler.City
     ) where
 
 import Import
-import Helpers.Empty (Empty(..))
-import Helpers.Clean (clean)
-import Helpers.DateFormat (jjmmaaaa)
 import Helpers.Like (match)
 import Helpers.EntitiesToMaybe (entitiesToMaybe)
 
 import Widgets.ActivityForm (activityForm, ActivityForm(..))
+import Widgets.SearchResults (searchResults)
 
 import Data.List (foldl)
 import qualified Data.Text as T
 
 lookForNewAssociations :: DBparam ActivityForm [Entity Rnawaldec]
 lookForNewAssociations (ActivityForm insee themes) = selectList
-    ([RnawaldecAdrscodeinsee `match` insee] ++ themesFilter themes)
+    (RnawaldecAdrscodeinsee `match` insee : themesFilter themes)
     [LimitTo 1000]
     where
         addTheme [] b = [ RnawaldecObjetsocial1 >=. T.concat [b, "000"]
@@ -36,7 +34,7 @@ lookForNewAssociations (ActivityForm insee themes) = selectList
 
 lookForOldAssociations :: DBparam ActivityForm [Entity Rnaimport]
 lookForOldAssociations (ActivityForm insee themes) = selectList
-    ([RnaimportAdrscodeinsee `match` insee] ++ themesFilter themes)
+    (RnaimportAdrscodeinsee `match` insee : themesFilter themes)
     [LimitTo 1000]
     where
         addTheme [] b = [ RnaimportObjetsocial1 >=. T.concat [b, "000"]

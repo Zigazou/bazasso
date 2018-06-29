@@ -33,15 +33,20 @@
             <ul>
                 $maybe nbNewAssos <- mNbNewAssos
                     <li>
-                        <span .badge>#{nbNewAssos}
+                        <span .badge>#{humanNumber nbNewAssos}
                         associations dans la nouvelle base
 
                 $maybe nbOldAssos <- mNbOldAssos
                     <li>
-                        <span .badge>#{nbOldAssos}
+                        <span .badge>#{humanNumber nbOldAssos}
                         associations dans la base historique
 
                 $maybe nbJOEntries <- mNbJOEntries
                     <li>
-                        <span .badge>#{nbJOEntries}
+                        <span .badge>#{humanNumber nbJOEntries}
                         entrées du Journal Officiel
+
+                $maybe nbSiren <- mNbSiren
+                    <li>
+                        <span .badge>#{humanNumber nbSiren}
+                        établissements dans la base Sirene

@@ -1,0 +1,63 @@
+<div .row>
+    <div .col-lg-6>
+        <h4>Activité principale
+        <ul>
+            <li>
+                <strong>Établissement&nbsp;:
+                $maybe apet <- mApet
+                    #{nafLibelle apet}
+                $nothing
+                    <span .text-muted>non renseignée
+            <li>
+                <strong>Entreprise&nbsp;:
+                $maybe apen <- mApen
+                    #{nafLibelle apen}
+                $nothing
+                    <span .text-muted>non renseignée
+
+    <div .col-lg-6>
+        <h4>Tranche d'effectif
+        <ul>
+            <li>
+                <strong>Établissement&nbsp;:
+                #{sireneTefet sirene}
+            <li>
+                <strong>Entreprise&nbsp;:
+                #{sireneTefen sirene}
+
+    <div .col-lg-6>
+        <h4>Modalité de l'activité principale
+        <ul>
+            <li>
+                <strong>Établissement&nbsp;:
+                #{sireneModet sirene}
+            <li>
+                <strong>Entreprise&nbsp;:
+                #{sireneModen sirene}
+
+    <div .col-lg-6>
+        <h4>Productivité
+        <ul>
+            <li>
+                <strong>Établissement&nbsp;:
+                #{sireneProdet sirene}
+            <li>
+                <strong>Entreprise&nbsp;:
+                #{sireneProden sirene}
+
+    <div .col-lg-6>
+        <h4>Information sur l'entreprise
+        <ul>
+            <li>
+                <strong>Caractère saisonnier de l'activité&nbsp;:
+                #{sireneSaisonat sirene}
+
+            <li>
+                <strong>Nature juridique&nbsp;:
+                $maybe nj <- mNj
+                    #{natjurLibelle nj}
+                $nothing
+                    <span .text-muted>non renseignée
+            <li>
+                <strong>ESS&nbsp;:
+                #{sireneEss sirene}

@@ -11,15 +11,12 @@ module Handler.Department
 
 import Import
 
-import Helpers.EntitiesToMaybe (entitiesToMaybe)
-
-getDepartmentCitiesR :: Text -> Handler Html
+getDepartmentCitiesR :: DepartementId -> Handler Html
 getDepartmentCitiesR codedept = do
     cities <- runDB $ selectList [CommuneIddepartement ==. codedept]
                                  [Asc CommuneLibelle]
 
-    mDept <- runDB $ entitiesToMaybe
-                    <$> selectList [DepartementIdent ==. codedept] [LimitTo 1]
+    mDept <- runDB . get $ codedept
 
     defaultLayout $ do
         setTitle "Villes du départment"

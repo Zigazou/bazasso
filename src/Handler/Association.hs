@@ -72,12 +72,9 @@ themeIdentifiedBy ident = do
             <span .text-muted>non renseigné
     |]
 
-getType :: DBparam Int [Entity Jotypeavis]
-getType ident = selectList [JotypeavisIdent ==. ident] [LimitTo 1]
-
-typeAvisIdentifiedBy :: Int -> Widget
+typeAvisIdentifiedBy :: JotypeavisId -> Widget
 typeAvisIdentifiedBy ident = do
-    mTypeAvis <- handlerToWidget $ runDB $ entitiesToMaybe <$> getType ident
+    mTypeAvis <- handlerToWidget . runDB . get $ ident
 
     [whamlet|
         $maybe typeAvis <- mTypeAvis

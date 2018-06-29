@@ -12,6 +12,6 @@
 /association/legacy/#Text OldAssociationR GET
 /search SearchR GET POST
 
-/department/#Text DepartmentCitiesR GET
+/department/#DepartementId DepartmentCitiesR GET
 /department DepartmentListR GET
 /city/#Text CityActivityR GET POST

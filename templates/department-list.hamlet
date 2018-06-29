@@ -6,9 +6,9 @@
 <div .container.space-after>
     <div .row>
         <ul>
-            $forall Entity _ dept <- departments
+            $forall Entity deptId dept <- departments
                 <li .col-sm-6.col-lg-3>
-                    <a href=@{DepartmentCitiesR (departementIdent dept)}>
-                        <strong>#{departementIdent dept}
+                    <a href=@{DepartmentCitiesR deptId}>
+                        <strong>#{unDepartementKey deptId}
                         -
                         #{departementLibelle dept}

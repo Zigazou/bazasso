@@ -14,16 +14,16 @@ import Helpers.GeneralTheme (gtOptionList)
 
 data SearchForm = SearchForm
     { searchString :: Text
-    , searchThemes :: Maybe [Text]
+    , searchThemes :: Maybe Text
     }
 
 searchForm :: Html -> MForm Handler (FormResult SearchForm, Widget)
 searchForm extra = do
     (searchRes, searchView) <- mreq textField textSettings Nothing
-    (themesRes, themesView) <- mopt (multiSelectFieldList gtOptionList)
-                                    selectSettings Nothing
+    (themeRes, themeView) <- mopt (selectFieldList gtOptionList)
+                                  selectSettings Nothing
 
-    let search = SearchForm <$> searchRes <*> themesRes
+    let search = SearchForm <$> searchRes <*> themeRes
     let widget = [whamlet|
         #{extra}
         <div .input-group>
@@ -32,7 +32,7 @@ searchForm extra = do
                 <button .btn.btn-default type="submit">
                     <i .glyphicon.glyphicon-search>
         <div>
-            ^{fvInput themesView}
+            ^{fvInput themeView}
         |]
 
     return (search, widget)
@@ -54,5 +54,5 @@ searchForm extra = do
             , fsTooltip = Nothing
             , fsId = Just "search-themes"
             , fsName = Just "search-themes"
-            , fsAttrs = [("class", "big-select")]
+            , fsAttrs = [ ("class", "large-select")]
             }

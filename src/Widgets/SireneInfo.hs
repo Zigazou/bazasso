@@ -1,6 +1,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE QuasiQuotes #-}
 module Widgets.SireneInfo ( sireneInfo ) where
 
@@ -17,37 +18,11 @@ sireneInfo :: Siret -> Widget
 sireneInfo siret = do
     mSirene <- handlerToWidget $ runDB $ entitiesToMaybe <$> getSirene siret
 
-    [whamlet|
-        $maybe sirene <- mSirene
-            <h4>Activité principale
-            <ul>
-                <li>
-                    <strong>Établissement&nbsp;:
-                    #{sireneApet700 sirene}
-                <li>
-                    <strong>Entreprise&nbsp;:
-                    #{sireneApen700 sirene}
+    case mSirene of
+        Nothing -> [whamlet|<span .text-muted>Pas de fiche Sirene associée|]
+        Just sirene -> do
+            mApet <- handlerToWidget . runDB . get $ sireneApet700 sirene
+            mApen <- handlerToWidget . runDB . get $ sireneApen700 sirene
+            mNj <- handlerToWidget . runDB . get $ sireneNj sirene
 
-            <h4>Tranche d'effectif
-            <ul>
-                <li>
-                    <strong>Établissement&nbsp;:
-                    #{sireneTefet sirene}
-                <li>
-                    <strong>Entreprise&nbsp;:
-                    #{sireneTefen sirene}
-
-            <h4>Modalité de l'activité principale
-            <ul>
-                <li>
-                    <strong>Établissement&nbsp;:
-                    #{sireneModet sirene}
-                <li>
-                    <strong>Entreprise&nbsp;:
-                    #{sireneModen sirene}
-
-            <h4>Caractère saisonnier de l'activité
-            <p>Activité #{sireneSaisonat sirene}
-        $nothing
-            <span .text-muted>Pas de fiche Sirene associée
-    |]
+            $(widgetFile "sirene-info")

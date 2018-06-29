@@ -9,49 +9,44 @@ module Handler.Search
     ) where
 
 import Import
-import Helpers.Empty (Empty(..))
-import Helpers.Clean (clean)
-import Helpers.DateFormat (jjmmaaaa)
 import Helpers.Like (match)
 
 import Widgets.SearchForm (searchForm, SearchForm(..))
+import Widgets.SearchResults (searchResults)
 
 import qualified Data.Text as T
-import Data.List (foldl)
 
 lookForNewAssociations :: DBparam SearchForm [Entity Rnawaldec]
 lookForNewAssociations (SearchForm title Nothing) = selectList
-    [RnawaldecTitre `match` (T.toUpper title)]
+    [RnawaldecTitre `match` T.toUpper title]
     [LimitTo 1000]
-lookForNewAssociations (SearchForm title (Just themes)) = selectList
-    ([RnawaldecTitre `match` (T.toUpper title)] ++ themesFilter themes)
+lookForNewAssociations (SearchForm title (Just theme)) = selectList
+    ( RnawaldecTitre `match` T.toUpper title
+    : ( [ RnawaldecObjetsocial1 >=. T.concat [theme, "000"]
+        , RnawaldecObjetsocial1 <=. T.concat [theme, "999"]
+        ] ||.
+        [ RnawaldecObjetsocial2 >=. T.concat [theme, "000"]
+        , RnawaldecObjetsocial2 <=. T.concat [theme, "999"]
+        ]
+      )
+    )
     [LimitTo 1000]
-    where
-        addTheme [] b = [ RnawaldecObjetsocial1 >=. T.concat [b, "000"]
-                        , RnawaldecObjetsocial1 <=. T.concat [b, "999"]
-                        ]
-                    ||. [ RnawaldecObjetsocial2 >=. T.concat [b, "000"]
-                        , RnawaldecObjetsocial2 <=. T.concat [b, "999"]
-                        ]
-        addTheme a b = a ||. addTheme [] b
-        themesFilter = foldl addTheme []
 
 lookForOldAssociations :: DBparam SearchForm [Entity Rnaimport]
 lookForOldAssociations (SearchForm title Nothing) = selectList
-    [RnaimportTitre `match` (T.toUpper title)]
+    [RnaimportTitre `match` T.toUpper title]
     [LimitTo 1000]
-lookForOldAssociations (SearchForm title (Just themes)) = selectList
-    ([RnaimportTitre `match` (T.toUpper title)] ++ themesFilter themes)
+lookForOldAssociations (SearchForm title (Just theme)) = selectList
+    ( RnaimportTitre `match` T.toUpper title
+    : ( [ RnaimportObjetsocial1 >=. T.concat [theme, "000"]
+        , RnaimportObjetsocial1 <=. T.concat [theme, "999"]
+        ] ||.
+        [ RnaimportObjetsocial2 >=. T.concat [theme, "000"]
+        , RnaimportObjetsocial2 <=. T.concat [theme, "999"]
+        ]
+      )
+    )
     [LimitTo 1000]
-    where
-        addTheme [] b = [ RnaimportObjetsocial1 >=. T.concat [b, "000"]
-                        , RnaimportObjetsocial1 <=. T.concat [b, "999"]
-                        ]
-                    ||. [ RnaimportObjetsocial2 >=. T.concat [b, "000"]
-                        , RnaimportObjetsocial2 <=. T.concat [b, "999"]
-                        ]
-        addTheme a b = a ||. addTheme [] b
-        themesFilter = foldl addTheme []
 
 getSearchR :: Handler Html
 getSearchR = do

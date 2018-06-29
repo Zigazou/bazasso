@@ -72,20 +72,18 @@ Rnaimport
     Primary ident
     
 Region
-    ident Int sql=id
+    Id Int
     libelle Text
     cheflieu Text sql=chef_lieu
-    Primary ident
 
 Departement
-    ident Text sql=id
+    Id Text
     libelle Text
     prefecture Text
-    Primary ident
 
 Commune
-    idregion Int sql=id_region
-    iddepartement Text sql=id_departement
+    idregion RegionId sql=id_region
+    iddepartement DepartementId sql=id_departement
     libelle Text
     codepostal Text sql=code_postal
     codeinsee Text sql=code_insee
@@ -99,9 +97,8 @@ Jotheme
     Primary theme
 
 Jotypeavis
-    ident Int sql=id
+    Id Int
     libelle Text
-    Primary ident
 
 Joannonce
     parution Day sql=date_parution
@@ -112,7 +109,7 @@ Joannonce
     waldec Text
     titre Text
     siegesocial Text sql=siege_social
-    idtype Int sql=id_type
+    idtype JotypeavisId sql=id_type
     objet Text
     Primary numparution numannonce
 
@@ -121,35 +118,33 @@ Joanntheme
     numannonce Int sql=num_annonce
     theme Text
 
+Naf
+    Id Text
+    libelle Text
+
+Natjur
+    Id Text
+    libelle Text
+
 Sirene
     siren Text
     nic Text
     epci Text
     siege Text
-    apet700 Text
+    apet700 NafId
     tefet SalariedEmployees
     origine Text
     saisonat SeasonalActivity
     modet ActivityMode
-    prodet Text
+    prodet Productive
     prodpart Text
     auxilt Text
     nicsiege Text
-    nj Text
-    apen700 Text
-    ess Text
+    nj NatjurId
+    apen700 NafId
+    ess Ess
     tefen SalariedEmployees
     categorie Text
     moden ActivityMode
-    proden Text
+    proden Productive
     Primary siren nic
-
-Naf
-    ident Text sql=id
-    libelle Text
-    Primary ident
-
-Natjur
-    ident Text sql=id
-    libelle Text
-    Primary ident

@@ -84,6 +84,11 @@ select.big-select {
     padding: 1em;
 }
 
+select.large-select {
+    width: 100%;
+    padding: 1em;
+}
+
 .footer {
     margin-top: 4em;
 }

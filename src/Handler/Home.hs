@@ -10,12 +10,14 @@ module Handler.Home
 import Import
 import Helpers.UnsafeCount (unsafeCount)
 import Helpers.EntitiesToMaybe (singlesToMaybe)
+import Helpers.NumberFormat (humanNumber)
 
 getHomeR :: Handler Html
 getHomeR = do
     mNbNewAssos <- runDB $ singlesToMaybe <$> unsafeCount "rnawaldec"
     mNbOldAssos <- runDB $ singlesToMaybe <$> unsafeCount "rnaimport"
     mNbJOEntries <- runDB $ singlesToMaybe <$> unsafeCount "joannonce"
+    mNbSiren <- runDB $ singlesToMaybe <$> unsafeCount "sirene"
 
     defaultLayout $ do
         setTitle "Bazasso"
