@@ -1,4 +1,5 @@
 #!/bin/bash
 function extraction_annonces_themes() {
-    xslsproc script/annonces-themes-jo-to-csv.xsls -
+    tidy -xml -quiet 2> /dev/null \
+        | xslsproc script/annonces-themes-jo-to-csv.xsls -
 }

@@ -27,6 +27,7 @@ assert "zcat n'est pas installé" which zcat
 assert "unzip n'est pas installé" which unzip
 assert "sed n'est pas installé" which sed
 assert "csvcut n'est pas installé" which csvcut
+assert "tidy n'est pas installé" which tidy
 assert "7zr n'est pas installé" which 7zr
 assert "SQLite3 n'est pas installé" which sqlite3
 assert "iconv n'est pas installé" which iconv
@@ -84,11 +85,11 @@ for jo in source/ASS*.taz
 do
     printf "  - Lecture de %s..." "$jo"
 
-    tar xzf "$jo" --wildcards --to-stdout "*.xml" \
+    tar xzf "$jo" --wildcards --to-stdout "2???????.xml" \
         | extraction_annonces \
         >> temp/annonces_jo.csv
 
-    tar xzf "$jo" --wildcards --to-stdout "*.xml" \
+    tar xzf "$jo" --wildcards --to-stdout "2???????.xml" \
         | extraction_annonces_themes \
         >> temp/annonces_themes_jo.csv
 
@@ -104,6 +105,7 @@ do
         | sed '2,${/<?xml/d;}' \
         | sed '1a<PARUTION_JO_ASSOCIATION>' \
         | sed '$a</PARUTION_JO_ASSOCIATION>' \
+        | tidy -xml -quiet 2> /dev/null \
         | xslsproc script/stock-jo-to-csv.xsls - \
         >> temp/annonces_jo.csv
 
@@ -111,6 +113,7 @@ do
         | sed '2,${/<?xml/d;}' \
         | sed '1a<PARUTION_JO_ASSOCIATION>' \
         | sed '$a</PARUTION_JO_ASSOCIATION>' \
+        | tidy -xml -quiet  2> /dev/null \
         | xslsproc script/stock-themes-jo-to-csv.xsls \
         >> temp/annonces_themes_jo.csv
 
