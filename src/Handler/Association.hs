@@ -14,6 +14,7 @@ import Helpers.Clean (clean)
 import Helpers.DateFormat (jjmmaaaa)
 import Helpers.Like (match)
 import Helpers.EntitiesToMaybe (entitiesToMaybe)
+import Helpers.Empty (isSet)
 
 import Database.Persist.Class (toPersistValue)
 import Database.Persist.Sql (rawSql)

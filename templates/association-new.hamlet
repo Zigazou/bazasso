@@ -21,6 +21,10 @@ $maybe association <- mAssociation
         <div .row>
             <div .col-lg-12>
                 <blockquote>#{rnawaldecObjet association}
+                $if isSet (rnawaldecObservation association)
+                    <p>
+                        <strong>Observation:&nbsp;
+                        #{rnawaldecObservation association}
         <div .row>
             <div .col-md-6>
                 <h2>Adresse du siège

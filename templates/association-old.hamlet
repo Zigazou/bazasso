@@ -20,6 +20,10 @@ $maybe association <- mAssociation
         <div .row>
             <div .col-lg-12>
                 <blockquote>#{rnaimportObjet association}
+                $if isSet (rnaimportObservation association)
+                    <p>
+                        <strong>Observation:&nbsp;
+                        #{rnaimportObservation association}
 
         $if isWaldec (rnaimportObservation association)
             <div .row>
