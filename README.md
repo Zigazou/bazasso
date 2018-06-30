@@ -11,23 +11,70 @@ IRL utilisant ces technologies.
 Bazasso utilise une base de données Sqlite3 en lecture seule.
 
 Le projet requiert un fichier `associations.db` généré à partir des données
-ouvertes des associatiions (RNA+JOAFE).
+ouvertes des associatiions (RNA+JOAFE+Sirene).
 
-Pour générer cette base de données (comptez 2 Go), il faut utiliser le script
-`creation-base-associations.bash` situé dans le sous-répertoire
+### Récupération des données ouvertes
+
+La récupération des données ouvertes se fait via le script
+`telecharge-donnees-ouvertes.bash` situé dans le sous-répertoire
 `base-associations`.
 
-Mais il faut auparavant placer les fichiers suivants dans le sous-répertoire
-`base-associations/source`:
+Pré-requis :
 
-- `ASS*.taz` (récupérer tous les fichiers `.taz` possibles depuis 
-   https://echanges.dila.gouv.fr/OPENDATA/ASSOCIATIONS/ )
-- `EUCircos_Regions_departements_circonscriptions_communes_gps.csv.gz`
-  (récupérer à http://www.nosdonnees.fr/wiki/index.php/Fichier:EUCircos_Regions_departements_circonscriptions_communes_gps.csv.gz )
-- `rna_import_*.zip`, `rna_waldec_*.zip` (récupérer la dernière version à
-  https://www.data.gouv.fr/fr/datasets/repertoire-national-des-associations/ )
+- wget
+- html-xml-utils
 
-La base de données `associations.db` doit être placée à la racine du projet.
+Il doit être exécuté depuis le sous-répertoire `base-associations`
+
+Comptez 3 Go de données à télécharger, le temps dépendant de votre connexion
+Internet.
+
+[Exemple de sortie](base-associations/help/telecharge-donnees-ouvertes.output)
+
+Notes :
+
+- Le script utilise `wget` pour télécharger, il est donc possible de configurer
+  les variables d’environnement `http_proxy` et `https_proxy` si vous êtes
+  derrière un proxy.
+- Le script est conçu pour être lancé à intervalle régulier, les fichiers déjà
+  téléchargé ne seront donc pas téléchargés à nouveau.
+- Pour forcer le téléchargement de tous les fichiers, il faut vider le
+  sous-répertoire `base-associations/source`.
+
+### Génération de la base de données
+
+La base de données finale fait environ 5 Go.
+
+Il est possible de réduire la taille de la base de données en demandant à
+Sqlite3 d’optimiser l’arbre de recherche des tables full text et de de supprimer
+les espaces vides du fichier. Ces opérations prennent néanmoins beaucoup de
+temps.
+
+La génération se fait grâce au script `creation-base-associations.bash` situé
+dans le sous-répertoire `base-associations`.
+
+Pré-requis :
+
+- Python 3
+- zcat
+- unzip
+- sed
+- [csvcut, utilitaire maison à télécharger](https://github.com/zigazou/csvcut)
+- tidy
+- 7zr (paquet p7zip)
+- SQLite3
+- iconv
+- XSLTproc
+- [XSLSproc, utilitaire maison à télécharger](https://github.com/zigazou/xslclearer)
+
+
+Il doit être exécuté depuis le sous-répertoire `base-associations`
+
+Comptez 15 minutes pour une machine équipée d’un i7-3770 et d’un disque SSD.
+
+[Exemple de sortie](base-associations/help/creation-base-associations.output)
+
+Le script génère un fichiers `associations.db` qui doit ensuite être placé à la racine du projet.
 
 ## Exécution
 
