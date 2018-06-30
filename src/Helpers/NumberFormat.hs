@@ -6,11 +6,11 @@ module Helpers.NumberFormat ( humanNumber ) where
 
 import Import
 
-humanNumber :: Int -> String
+humanNumber :: Int  -> String
 humanNumber number = insertSpace (nbDigits `mod` 3) (show number)
     where
         nbDigits :: Int
-        nbDigits = 1 + floor (logBase 10 (fromIntegral number))
+        nbDigits = 1 + floor (logBase 10 (fromIntegral number :: Double))
 
         insertSpace :: Int -> String -> String
         insertSpace 0 [] = ""
@@ -20,3 +20,4 @@ humanNumber number = insertSpace (nbDigits `mod` 3) (show number)
         insertSpace 1 (a:as) = a : ' ' : insertSpace 0 as
         insertSpace 2 [a, b] = [a, b]
         insertSpace 2 (a:b:as) = a : b : ' ' : insertSpace 0 as
+        insertSpace _ _ = ""
