@@ -13,8 +13,8 @@ Rnawaldec
     titre Text
     titrecourt Text sql=titre_court
     objet Text
-    objetsocial1 Text sql=objet_social1
-    objetsocial2 Text sql=objet_social2
+    objetsocial1 JothemeId sql=objet_social1
+    objetsocial2 JothemeId sql=objet_social2
     adrscomplement Text sql=adrs_complement
     adrsnumvoie Text sql=adrs_numvoie
     adrsrepetition Text sql=adrs_repetition
@@ -53,8 +53,8 @@ Rnaimport
     groupement Group
     titre Text
     objet Text
-    objetsocial1 Text sql=objet_social1
-    objetsocial2 Text sql=objet_social2
+    objetsocial1 JothemeId sql=objet_social1
+    objetsocial2 JothemeId sql=objet_social2
     adr1 Text
     adr2 Text
     adr3 Text
@@ -92,9 +92,8 @@ Commune
     Primary codeinsee
 
 Jotheme
-    theme Text
+    Id Text sql=theme
     libelle Text
-    Primary theme
 
 Jotypeavis
     Id Int

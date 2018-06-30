@@ -11,40 +11,20 @@ module Handler.City
 import Import
 import Helpers.Like (match)
 import Helpers.EntitiesToMaybe (entitiesToMaybe)
+import Helpers.GeneralTheme (themesFilterNew, themesFilterOld)
 
 import Widgets.ActivityForm (activityForm, ActivityForm(..))
 import Widgets.SearchResults (searchResults)
 
-import Data.List (foldl)
-import qualified Data.Text as T
-
 lookForNewAssociations :: DBparam ActivityForm [Entity Rnawaldec]
 lookForNewAssociations (ActivityForm insee themes) = selectList
-    (RnawaldecAdrscodeinsee `match` insee : themesFilter themes)
+    (RnawaldecAdrscodeinsee `match` insee : themesFilterNew themes)
     [LimitTo 1000]
-    where
-        addTheme [] b = [ RnawaldecObjetsocial1 >=. T.concat [b, "000"]
-                        , RnawaldecObjetsocial1 <=. T.concat [b, "999"]
-                        ]
-                    ||. [ RnawaldecObjetsocial2 >=. T.concat [b, "000"]
-                        , RnawaldecObjetsocial2 <=. T.concat [b, "999"]
-                        ]
-        addTheme a b = a ||. addTheme [] b
-        themesFilter = foldl addTheme []
 
 lookForOldAssociations :: DBparam ActivityForm [Entity Rnaimport]
 lookForOldAssociations (ActivityForm insee themes) = selectList
-    (RnaimportAdrscodeinsee `match` insee : themesFilter themes)
+    (RnaimportAdrscodeinsee `match` insee : themesFilterOld themes)
     [LimitTo 1000]
-    where
-        addTheme [] b = [ RnaimportObjetsocial1 >=. T.concat [b, "000"]
-                        , RnaimportObjetsocial1 <=. T.concat [b, "999"]
-                        ]
-                    ||. [ RnaimportObjetsocial2 >=. T.concat [b, "000"]
-                        , RnaimportObjetsocial2 <=. T.concat [b, "999"]
-                        ]
-        addTheme a b = a ||. addTheme [] b
-        themesFilter = foldl addTheme []
 
 getCityActivityR :: Text -> Handler Html
 getCityActivityR insee = do

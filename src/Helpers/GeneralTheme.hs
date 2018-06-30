@@ -3,17 +3,57 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
 module Helpers.GeneralTheme
-    ( GeneralTheme(..)
+    ( generateKeys
+    , themesFilterNew
+    , themesFilterOld
+    , GeneralTheme(..)
     , generalThemes
     , gtOptionList
     ) where
 
 import Import
 
+import Data.List (foldl)
+import qualified Data.Text as T
+
+generateKeys :: T.Text -> Maybe (Key Jotheme, Key Jotheme)
+generateKeys theme = case eKeys of
+                        Left _ -> Nothing
+                        Right themeKeys -> Just themeKeys
+    where
+        eKeys = do
+            fstKey <- keyFromValues [PersistText (T.concat [theme, "000"])]
+            sndKey <- keyFromValues [PersistText (T.concat [theme, "999"])]
+            return (fstKey, sndKey)
+
+themesFilterNew :: [T.Text] -> [Filter Rnawaldec]
+themesFilterNew themes = foldl addTheme [] themeKeys
+    where
+        themeKeys = catMaybes (generateKeys <$> themes)
+        addTheme [] (fstKey, sndKey) = [ RnawaldecObjetsocial1 >=. fstKey
+                                       , RnawaldecObjetsocial1 <=. sndKey
+                                       ]
+                                   ||. [ RnawaldecObjetsocial2 >=. fstKey
+                                       , RnawaldecObjetsocial2 <=. sndKey
+                                       ]
+        addTheme a b = a ||. addTheme [] b
+
+themesFilterOld :: [T.Text] -> [Filter Rnaimport]
+themesFilterOld themes = foldl addTheme [] themeKeys
+    where
+        themeKeys = catMaybes (generateKeys <$> themes)
+        addTheme [] (fstKey, sndKey) = [ RnaimportObjetsocial1 >=. fstKey
+                                       , RnaimportObjetsocial1 <=. sndKey
+                                       ]
+                                   ||. [ RnaimportObjetsocial2 >=. fstKey
+                                       , RnaimportObjetsocial2 <=. sndKey
+                                       ]
+        addTheme a b = a ||. addTheme [] b
+
 data GeneralTheme = GeneralTheme
-        { gtStart :: Text
-        , gtName :: Text
-        }
+    { gtStart :: Text
+    , gtName :: Text
+    }
 
 generalThemes :: [GeneralTheme]
 generalThemes =

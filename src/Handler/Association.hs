@@ -59,12 +59,9 @@ themesOf annonce = do
                     <li>#{jothemeLibelle theme}
     |]
 
-getTheme :: DBparam Text [Entity Jotheme]
-getTheme ident = selectList [JothemeTheme ==. ident] [LimitTo 1]
-
-themeIdentifiedBy :: Text -> Widget
+themeIdentifiedBy :: JothemeId -> Widget
 themeIdentifiedBy ident = do
-    mTheme <- handlerToWidget $ runDB $ entitiesToMaybe <$> getTheme ident
+    mTheme <- handlerToWidget . runDB . get $ ident
 
     [whamlet|
         $maybe theme <- mTheme
