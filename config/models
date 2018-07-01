@@ -35,7 +35,7 @@ Rnawaldec
     dircivilite Text sql=dir_civilite
     telephone PhoneNumber
     siteweb WebSite
-    email Text
+    email EmailAddr
     publiweb Text
     observation Text
     position ActivityPosition
@@ -64,7 +64,7 @@ Rnaimport
     dircivilite Text sql=dir_civilite
     telephone PhoneNumber
     siteweb WebSite
-    email Text
+    email EmailAddr
     observation Text
     position ActivityPosition
     rupmi Rup sql=rup_mi
