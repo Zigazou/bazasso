@@ -1,16 +1,18 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Data.ActivityPosition ( ActivityPosition(..) ) where
 
-import Database.Persist.Class (PersistField, toPersistValue, fromPersistValue)
-import Database.Persist.Sql
-    (PersistFieldSql, sqlType, PersistValue(PersistText), SqlType(SqlString))
-import Text.Blaze (ToMarkup, toMarkup, string)
-import Text.Hamlet (shamlet)
+import           Database.Persist.Class (PersistField, fromPersistValue,
+                                         toPersistValue)
+import           Database.Persist.Sql   (PersistFieldSql,
+                                         PersistValue (PersistText),
+                                         SqlType (SqlString), sqlType)
+import           Text.Blaze             (ToMarkup, string, toMarkup)
+import           Text.Hamlet            (shamlet)
 
-import Helpers.Empty (Empty, isEmpty)
+import           Helpers.Empty          (Empty, isEmpty)
 
 data ActivityPosition = ActiveAssociation
                       | DissolvedAssociation
@@ -18,10 +20,10 @@ data ActivityPosition = ActiveAssociation
                       | UndefinedActivity
 
 instance PersistField ActivityPosition where
-    toPersistValue ActiveAssociation = PersistText "A"
+    toPersistValue ActiveAssociation    = PersistText "A"
     toPersistValue DissolvedAssociation = PersistText "D"
-    toPersistValue DeletedAssociation = PersistText "S"
-    toPersistValue _ = PersistText ""
+    toPersistValue DeletedAssociation   = PersistText "S"
+    toPersistValue _                    = PersistText ""
 
     fromPersistValue (PersistText "A") = Right ActiveAssociation
     fromPersistValue (PersistText "D") = Right DissolvedAssociation
@@ -40,4 +42,4 @@ instance ToMarkup ActivityPosition where
 
 instance Empty ActivityPosition where
     isEmpty UndefinedActivity = True
-    isEmpty _ = False
+    isEmpty _                 = False

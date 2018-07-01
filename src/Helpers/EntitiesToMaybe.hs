@@ -1,19 +1,19 @@
-{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Helpers.EntitiesToMaybe
     ( entitiesToMaybe
     , singlesToMaybe
     ) where
 
-import Import
+import           Import
 
-import Database.Persist.Sql (Single(..))
+import           Database.Persist.Sql (Single (..))
 
 entitiesToMaybe :: [Entity a] -> Maybe a
 entitiesToMaybe [Entity _ x] = Just x
-entitiesToMaybe _ = Nothing
+entitiesToMaybe _            = Nothing
 
 singlesToMaybe :: [Single a] -> Maybe a
 singlesToMaybe [Single x] = Just x
-singlesToMaybe _ = Nothing
+singlesToMaybe _          = Nothing

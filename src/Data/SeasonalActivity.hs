@@ -1,16 +1,18 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Data.SeasonalActivity ( SeasonalActivity(..) ) where
 
-import Database.Persist.Class (PersistField, toPersistValue, fromPersistValue)
-import Database.Persist.Sql
-    (PersistFieldSql, sqlType, PersistValue(PersistText), SqlType(SqlString))
-import Text.Blaze (ToMarkup, toMarkup, string)
-import Text.Hamlet (shamlet)
+import           Database.Persist.Class (PersistField, fromPersistValue,
+                                         toPersistValue)
+import           Database.Persist.Sql   (PersistFieldSql,
+                                         PersistValue (PersistText),
+                                         SqlType (SqlString), sqlType)
+import           Text.Blaze             (ToMarkup, string, toMarkup)
+import           Text.Hamlet            (shamlet)
 
-import Helpers.Empty (Empty, isEmpty)
+import           Helpers.Empty          (Empty, isEmpty)
 
 data SeasonalActivity = SAPermanent
                       | SASeasonal
@@ -18,10 +20,10 @@ data SeasonalActivity = SAPermanent
                       | UndefinedSeasonalActivity
 
 instance PersistField SeasonalActivity where
-    toPersistValue SAPermanent = PersistText "P"
-    toPersistValue SASeasonal = PersistText "S"
+    toPersistValue SAPermanent    = PersistText "P"
+    toPersistValue SASeasonal     = PersistText "S"
     toPersistValue SANotSpecified = PersistText "NR"
-    toPersistValue _ = PersistText ""
+    toPersistValue _              = PersistText ""
 
     fromPersistValue (PersistText "P") = Right SAPermanent
     fromPersistValue (PersistText "S") = Right SASeasonal
@@ -33,11 +35,11 @@ instance PersistFieldSql SeasonalActivity where
     sqlType _ = SqlString
 
 instance ToMarkup SeasonalActivity where
-    toMarkup SAPermanent = string "permanente"
-    toMarkup SASeasonal = string "saisonnière"
+    toMarkup SAPermanent    = string "permanente"
+    toMarkup SASeasonal     = string "saisonnière"
     toMarkup SANotSpecified = string "non spécifiée"
-    toMarkup _ = [shamlet|<span .text-muted>non renseigné|]
+    toMarkup _              = [shamlet|<span .text-muted>non renseigné|]
 
 instance Empty SeasonalActivity where
     isEmpty UndefinedSeasonalActivity = True
-    isEmpty _ = False
+    isEmpty _                         = False

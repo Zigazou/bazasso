@@ -1,7 +1,7 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Helpers.GeneralTheme
     ( generateKeys
     , themesFilterNew
@@ -11,14 +11,14 @@ module Helpers.GeneralTheme
     , gtOptionList
     ) where
 
-import Import
+import           Import
 
-import Data.List (foldl)
+import           Data.List (foldl)
 import qualified Data.Text as T
 
 generateKeys :: T.Text -> Maybe (Key Jotheme, Key Jotheme)
 generateKeys theme = case eKeys of
-                        Left _ -> Nothing
+                        Left _          -> Nothing
                         Right themeKeys -> Just themeKeys
     where
         eKeys = do
@@ -52,7 +52,7 @@ themesFilterOld themes = foldl addTheme [] themeKeys
 
 data GeneralTheme = GeneralTheme
     { gtStart :: Text
-    , gtName :: Text
+    , gtName  :: Text
     }
 
 generalThemes :: [GeneralTheme]

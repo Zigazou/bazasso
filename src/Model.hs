@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE EmptyDataDecls             #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GADTs                      #-}
@@ -7,25 +8,24 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TypeFamilies               #-}
-{-# LANGUAGE DeriveGeneric              #-}
 module Model where
 
-import ClassyPrelude.Yesod
-import Database.Persist.Quasi
+import           ClassyPrelude.Yesod
+import           Database.Persist.Quasi
 
-import Data.Siret
-import Data.Rup
-import Data.ActivityPosition
-import Data.Group
-import Data.Nature
-import Data.PhoneNumber
-import Data.WebSite
-import Data.SalariedEmployees
-import Data.SeasonalActivity
-import Data.ActivityMode
-import Data.Productive
-import Data.Ess
-import Data.EmailAddr
+import           Data.ActivityMode
+import           Data.ActivityPosition
+import           Data.EmailAddr
+import           Data.Ess
+import           Data.Group
+import           Data.Nature
+import           Data.PhoneNumber
+import           Data.Productive
+import           Data.Rup
+import           Data.SalariedEmployees
+import           Data.SeasonalActivity
+import           Data.Siret
+import           Data.WebSite
 
 -- You can define all of your database entities in the entities file.
 -- You can find more information on persistent and how to declare entities

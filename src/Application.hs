@@ -1,10 +1,9 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE ViewPatterns #-}
-{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE RecordWildCards       #-}
+{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeFamilies          #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 module Application
     ( getApplicationDev
@@ -20,32 +19,37 @@ module Application
     , db
     ) where
 
-import Control.Monad.Logger                 (liftLoc, runLoggingT)
-import Database.Persist.Sqlite              (createSqlitePool, sqlDatabase,
-                                             sqlPoolSize)
-import Import
-import Language.Haskell.TH.Syntax           (qLocation)
-import Network.HTTP.Client.TLS              (getGlobalManager)
-import Network.Wai (Middleware)
-import Network.Wai.Handler.Warp             (Settings, defaultSettings,
-                                             defaultShouldDisplayException,
-                                             runSettings, setHost,
-                                             setOnException, setPort, getPort)
-import Network.Wai.Middleware.RequestLogger (Destination (Logger),
-                                             IPAddrSource (..),
-                                             OutputFormat (..), destination,
-                                             mkRequestLogger, outputFormat)
-import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
-                                             toLogStr)
+import           Control.Monad.Logger                 (liftLoc, runLoggingT)
+import           Database.Persist.Sqlite              (createSqlitePool,
+                                                       sqlDatabase, sqlPoolSize)
+import           Import
+import           Language.Haskell.TH.Syntax           (qLocation)
+import           Network.HTTP.Client.TLS              (getGlobalManager)
+import           Network.Wai                          (Middleware)
+import           Network.Wai.Handler.Warp             (Settings,
+                                                       defaultSettings,
+                                                       defaultShouldDisplayException,
+                                                       getPort, runSettings,
+                                                       setHost, setOnException,
+                                                       setPort)
+import           Network.Wai.Middleware.RequestLogger (Destination (Logger),
+                                                       IPAddrSource (..),
+                                                       OutputFormat (..),
+                                                       destination,
+                                                       mkRequestLogger,
+                                                       outputFormat)
+import           System.Log.FastLogger                (defaultBufSize,
+                                                       newStdoutLoggerSet,
+                                                       toLogStr)
 
 -- Import all relevant handler modules here.
 -- Don't forget to add new modules to your cabal file!
-import Handler.Common
-import Handler.Home
-import Handler.Association
-import Handler.Search
-import Handler.City
-import Handler.Department
+import           Handler.Association
+import           Handler.City
+import           Handler.Common
+import           Handler.Department
+import           Handler.Home
+import           Handler.Search
 
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the
@@ -127,10 +131,10 @@ warpSettings foundation =
 -- | For yesod devel, return the Warp settings and WAI Application.
 getApplicationDev :: IO (Settings, Application)
 getApplicationDev = do
-    settings <- getAppSettings
+    settings   <- getAppSettings
     foundation <- makeFoundation settings
-    wsettings <- getDevSettings $ warpSettings foundation
-    app <- makeApplication foundation
+    wsettings  <- getDevSettings $ warpSettings foundation
+    app        <- makeApplication foundation
     return (wsettings, app)
 
 getAppSettings :: IO AppSettings
@@ -160,21 +164,19 @@ appMain = do
     -- Run the application with Warp
     runSettings (warpSettings foundation) app
 
-
 --------------------------------------------------------------
 -- Functions for DevelMain.hs (a way to run the app from GHCi)
 --------------------------------------------------------------
 getApplicationRepl :: IO (Int, App, Application)
 getApplicationRepl = do
-    settings <- getAppSettings
+    settings   <- getAppSettings
     foundation <- makeFoundation settings
-    wsettings <- getDevSettings $ warpSettings foundation
-    app1 <- makeApplication foundation
+    wsettings  <- getDevSettings $ warpSettings foundation
+    app1       <- makeApplication foundation
     return (getPort wsettings, foundation, app1)
 
 shutdownApp :: App -> IO ()
 shutdownApp _ = return ()
-
 
 ---------------------------------------------
 -- Functions for use in development with GHCi

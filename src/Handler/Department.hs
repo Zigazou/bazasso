@@ -1,15 +1,15 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Handler.Department
     ( getDepartmentCitiesR
     , getDepartmentListR
     )
     where
 
-import Import
+import           Import
 
 getDepartmentCitiesR :: DepartementId -> Handler Html
 getDepartmentCitiesR codedept = do

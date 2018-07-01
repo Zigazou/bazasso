@@ -1,22 +1,24 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Data.SalariedEmployees
     ( SalariedEmployees(..)
     , mkSalariedEmployees
     ) where
 
-import Database.Persist.Class (PersistField, toPersistValue, fromPersistValue)
-import Database.Persist.Sql
-    (PersistFieldSql, sqlType, PersistValue(PersistText), SqlType(SqlString))
-import Text.Blaze (ToMarkup, toMarkup, string)
-import Text.Hamlet (shamlet)
-import qualified Data.Text as T
-import Data.List (find)
-import Data.Maybe (fromMaybe)
+import           Data.List              (find)
+import           Data.Maybe             (fromMaybe)
+import qualified Data.Text              as T
+import           Database.Persist.Class (PersistField, fromPersistValue,
+                                         toPersistValue)
+import           Database.Persist.Sql   (PersistFieldSql,
+                                         PersistValue (PersistText),
+                                         SqlType (SqlString), sqlType)
+import           Text.Blaze             (ToMarkup, string, toMarkup)
+import           Text.Hamlet            (shamlet)
 
-import Helpers.Empty (Empty, isEmpty)
+import           Helpers.Empty          (Empty, isEmpty)
 
 data SalariedEmployees = SalariedEmployees T.Text
                        | UndefinedSalariedEmployees
@@ -51,7 +53,7 @@ mkSalariedEmployees t
 
 instance PersistField SalariedEmployees where
     toPersistValue (SalariedEmployees se) = PersistText se
-    toPersistValue _ = PersistText ""
+    toPersistValue _                      = PersistText ""
 
     fromPersistValue (PersistText t) = Right (mkSalariedEmployees t)
     fromPersistValue _ = Left "SalariedEmployees type works only with strings"
@@ -65,4 +67,4 @@ instance ToMarkup SalariedEmployees where
 
 instance Empty SalariedEmployees where
     isEmpty UndefinedSalariedEmployees = True
-    isEmpty _ = False
+    isEmpty _                          = False

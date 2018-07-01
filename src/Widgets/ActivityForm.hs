@@ -1,19 +1,19 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Widgets.ActivityForm
     ( ActivityForm(..)
     , activityForm
     ) where
 
-import Import
+import           Import
 
-import Helpers.GeneralTheme (gtOptionList)
+import           Helpers.GeneralTheme (gtOptionList)
 
 data ActivityForm = ActivityForm
-    { activityInsee :: Text
+    { activityInsee  :: Text
     , activityThemes :: [Text]
     }
 
@@ -37,10 +37,10 @@ activityForm insee extra = do
     return (search, widget)
 
     where
-        selectSettings = FieldSettings
-            { fsLabel = "Sélectionner les thèmes"
+        selectSettings  = FieldSettings
+            { fsLabel   = "Sélectionner les thèmes"
             , fsTooltip = Nothing
-            , fsId = Just "search-themes"
-            , fsName = Just "search-themes"
-            , fsAttrs = [("class", "big-select")]
+            , fsId      = Just "search-themes"
+            , fsName    = Just "search-themes"
+            , fsAttrs   = [("class", "big-select")]
             }

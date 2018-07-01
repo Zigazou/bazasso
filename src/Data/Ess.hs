@@ -1,14 +1,16 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Data.Ess ( Ess(..) ) where
 
-import Database.Persist.Class (PersistField, toPersistValue, fromPersistValue)
-import Database.Persist.Sql
-    (PersistFieldSql, sqlType, PersistValue(PersistText), SqlType(SqlString))
-import Text.Blaze (ToMarkup, toMarkup, string)
+import           Database.Persist.Class (PersistField, fromPersistValue,
+                                         toPersistValue)
+import           Database.Persist.Sql   (PersistFieldSql,
+                                         PersistValue (PersistText),
+                                         SqlType (SqlString), sqlType)
+import           Text.Blaze             (ToMarkup, string, toMarkup)
 
-import Helpers.Empty (Empty, isEmpty)
+import           Helpers.Empty          (Empty, isEmpty)
 
 data Ess = Ess
          | NotEss
@@ -16,10 +18,10 @@ data Ess = Ess
          | UndefinedEss
 
 instance PersistField Ess where
-    toPersistValue Ess = PersistText "O"
-    toPersistValue NotEss = PersistText "N"
+    toPersistValue Ess            = PersistText "O"
+    toPersistValue NotEss         = PersistText "N"
     toPersistValue EssInvalidated = PersistText "I"
-    toPersistValue _ = PersistText ""
+    toPersistValue _              = PersistText ""
 
     fromPersistValue (PersistText "O") = Right Ess
     fromPersistValue (PersistText "N") = Right NotEss
@@ -41,4 +43,4 @@ instance ToMarkup Ess where
 
 instance Empty Ess where
     isEmpty UndefinedEss = True
-    isEmpty _ = False
+    isEmpty _            = False

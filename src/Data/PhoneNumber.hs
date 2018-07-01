@@ -1,20 +1,22 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Data.PhoneNumber
     ( PhoneNumber
     , mkPhoneNumber
     ) where
 
-import Database.Persist.Class (PersistField, toPersistValue, fromPersistValue)
-import Database.Persist.Sql
-    (PersistFieldSql, sqlType, PersistValue(PersistText), SqlType(SqlString))
-import Text.Blaze (ToMarkup, toMarkup)
-import qualified Data.Text as T
-import Text.Hamlet (hamlet, shamlet)
+import qualified Data.Text              as T
+import           Database.Persist.Class (PersistField, fromPersistValue,
+                                         toPersistValue)
+import           Database.Persist.Sql   (PersistFieldSql,
+                                         PersistValue (PersistText),
+                                         SqlType (SqlString), sqlType)
+import           Text.Blaze             (ToMarkup, toMarkup)
+import           Text.Hamlet            (hamlet, shamlet)
 
-import Helpers.Empty (Empty, isEmpty)
+import           Helpers.Empty          (Empty, isEmpty)
 
 data PhoneNumber = PhoneNumber T.Text
                  | UndefinedPhoneNumber
@@ -25,7 +27,7 @@ mkPhoneNumber t | T.length t == 10 && T.head t == '0' = PhoneNumber t
 
 instance PersistField PhoneNumber where
     toPersistValue (PhoneNumber t) = PersistText t
-    toPersistValue _ = PersistText ""
+    toPersistValue _               = PersistText ""
 
     fromPersistValue (PersistText t) = Right (mkPhoneNumber t)
     fromPersistValue _ = Left "PhoneNumber type works only with strings"
@@ -42,4 +44,4 @@ instance ToMarkup PhoneNumber where
 
 instance Empty PhoneNumber where
     isEmpty UndefinedPhoneNumber = True
-    isEmpty _ = False
+    isEmpty _                    = False

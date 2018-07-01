@@ -1,20 +1,22 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Data.Rup
     ( Rup
     , mkRup
     ) where
 
-import Database.Persist.Class (PersistField, toPersistValue, fromPersistValue)
-import Database.Persist.Sql
-    (PersistFieldSql, sqlType, PersistValue(PersistText), SqlType(SqlString))
-import Text.Blaze (ToMarkup, toMarkup, string)
-import qualified Data.Text as T
-import Text.Hamlet (shamlet)
+import qualified Data.Text              as T
+import           Database.Persist.Class (PersistField, fromPersistValue,
+                                         toPersistValue)
+import           Database.Persist.Sql   (PersistFieldSql,
+                                         PersistValue (PersistText),
+                                         SqlType (SqlString), sqlType)
+import           Text.Blaze             (ToMarkup, string, toMarkup)
+import           Text.Hamlet            (shamlet)
 
-import Helpers.Empty (Empty, isEmpty)
+import           Helpers.Empty          (Empty, isEmpty)
 
 newtype Rup = Rup T.Text
 
@@ -26,7 +28,7 @@ instance PersistField Rup where
     toPersistValue (Rup t) = PersistText t
 
     fromPersistValue (PersistText t) = Right (mkRup t)
-    fromPersistValue _ = Left "Rup type works only with strings"
+    fromPersistValue _               = Left "Rup type works only with strings"
 
 instance PersistFieldSql Rup where
     sqlType _ = SqlString

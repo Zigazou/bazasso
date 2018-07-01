@@ -1,21 +1,21 @@
-{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
-{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Widgets.SearchResults ( searchResults ) where
 
-import Import
-import Helpers.Clean (clean)
-import Helpers.Empty (isEmpty, isSet)
-import Helpers.DateFormat (jjmmaaaa)
+import           Helpers.Clean      (clean)
+import           Helpers.DateFormat (jjmmaaaa)
+import           Helpers.Empty      (isEmpty, isSet)
+import           Import
 
 searchResultsNew :: [Entity Rnawaldec] -> Widget
-searchResultsNew [] = [whamlet|<p>aucune association trouvée|]
+searchResultsNew []       = [whamlet|<p>aucune association trouvée|]
 searchResultsNew newassos = $(widgetFile "search-results-new")
 
 searchResultsOld :: [Entity Rnaimport] -> Widget
-searchResultsOld [] = [whamlet|<p>aucune association trouvée|]
+searchResultsOld []       = [whamlet|<p>aucune association trouvée|]
 searchResultsOld oldassos = $(widgetFile "search-results-old")
 
 searchResults :: [Entity Rnawaldec] -> [Entity Rnaimport] -> Widget

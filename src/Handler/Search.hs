@@ -1,21 +1,21 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Handler.Search
     ( getSearchR
     , postSearchR
     ) where
 
-import Import
-import Helpers.Like (match)
-import Helpers.GeneralTheme (themesFilterNew, themesFilterOld)
+import           Helpers.GeneralTheme  (themesFilterNew, themesFilterOld)
+import           Helpers.Like          (match)
+import           Import
 
-import Widgets.SearchForm (searchForm, SearchForm(..))
-import Widgets.SearchResults (searchResults)
+import           Widgets.SearchForm    (SearchForm (..), searchForm)
+import           Widgets.SearchResults (searchResults)
 
-import qualified Data.Text as T
+import qualified Data.Text             as T
 
 lookForNewAssociations :: DBparam SearchForm [Entity Rnawaldec]
 lookForNewAssociations (SearchForm title Nothing) = selectList
@@ -49,13 +49,13 @@ postSearchR = do
 
     newassos <- case formResult of
         FormSuccess search -> runDB $ lookForNewAssociations search
-        FormMissing -> return []
-        FormFailure _ -> return []
+        FormMissing        -> return []
+        FormFailure _      -> return []
 
     oldassos <- case formResult of
         FormSuccess search -> runDB $ lookForOldAssociations search
-        FormMissing -> return []
-        FormFailure _ -> return []
+        FormMissing        -> return []
+        FormFailure _      -> return []
 
     defaultLayout $ do
         setTitle "Résultats de la recherche"

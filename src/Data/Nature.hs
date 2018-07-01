@@ -1,17 +1,19 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Data.Nature ( Nature, mkNature ) where
 
-import Database.Persist.Class (PersistField, toPersistValue, fromPersistValue)
-import Database.Persist.Sql
-    (PersistFieldSql, sqlType, PersistValue(PersistText), SqlType(SqlString))
-import Text.Blaze (ToMarkup, toMarkup, string)
-import qualified Data.Text as T
-import Text.Hamlet (shamlet)
+import qualified Data.Text              as T
+import           Database.Persist.Class (PersistField, fromPersistValue,
+                                         toPersistValue)
+import           Database.Persist.Sql   (PersistFieldSql,
+                                         PersistValue (PersistText),
+                                         SqlType (SqlString), sqlType)
+import           Text.Blaze             (ToMarkup, string, toMarkup)
+import           Text.Hamlet            (shamlet)
 
-import Helpers.Empty (Empty, isEmpty)
+import           Helpers.Empty          (Empty, isEmpty)
 
 data Nature = Nature Char
             | UndefinedNature
@@ -23,7 +25,7 @@ mkNature t
 
 instance PersistField Nature where
     toPersistValue (Nature n) = PersistText (T.singleton n)
-    toPersistValue _ = PersistText ""
+    toPersistValue _          = PersistText ""
 
     fromPersistValue (PersistText t) = Right (mkNature t)
     fromPersistValue _ = Left "Nature type works only with strings"
@@ -33,8 +35,8 @@ instance PersistFieldSql Nature where
 
 instance ToMarkup Nature where
     toMarkup (Nature n) = string [n]
-    toMarkup _ = [shamlet|<span .text-muted>non renseignée|]
+    toMarkup _          = [shamlet|<span .text-muted>non renseignée|]
 
 instance Empty Nature where
     isEmpty UndefinedNature = True
-    isEmpty _ = False
+    isEmpty _               = False

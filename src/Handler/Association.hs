@@ -1,27 +1,27 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Handler.Association
     ( getOldAssociationR
     , getNewAssociationR
     ) where
 
-import Import
-import Helpers.Clean (clean)
-import Helpers.DateFormat (jjmmaaaa)
-import Helpers.Like (match)
-import Helpers.EntitiesToMaybe (entitiesToMaybe)
-import Helpers.Empty (isSet)
+import           Helpers.Clean           (clean)
+import           Helpers.DateFormat      (jjmmaaaa)
+import           Helpers.Empty           (isSet)
+import           Helpers.EntitiesToMaybe (entitiesToMaybe)
+import           Helpers.Like            (match)
+import           Import
 
-import Database.Persist.Class (toPersistValue)
-import Database.Persist.Sql (rawSql)
+import           Database.Persist.Class  (toPersistValue)
+import           Database.Persist.Sql    (rawSql)
 
-import Widgets.SireneInfo (sireneInfo)
+import           Widgets.SireneInfo      (sireneInfo)
 
-import qualified Data.Text as T
+import qualified Data.Text               as T
 
 getNewAssociation :: DBparam Text [Entity Rnawaldec]
 getNewAssociation txt = selectList [RnawaldecIdent `match` txt] [LimitTo 1]
@@ -82,11 +82,10 @@ typeAvisIdentifiedBy ident = do
     |]
 
 isWaldec ::Text -> Bool
-isWaldec txt
-    | T.null txt = False
-    | T.head txt /= 'W' = False
-    | T.length txt /= 10 = False
-    | otherwise = True
+isWaldec txt | T.null txt         = False
+             | T.head txt /= 'W'  = False
+             | T.length txt /= 10 = False
+             | otherwise          = True
 
 getNewAssociationR :: Text -> Handler Html
 getNewAssociationR waldec = do

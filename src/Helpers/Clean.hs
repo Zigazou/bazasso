@@ -1,14 +1,13 @@
-{-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Helpers.Clean (clean) where
 
-import Text.Blaze (ToMarkup, Markup)
-import Helpers.Empty (Empty, isEmpty)
-import Text.Hamlet (hamlet)
+import           Helpers.Empty (Empty, isEmpty)
+import           Text.Blaze    (Markup, ToMarkup)
+import           Text.Hamlet   (hamlet)
 
 clean :: (ToMarkup a, Empty t) => (t -> a) -> t -> p -> Markup
-clean after a = if isEmpty a
-                    then [hamlet|<span .text-muted>non renseigné|]
-                    else [hamlet|#{after a}|]
+clean after a = if isEmpty a then [hamlet|<span .text-muted>non renseigné|]
+                             else [hamlet|#{after a}|]

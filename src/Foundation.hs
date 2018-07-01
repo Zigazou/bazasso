@@ -1,27 +1,26 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE ExplicitForAll        #-}
+{-# LANGUAGE InstanceSigs          #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE ViewPatterns #-}
-{-# LANGUAGE ExplicitForAll #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE InstanceSigs #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE RankNTypes            #-}
+{-# LANGUAGE TemplateHaskell       #-}
+{-# LANGUAGE TypeFamilies          #-}
 
 module Foundation where
 
-import Import.NoFoundation
-import Database.Persist.Sql (ConnectionPool, runSqlPool)
-import Text.Hamlet          (hamletFile)
-import Text.Jasmine         (minifym)
-import Control.Monad.Logger (LogSource)
+import           Control.Monad.Logger (LogSource)
+import           Database.Persist.Sql (ConnectionPool, runSqlPool)
+import           Import.NoFoundation
+import           Text.Hamlet          (hamletFile)
+import           Text.Jasmine         (minifym)
 
-import Yesod.Default.Util   (addStaticContentExternal)
-import Yesod.Core.Types     (Logger)
-import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
-import qualified Data.Text.Encoding as TE
-import Data.Maybe           (fromMaybe)
+import           Data.Maybe           (fromMaybe)
+import qualified Data.Text.Encoding   as TE
+import           Yesod.Core.Types     (Logger)
+import qualified Yesod.Core.Unsafe    as Unsafe
+import           Yesod.Default.Util   (addStaticContentExternal)
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -36,8 +35,8 @@ data App = App
     }
 
 data MenuItem = MenuItem
-    { menuItemLabel :: Text
-    , menuItemRoute :: Route App
+    { menuItemLabel          :: Text
+    , menuItemRoute          :: Route App
     , menuItemAccessCallback :: Bool
     }
 
@@ -116,8 +115,11 @@ instance Yesod App where
         let navbarLeftMenuItems = [x | NavbarLeft x <- menuItems]
         let navbarRightMenuItems = [x | NavbarRight x <- menuItems]
 
-        let navbarLeftFilteredMenuItems = [x | x <- navbarLeftMenuItems, menuItemAccessCallback x]
-        let navbarRightFilteredMenuItems = [x | x <- navbarRightMenuItems, menuItemAccessCallback x]
+        let navbarLeftFilteredMenuItems =
+                [ x | x <- navbarLeftMenuItems , menuItemAccessCallback x ]
+
+        let navbarRightFilteredMenuItems =
+                [ x | x <- navbarRightMenuItems, menuItemAccessCallback x ]
 
         -- We break up the default layout into two components:
         -- default-layout is the contents of the body tag, and
@@ -169,14 +171,14 @@ instance Yesod App where
 -- Define breadcrumbs.
 instance YesodBreadcrumbs App where
     breadcrumb :: Route App -> Handler (Text, Maybe (Route App))
-    breadcrumb HomeR = return ("Home", Nothing)
-    breadcrumb (OldAssociationR _) = return ("Association", Just HomeR)
-    breadcrumb (NewAssociationR _) = return ("Association", Just HomeR)
-    breadcrumb SearchR = return ("Recherche", Just HomeR)
+    breadcrumb HomeR                 = return ("Home", Nothing)
+    breadcrumb (OldAssociationR _)   = return ("Association", Just HomeR)
+    breadcrumb (NewAssociationR _)   = return ("Association", Just HomeR)
+    breadcrumb SearchR               = return ("Recherche", Just HomeR)
     breadcrumb (DepartmentCitiesR _) = return ("Villes", Just HomeR)
-    breadcrumb DepartmentListR = return ("Départements", Just HomeR)
-    breadcrumb (CityActivityR _) = return ("Activités", Just HomeR)
-    breadcrumb  _ = return ("home", Nothing)
+    breadcrumb DepartmentListR       = return ("Départements", Just HomeR)
+    breadcrumb (CityActivityR _)     = return ("Activités", Just HomeR)
+    breadcrumb  _                    = return ("home", Nothing)
 
 -- How to run database actions.
 instance YesodPersist App where
@@ -198,7 +200,8 @@ instance RenderMessage App FormMessage where
 
 -- Useful when writing code that is re-usable outside of the Handler context.
 -- An example is background jobs that send email.
--- This can also be useful for writing code that works across multiple Yesod applications.
+-- This can also be useful for writing code that works across multiple Yesod
+-- applications.
 instance HasHttpManager App where
     getHttpManager :: App -> Manager
     getHttpManager = appHttpManager

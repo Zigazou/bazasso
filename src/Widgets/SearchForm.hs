@@ -1,16 +1,16 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE QuasiQuotes #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE QuasiQuotes           #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Widgets.SearchForm
     ( SearchForm(..)
     , searchForm
     ) where
 
-import Import
+import           Import
 
-import Helpers.GeneralTheme (gtOptionList)
+import           Helpers.GeneralTheme (gtOptionList)
 
 data SearchForm = SearchForm
     { searchString :: Text
@@ -39,20 +39,19 @@ searchForm extra = do
 
     where
         textSettings = FieldSettings
-            { fsLabel = "Rechercher dans les titres des associations"
+            { fsLabel   = "Rechercher dans les titres des associations"
             , fsTooltip = Nothing
-            , fsId = Just "search-asso"
-            , fsName = Just "search-asso"
-            , fsAttrs =
-                [ ("class", "form-control")
-                , ("placeholder", "Mots se trouvant dans le titre")
-                ]
+            , fsId      = Just "search-asso"
+            , fsName    = Just "search-asso"
+            , fsAttrs   = [ ("class", "form-control")
+                          , ("placeholder", "Mots se trouvant dans le titre")
+                          ]
             }
 
         selectSettings = FieldSettings
-            { fsLabel = "Sélectionner les thèmes"
+            { fsLabel   = "Sélectionner les thèmes"
             , fsTooltip = Nothing
-            , fsId = Just "search-themes"
-            , fsName = Just "search-themes"
-            , fsAttrs = [ ("class", "large-select")]
+            , fsId      = Just "search-themes"
+            , fsName    = Just "search-themes"
+            , fsAttrs   = [ ("class", "large-select")]
             }

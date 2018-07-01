@@ -1,10 +1,10 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Helpers.Empty (Empty(..)) where
 
-import Data.Text (Text)
-import Data.Time.Calendar (Day, toGregorian)
+import           Data.Text          (Text)
+import           Data.Time.Calendar (Day, toGregorian)
 
 class Empty a where
     isEmpty :: a -> Bool

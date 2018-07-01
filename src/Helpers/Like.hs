@@ -1,7 +1,7 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Helpers.Like
     ( like
     , startsLike
@@ -9,8 +9,8 @@ module Helpers.Like
     , match
     ) where
 
-import Import
 import qualified Data.Text as T
+import           Import
 
 like :: EntityField record Text -> Text -> Filter record
 like field val = Filter field

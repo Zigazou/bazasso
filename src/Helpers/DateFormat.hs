@@ -1,12 +1,12 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE TypeFamilies          #-}
 module Helpers.DateFormat
     ( jjmmaaaa
     ) where
 
-import Import
+import           Import
 
 jjmmaaaa :: Day -> String
 jjmmaaaa day = formatTime defaultTimeLocale "%d/%m/%Y" t
