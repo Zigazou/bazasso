@@ -5,6 +5,7 @@
 {-# LANGUAGE TemplateHaskell       #-}
 {-# LANGUAGE TypeFamilies          #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
+{-# LANGUAGE ViewPatterns          #-}
 module Application
     ( getApplicationDev
     , appMain
