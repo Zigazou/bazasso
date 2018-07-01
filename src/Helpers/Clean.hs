@@ -2,12 +2,30 @@
 {-# LANGUAGE NoImplicitPrelude     #-}
 {-# LANGUAGE QuasiQuotes           #-}
 {-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  Clean
+Description :
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Generates and handles a search form requiring a city and themes to be selected.
+-}
 module Helpers.Clean (clean) where
 
-import           Helpers.Empty (Empty, isEmpty)
-import           Text.Blaze    (Markup, ToMarkup)
-import           Text.Hamlet   (hamlet)
+import           Import.NoFoundation
 
-clean :: (ToMarkup a, Empty t) => (t -> a) -> t -> p -> Markup
-clean after a = if isEmpty a then [hamlet|<span .text-muted>non renseigné|]
-                             else [hamlet|#{after a}|]
+import           Helpers.Empty       (Empty, isEmpty)
+import           Text.Blaze          (ToMarkup)
+
+{- |
+    Creates a Widget displaying 'non renseigné' if the value to display is
+    empty, or a filtered value if the value is not empty.
+    If no filter is required, the `id` function can be given.
+-}
+clean :: (ToMarkup output, Empty input)
+      => (input -> output) -- ^ A function to apply to the value before display
+      -> input             -- ^ The value to display
+      -> WidgetFor site () -- ^ The widget
+clean after a = if isEmpty a then [whamlet|<span .text-muted>non renseigné|]
+                             else [whamlet|#{after a}|]

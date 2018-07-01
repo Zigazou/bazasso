@@ -2,6 +2,17 @@
 {-# LANGUAGE NoImplicitPrelude     #-}
 {-# LANGUAGE OverloadedStrings     #-}
 {-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  GeneralTheme
+Description :  General themes from the Journal Officiel
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Themes from the Journal Officiel consist of 6 digits. The first 3 digits
+indicate a general theme. This module allows to search themes based on the
+first 3 digits.
+-}
 module Helpers.GeneralTheme
     ( generateKeys
     , themesFilterNew
@@ -16,45 +27,57 @@ import           Import
 import           Data.List (foldl)
 import qualified Data.Text as T
 
-generateKeys :: T.Text -> Maybe (Key Jotheme, Key Jotheme)
+-- | Generates a pair of (starting, ending) keys which allows to search for
+--   specific themes pertaining to a general theme.
+generateKeys :: T.Text -- ^ The general theme (3 digits)
+             -> Maybe (Key Jotheme, Key Jotheme) -- ^ The resulting pair
 generateKeys theme = case eKeys of
                         Left _          -> Nothing
                         Right themeKeys -> Just themeKeys
     where
+        eKeys :: Either T.Text (Key Jotheme, Key Jotheme)
         eKeys = do
             fstKey <- keyFromValues [PersistText (T.concat [theme, "000"])]
             sndKey <- keyFromValues [PersistText (T.concat [theme, "999"])]
             return (fstKey, sndKey)
 
-themesFilterNew :: [T.Text] -> [Filter Rnawaldec]
-themesFilterNew themes = foldl addTheme [] themeKeys
-    where
-        themeKeys = catMaybes (generateKeys <$> themes)
-        addTheme [] (fstKey, sndKey) = [ RnawaldecObjetsocial1 >=. fstKey
-                                       , RnawaldecObjetsocial1 <=. sndKey
-                                       ]
-                                   ||. [ RnawaldecObjetsocial2 >=. fstKey
-                                       , RnawaldecObjetsocial2 <=. sndKey
-                                       ]
-        addTheme a b = a ||. addTheme [] b
+-- | Adds filters to an existing list of filters
+addTheme :: EntityField db (Key Jotheme) -- ^ First field
+         -> EntityField db (Key Jotheme) -- ^ Second field
+         -> [Filter db]                  -- ^ List of filters to populate
+         -> (Key Jotheme, Key Jotheme)   -- ^ Starting and ending keys
+         -> [Filter db]                  -- ^ Resulting list of filters
+addTheme fstField sndField [] (fstKey, sndKey) =
+        [ fstField >=. fstKey, fstField <=. sndKey ]
+    ||. [ sndField >=. fstKey, sndField <=. sndKey ]
+addTheme fstField sndField a b = a ||. addTheme fstField sndField [] b
 
-themesFilterOld :: [T.Text] -> [Filter Rnaimport]
-themesFilterOld themes = foldl addTheme [] themeKeys
-    where
-        themeKeys = catMaybes (generateKeys <$> themes)
-        addTheme [] (fstKey, sndKey) = [ RnaimportObjetsocial1 >=. fstKey
-                                       , RnaimportObjetsocial1 <=. sndKey
-                                       ]
-                                   ||. [ RnaimportObjetsocial2 >=. fstKey
-                                       , RnaimportObjetsocial2 <=. sndKey
-                                       ]
-        addTheme a b = a ||. addTheme [] b
+-- | Generates a list of `or` filters searching for themes in the new database.
+--   This list can then be used with the `selectList` function
+themesFilterNew :: [T.Text]           -- ^ List of general themes
+                -> [Filter Rnawaldec] -- ^ Resulting list of filters
+themesFilterNew themes =
+    foldl (addTheme RnawaldecObjetsocial1 RnawaldecObjetsocial2)
+          []
+          (catMaybes (generateKeys <$> themes))
 
+-- | Generates a list of `or` filters searching for themes in the old database.
+--   This list can then be used with the `selectList` function
+themesFilterOld :: [T.Text]           -- ^ List of general themes
+                -> [Filter Rnaimport] -- ^ Resulting list of filters
+themesFilterOld themes =
+    foldl (addTheme RnaimportObjetsocial1 RnaimportObjetsocial2)
+          []
+          (catMaybes (generateKeys <$> themes))
+
+-- | A general theme is composed of the first 3 digits and a name describing
+--   the general theme.
 data GeneralTheme = GeneralTheme
-    { gtStart :: Text
-    , gtName  :: Text
+    { gtStart :: Text -- ^ The first 3 digits of the theme
+    , gtName  :: Text -- ^ The name of the general theme
     }
 
+-- | List of a known general themes.
 generalThemes :: [GeneralTheme]
 generalThemes =
     [ GeneralTheme "001" "activités politiques"
@@ -94,6 +117,8 @@ generalThemes =
                          \reclasser"
     ]
 
+-- | Helper function giving the list of general themes in a form suitable for
+--   use with a SelectField.
 gtOptionList :: [(Text, Text)]
 gtOptionList = toOption <$> generalThemes
     where toOption (GeneralTheme a b) = (b, a)
