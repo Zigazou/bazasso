@@ -1,8 +1,3 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE NoImplicitPrelude     #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE TemplateHaskell       #-}
-{-# LANGUAGE TypeFamilies          #-}
 {- |
 Module      :  Common
 Description :  Handles static requests
@@ -19,9 +14,10 @@ import           Import
 
 -- | Return the favicon file
 getFaviconR :: Handler TypedContent
-getFaviconR = do cacheSeconds $ 60 * 60 * 24 * 30 -- cache for a month
-                 return $ TypedContent "image/x-icon"
-                        $ toContent $(embedFile "config/favicon.ico")
+getFaviconR = do
+    cacheSeconds $ 60 * 60 * 24 * 30 -- cache for a month
+    return $ TypedContent "image/x-icon"
+           $ toContent $(embedFile "config/favicon.ico")
 
 -- | Return the robots.txt file
 getRobotsR :: Handler TypedContent

@@ -1,12 +1,18 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  WebSite
+Description :  Web site field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Web site field type
+-}
 module Data.WebSite
     ( WebSite
     , mkWebSite
     ) where
 
+import           ClassyPrelude.Yesod
 import qualified Data.Text              as T
 import           Database.Persist.Class (PersistField, fromPersistValue,
                                          toPersistValue)

@@ -1,6 +1,3 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE TypeFamilies          #-}
 {- |
 Module      :  Empty
 Description :  Class to handle empty content without the use of Maybe
@@ -13,6 +10,7 @@ content from a database where nullable values were not correctly handled.
 -}
 module Helpers.Empty ( Empty(..) ) where
 
+import           ClassyPrelude.Yesod
 import           Data.Text          (Text)
 import           Data.Time.Calendar (Day, toGregorian)
 

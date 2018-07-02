@@ -1,9 +1,15 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  Nature
+Description :  Nature field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Nature field type
+-}
 module Data.Nature ( Nature, mkNature ) where
 
+import           ClassyPrelude.Yesod
 import qualified Data.Text              as T
 import           Database.Persist.Class (PersistField, fromPersistValue,
                                          toPersistValue)

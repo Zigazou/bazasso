@@ -1,12 +1,18 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  PhoneNumber
+Description :  Phone number field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Phone number field type
+-}
 module Data.PhoneNumber
     ( PhoneNumber
     , mkPhoneNumber
     ) where
 
+import           ClassyPrelude.Yesod
 import qualified Data.Text              as T
 import           Database.Persist.Class (PersistField, fromPersistValue,
                                          toPersistValue)

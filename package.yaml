@@ -48,6 +48,24 @@ dependencies:
 - blaze-markup >=0.8
 - email-validate >=2.3
 
+default-extensions:
+  - MultiParamTypeClasses
+  - OverloadedStrings
+  - QuasiQuotes
+  - TypeFamilies
+  - NoImplicitPrelude
+  - TemplateHaskell
+  - RecordWildCards
+  - ViewPatterns
+  - ExplicitForAll
+  - InstanceSigs
+  - RankNTypes
+  - DeriveGeneric
+  - EmptyDataDecls
+  - FlexibleInstances
+  - GADTs
+  - GeneralizedNewtypeDeriving
+
 # The library contains all of our application code. The executable
 # defined below is just a thin wrapper.
 library:
@@ -65,6 +83,9 @@ library:
       - -Wall
       - -fwarn-tabs
       - -O2
+      - -funfolding-use-threshold=16
+      - -fexcess-precision
+      - -optc-O3
 
 # Runnable executable for our application
 executables:

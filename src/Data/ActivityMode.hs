@@ -1,9 +1,15 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  ActivityMode
+Description :  Activity mode field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Activity mode field type
+-}
 module Data.ActivityMode ( ActivityMode(..) ) where
 
+import           ClassyPrelude.Yesod
 import           Database.Persist.Class (PersistField, fromPersistValue,
                                          toPersistValue)
 import           Database.Persist.Sql   (PersistFieldSql,

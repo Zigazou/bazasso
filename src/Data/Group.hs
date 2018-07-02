@@ -1,9 +1,15 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  Group
+Description :  Groupe field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Group field type
+-}
 module Data.Group ( Group(..) ) where
 
+import           ClassyPrelude.Yesod
 import           Database.Persist.Class (PersistField, fromPersistValue,
                                          toPersistValue)
 import           Database.Persist.Sql   (PersistFieldSql,
@@ -28,7 +34,7 @@ instance PersistField Group where
     fromPersistValue (PersistText "S") = Right GroupSimple
     fromPersistValue (PersistText "U") = Right GroupUnion
     fromPersistValue (PersistText "F") = Right GroupFederation
-    fromPersistValue (PersistText _) = Right UndefinedGroup
+    fromPersistValue (PersistText _)   = Right UndefinedGroup
     fromPersistValue _ = Left "Group type works only with strings"
 
 instance PersistFieldSql Group where

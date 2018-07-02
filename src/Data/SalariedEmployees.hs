@@ -1,13 +1,18 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  SalariedEmployees
+Description :  Salaried employees field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Salaried employees field type
+-}
 module Data.SalariedEmployees
     ( SalariedEmployees(..)
     , mkSalariedEmployees
     ) where
 
-import           Data.List              (find)
+import           ClassyPrelude.Yesod
 import           Data.Maybe             (fromMaybe)
 import qualified Data.Text              as T
 import           Database.Persist.Class (PersistField, fromPersistValue,
@@ -47,9 +52,8 @@ getTitle :: T.Text -> T.Text
 getTitle se = snd $ fromMaybe ("", "") $ find ((se ==) . fst) validCodes
 
 mkSalariedEmployees :: T.Text -> SalariedEmployees
-mkSalariedEmployees t
-    | T.null (getTitle t) = UndefinedSalariedEmployees
-    | otherwise = SalariedEmployees t
+mkSalariedEmployees t = if T.null (getTitle t) then UndefinedSalariedEmployees
+                                               else SalariedEmployees t
 
 instance PersistField SalariedEmployees where
     toPersistValue (SalariedEmployees se) = PersistText se

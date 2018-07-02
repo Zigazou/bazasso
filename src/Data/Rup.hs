@@ -1,12 +1,18 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  Rup
+Description :  Reconnue d'Uilité Publique field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Reconnue d'Uilité Publique field type
+-}
 module Data.Rup
     ( Rup
     , mkRup
     ) where
 
+import           ClassyPrelude.Yesod
 import qualified Data.Text              as T
 import           Database.Persist.Class (PersistField, fromPersistValue,
                                          toPersistValue)
@@ -36,7 +42,7 @@ instance PersistFieldSql Rup where
 instance ToMarkup Rup where
     toMarkup (Rup t)
         | T.length t == 0 = [shamlet|<span .text-muted>non renseigné|]
-        | otherwise = string . T.unpack $ t
+        | otherwise       = string . T.unpack $ t
 
 instance Empty Rup where
-    isEmpty (Rup t) = T.length t == 0
+    isEmpty (Rup t) = T.null t

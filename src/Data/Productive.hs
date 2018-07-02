@@ -1,9 +1,15 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  Productive
+Description :  Productive field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Productive field type
+-}
 module Data.Productive ( Productive(..) ) where
 
+import           ClassyPrelude.Yesod
 import           Database.Persist.Class (PersistField, fromPersistValue,
                                          toPersistValue)
 import           Database.Persist.Sql   (PersistFieldSql,

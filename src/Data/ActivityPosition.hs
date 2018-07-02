@@ -1,9 +1,15 @@
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE QuasiQuotes           #-}
-{-# LANGUAGE TypeFamilies          #-}
+{- |
+Module      :  ActivityPosition
+Description :  Activity position field type
+Copyright   :  (c) Frédéric BISSON
+License     :  GPL-2
+Maintainer  :  zigazou@free.fr
+
+Activity position field type
+-}
 module Data.ActivityPosition ( ActivityPosition(..) ) where
 
+import           ClassyPrelude.Yesod
 import           Database.Persist.Class (PersistField, fromPersistValue,
                                          toPersistValue)
 import           Database.Persist.Sql   (PersistFieldSql,
@@ -35,10 +41,10 @@ instance PersistFieldSql ActivityPosition where
     sqlType _ = SqlString
 
 instance ToMarkup ActivityPosition where
-    toMarkup ActiveAssociation = string "active"
+    toMarkup ActiveAssociation    = string "active"
     toMarkup DissolvedAssociation = string "dissoute"
-    toMarkup DeletedAssociation = string "supprimée"
-    toMarkup _ = [shamlet|<span .text-muted>non renseignée|]
+    toMarkup DeletedAssociation   = string "supprimée"
+    toMarkup _                    = [shamlet|<span .text-muted>non renseignée|]
 
 instance Empty ActivityPosition where
     isEmpty UndefinedActivity = True
