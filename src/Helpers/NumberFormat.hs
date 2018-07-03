@@ -19,7 +19,9 @@ nbDigits = (1 +) . floor . logBase 10 . (fromIntegral :: Int -> Double)
 -- | Formats an integer so that it is easier to read. It adds a thin space to
 --   materialize thousands, millions, billions...
 humanNumber :: Int  -> String
-humanNumber number = insertSpace (nbDigits number `mod` 3) (show number)
+humanNumber number = case show number of
+    '-':digits -> '-' : insertSpace (nbDigits (abs number) `mod` 3) digits
+    digits     -> insertSpace (nbDigits number `mod` 3) digits
     where
         -- | Warning: the spaces are not common spaces but thin spaces!
         insertSpace :: Int -> String -> String

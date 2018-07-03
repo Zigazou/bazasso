@@ -111,6 +111,7 @@ tests:
     dependencies:
     - associations
     - hspec >=2.0.0
+    - QuickCheck >=2.0.0
     - yesod-test
     - microlens
 

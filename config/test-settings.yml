@@ -6,4 +6,4 @@ database:
   # something like:
   #
   #   database: "_env:SQLITE_DATABASE:associations_test.sqlite3"
-  database: associations_test.sqlite3
+  database: associations.db
