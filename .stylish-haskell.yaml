@@ -1,5 +1,5 @@
-# stylish-haskell configuration file
-# ==================================
+# stylish-haskell configuration file for Bazasso
+# ==============================================
 
 # The stylish-haskell tool is mainly configured by specifying steps. These steps
 # are a list, so they have an order, and one specific step may appear more than
@@ -187,7 +187,7 @@ steps:
 
       # stylish-haskell can detect redundancy of some language pragmas. If this
       # is set to true, it will remove those redundant pragmas. Default: true.
-      remove_redundant: false
+      remove_redundant: true
 
   # Replace tabs by spaces. This is disabled by default.
   # - tabs:
@@ -224,6 +224,20 @@ newline: native
 # needs to be aware of these, so it can parse the file correctly.
 #
 # No language extensions are enabled by default.
-# language_extensions:
-  # - TemplateHaskell
-  # - QuasiQuotes
+language_extensions:
+  - MultiParamTypeClasses
+  - OverloadedStrings
+  - QuasiQuotes
+  - TypeFamilies
+  - NoImplicitPrelude
+  - TemplateHaskell
+  - RecordWildCards
+  - ViewPatterns
+  - ExplicitForAll
+  - InstanceSigs
+  - RankNTypes
+  - DeriveGeneric
+  - EmptyDataDecls
+  - FlexibleInstances
+  - GADTs
+  - GeneralizedNewtypeDeriving
