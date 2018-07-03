@@ -123,13 +123,19 @@ warpSettings foundation =
             (toLogStr $ "Exception from Warp: " ++ show e))
       defaultSettings
 
--- | For yesod devel, return the Warp settings and WAI Application.
-getApplicationDev :: IO (Settings, Application)
-getApplicationDev = do
+-- | Code factoring for getApplicationDev and getApplicationRepl
+getSettingsAndApp :: IO (Settings, App, Application)
+getSettingsAndApp = do
     settings   <- getAppSettings
     foundation <- makeFoundation settings
     wsettings  <- getDevSettings $ warpSettings foundation
     app        <- makeApplication foundation
+    return (wsettings, foundation, app)
+
+-- | For yesod devel, return the Warp settings and WAI Application.
+getApplicationDev :: IO (Settings, Application)
+getApplicationDev = do
+    (wsettings, _, app) <- getSettingsAndApp
     return (wsettings, app)
 
 getAppSettings :: IO AppSettings
@@ -164,11 +170,8 @@ appMain = do
 --------------------------------------------------------------
 getApplicationRepl :: IO (Int, App, Application)
 getApplicationRepl = do
-    settings   <- getAppSettings
-    foundation <- makeFoundation settings
-    wsettings  <- getDevSettings $ warpSettings foundation
-    app1       <- makeApplication foundation
-    return (getPort wsettings, foundation, app1)
+    (wsettings, foundation, app) <- getSettingsAndApp
+    return (getPort wsettings, foundation, app)
 
 shutdownApp :: App -> IO ()
 shutdownApp _ = return ()
