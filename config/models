@@ -75,6 +75,7 @@ Region
     Id Int
     libelle Text
     cheflieu Text sql=chef_lieu
+    deriving Eq Show
 
 Departement
     Id Text
