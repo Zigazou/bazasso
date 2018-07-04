@@ -6,22 +6,23 @@
 
 # Control which extensions/flags/modules/functions can be used
 - extensions:
-  - MultiParamTypeClasses
-  - OverloadedStrings
-  - QuasiQuotes
-  - TypeFamilies
-  - NoImplicitPrelude
-  - TemplateHaskell
-  - RecordWildCards
-  - ViewPatterns
-  - ExplicitForAll
-  - InstanceSigs
-  - RankNTypes
-  - DeriveGeneric
-  - EmptyDataDecls
-  - FlexibleInstances
-  - GADTs
-  - GeneralizedNewtypeDeriving
+  - name:
+      - MultiParamTypeClasses
+      - OverloadedStrings
+      - QuasiQuotes
+      - TypeFamilies
+      - NoImplicitPrelude
+      - TemplateHaskell
+      - RecordWildCards
+      - ViewPatterns
+      - ExplicitForAll
+      - InstanceSigs
+      - RankNTypes
+      - DeriveGeneric
+      - EmptyDataDecls
+      - FlexibleInstances
+      - GADTs
+      - GeneralizedNewtypeDeriving
 
 # - flags:
 #   - {name: -w, within: []} # -w is allowed nowhere

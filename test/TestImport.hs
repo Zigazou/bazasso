@@ -1,32 +1,21 @@
-{-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE QuasiQuotes       #-}
 module TestImport
     ( module TestImport
     , module X
     ) where
 
-import           Application             (makeFoundation, makeLogWare)
-import           ClassyPrelude           as X hiding (Handler, delete, deleteBy)
-import           Database.Persist        as X hiding (get)
-import           Database.Persist.Sql    (SqlPersistM, connEscapeName,
-                                          rawExecute, rawSql,
-                                          runSqlPersistMPool, unSingle)
-import           Foundation              as X
-import           Model                   as X
-import           Test.Hspec              as X
-import           Test.QuickCheck         as X
-import           Yesod.Auth              as X
-import           Yesod.Core.Unsafe       (fakeHandlerGetLogger)
-import           Yesod.Default.Config2   (loadYamlSettings, useEnv)
-import           Yesod.Test              as X
-
-import           Control.Monad.Logger    (runLoggingT)
-import           Database.Persist.Sqlite (createSqlitePoolFromInfo, fkEnabled,
-                                          mkSqliteConnectionInfo, sqlDatabase)
-import           Lens.Micro              (set)
-import           Settings                (appDatabaseConf)
-import           Yesod.Core              (messageLoggerSource)
+import           Application           (makeFoundation, makeLogWare)
+import           ClassyPrelude         as X hiding (Handler, delete, deleteBy)
+import           Database.Persist      as X hiding (get)
+import           Database.Persist.Sql  (SqlPersistM, rawSql, runSqlPersistMPool,
+                                        unSingle)
+import           Foundation            as X
+import           Model                 as X
+import           Test.Hspec            as X
+import           Test.QuickCheck       as X
+import           Yesod.Auth            as X
+import           Yesod.Core.Unsafe     (fakeHandlerGetLogger)
+import           Yesod.Default.Config2 (loadYamlSettings, useEnv)
+import           Yesod.Test            as X
 
 runDB :: SqlPersistM a -> YesodExample App a
 runDB query = do

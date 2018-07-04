@@ -1,6 +1,6 @@
 module Handler.CommonSpec (spec) where
 
-import TestImport
+import           TestImport
 
 spec :: Spec
 spec = withApp $ do
@@ -11,7 +11,8 @@ spec = withApp $ do
         it "has correct User-agent" $ do
             get RobotsR
             bodyContains "User-agent: *"
-    describe "favicon.ico" $ do
+
+    describe "favicon.ico" $
         it "gives a 200" $ do
             get FaviconR
             statusIs 200
