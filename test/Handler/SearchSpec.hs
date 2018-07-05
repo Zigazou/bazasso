@@ -8,7 +8,7 @@ spec = withApp $
         it "loads the search page and checks it looks right" $ do
             get SearchR
             statusIs 200
-            htmlAnyContain "h1" "Résultats de la recherche"
+            htmlAnyContain "h1" "Rechercher par mots-clés"
             htmlNoneContain "h1" "Base Waldec"
 
         it "processes a good search request on EXPOTEC" $ do

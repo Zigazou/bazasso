@@ -49,7 +49,8 @@ getSearchR = do
     let (newassos, oldassos) = ([], [])
 
     defaultLayout $ do
-        setTitle "Rechercher par mots-clés"
+        let title = "Rechercher par mots-clés"
+        setTitle title
         $(widgetFile "search")
 
 -- | Handles POST requests of the search page
@@ -66,5 +67,6 @@ postSearchR = do
         _                  -> return []
 
     defaultLayout $ do
-        setTitle "Résultats de la recherche"
+        let title = "Résultats de la recherche"
+        setTitle title
         $(widgetFile "search")
