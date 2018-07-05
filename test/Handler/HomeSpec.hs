@@ -6,10 +6,19 @@ import           Network.Wai.Test           (simpleBody)
 import           TestImport
 import           Yesod.Test.TransversingCSS (findAttributeBySelector)
 
+isRelative :: Text -> Bool
+isRelative url
+    | T.take 7 url == "http://"  = False
+    | T.take 8 url == "https://" = False
+    | T.take 7 url == "mailto:"  = False
+    | T.take 4 url == "tel:"     = False
+    | otherwise                  = True
+
 getAllLinks :: YesodExample site [Text]
 getAllLinks = withResponse $ \res -> do
-    let links = fromRight [] findAttributeBySelector (simpleBody res) "a" "href"
-    return $ T.concat <$> links
+    let currentHtml = simpleBody res
+        links = fromRight [] $ findAttributeBySelector currentHtml "a" "href"
+    return $ filter isRelative $ T.concat <$> links
 
 spec :: Spec
 spec = withApp $
