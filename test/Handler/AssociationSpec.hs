@@ -9,7 +9,7 @@ spec = withApp $ do
         it "gives a 200" $ do
             get (NewAssociationR "W763007801")
             statusIs 200
-            htmlAnyContain "h1" "EXPOTEC 103"
+            htmlAnyContain "h1" "EXPOTEC"
 
     describe "Compagnie provisoire" $
         it "gives a 200" $ do
