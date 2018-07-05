@@ -50,6 +50,7 @@ getSearchR = do
 
     defaultLayout $ do
         let title = "Rechercher par mots-clés"
+            method = GET
         setTitle title
         $(widgetFile "search")
 
@@ -68,5 +69,6 @@ postSearchR = do
 
     defaultLayout $ do
         let title = "Résultats de la recherche"
+            method = POST
         setTitle title
         $(widgetFile "search")

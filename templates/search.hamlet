@@ -11,3 +11,6 @@
 
 $if not (null newassos) || not (null oldassos)
     ^{searchResults newassos oldassos}
+$else 
+    $if method == POST
+        <p>Aucune association ne correspond aux critères donnés.
