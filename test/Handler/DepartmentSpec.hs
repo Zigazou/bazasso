@@ -4,16 +4,22 @@ import           TestImport
 
 spec :: Spec
 spec = withApp $ do
-    describe "Cities of a Seine-Maritime" $
+    describe "Cities of a Seine-Maritime" $ do
+        let (Right seinemaritimeId) = keyFromValues [PersistInt64 76]
         it "gives a 200" $ do
-            let (Right seinemaritimeId) = keyFromValues [PersistInt64 76]
             get (DepartmentCitiesR seinemaritimeId)
             statusIs 200
             htmlAnyContain "li a" "Rouen"
             htmlNoneContain "li a" "Strasbourg"
 
-    describe "List of french departments" $
+        it "contains no dead link" $
+            testAllLinks (DepartmentCitiesR seinemaritimeId)
+
+    describe "List of french departments" $ do
         it "gives a 200" $ do
             get DepartmentListR
             statusIs 200
             htmlAnyContain "li a" "Seine-Maritime"
+
+        it "contains no dead link" $
+            testAllLinks DepartmentListR
