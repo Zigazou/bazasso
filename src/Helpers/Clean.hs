@@ -15,13 +15,13 @@ import           Helpers.Empty       (Empty, isEmpty)
 import           Text.Blaze          (ToMarkup)
 
 {- |
-    Creates a Widget displaying 'non renseigné' if the value to display is
+    Creates a renderer displaying 'non renseigné' if the value to display is
     empty, or a filtered value if the value is not empty.
     If no filter is required, the `id` function can be given.
 -}
 clean :: (ToMarkup output, Empty input)
       => (input -> output) -- ^ A function to apply to the value before display
       -> input             -- ^ The value to display
-      -> WidgetFor site () -- ^ The widget
-clean after a = if isEmpty a then [whamlet|<span .text-muted>non renseigné|]
-                             else [whamlet|#{after a}|]
+      -> Html              -- ^ The Html
+clean after a = if isEmpty a then [shamlet|<span .text-muted>non renseigné|]
+                             else [shamlet|#{after a}|]

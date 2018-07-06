@@ -62,19 +62,19 @@ $maybe association <- mAssociation
                 <h2>Dates
                 <p>
                     <strong>Création&nbsp;:
-                    ^{clean jjmmaaaa (rnawaldecCreation association)}
+                    #{clean jjmmaaaa (rnawaldecCreation association)}
                 <p>
                     <strong>Publication&nbsp;:
-                    ^{clean jjmmaaaa (rnawaldecPublication association)}
+                    #{clean jjmmaaaa (rnawaldecPublication association)}
                 <p>
                     <strong>Déclaration&nbsp;:
-                    ^{clean jjmmaaaa (rnawaldecDeclaration association)}
+                    #{clean jjmmaaaa (rnawaldecDeclaration association)}
                 <p>
                     <strong>Dissolution&nbsp;:
-                    ^{clean jjmmaaaa (rnawaldecDissolution association)}
+                    #{clean jjmmaaaa (rnawaldecDissolution association)}
                 <p>
                     <strong>MÀJ&nbsp;:
-                    ^{clean jjmmaaaa (rnawaldecMajtime association)}
+                    #{clean jjmmaaaa (rnawaldecMajtime association)}
 
             <div .col-md-6>
                 <h2>Contact
@@ -83,10 +83,10 @@ $maybe association <- mAssociation
                     #{rnawaldecTelephone association}
                 <div>
                     <strong>Site web&nbsp;:
-                    ^{clean id (rnawaldecSiteweb association)}
+                    #{clean id (rnawaldecSiteweb association)}
                 <div>
                     <strong>Courriel&nbsp;:
-                    ^{clean id (rnawaldecEmail association)}
+                    #{clean id (rnawaldecEmail association)}
 
         <div .row>
             <div .col-md-6>
@@ -110,7 +110,7 @@ $maybe association <- mAssociation
                 <div .panel.panel-default>
                     <div .panel-heading>
                         #{joannonceNumparution annonce}-#{joannonceNumannonce annonce}
-                        ^{clean jjmmaaaa (joannonceParution annonce)}
+                        #{clean jjmmaaaa (joannonceParution annonce)}
                         −
                         ^{typeAvisIdentifiedBy (joannonceIdtype annonce)}
                     <div .panel-body>

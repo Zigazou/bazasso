@@ -46,6 +46,7 @@ dependencies:
 - wai
 - foreign-store
 - blaze-markup >=0.8
+- blaze-html >=0.9
 - email-validate >=2.3
 
 default-extensions:
