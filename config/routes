@@ -1,17 +1,33 @@
 -- By default this file is used by `parseRoutesFile` in Foundation.hs
 -- Syntax for this file here: https://www.yesodweb.com/book/routing-and-handlers
 
+-- Static directory
 /static StaticR Static appStatic
 
-/favicon.ico FaviconR GET
-/robots.txt RobotsR GET
-
+-- Home page
 / HomeR GET
 
+-- Association pages and search
 /association/waldec/#Text NewAssociationR GET
 /association/legacy/#Text OldAssociationR GET
 /search SearchR GET POST
 
+-- Searching by department, cities and activities
 /department/#DepartementId DepartmentCitiesR GET
 /department DepartmentListR GET
 /city/#Text CityActivityR GET POST
+
+-- favicons for browser, Android, iPhone, Microsoft etc.
+/site.webmanifest SiteWebManifestR GET
+/browserconfig.xml BrowserConfigXmlR GET
+/favicon.ico FaviconIcoR GET
+/favicon-32x32.png Favicon32x32R GET
+/favicon-16x16.png Favicon16x16R GET
+/android-chrome-192x192.png AndroidChrome192x192R GET
+/android-chrome-512x512.png AndroidChrome512x512R GET
+/apple-touch-icon.png AppleTouchIconR GET
+/safari-pinned-tab.svg SafariPinnedTabR GET
+/mstile-150x150.png MSTile150x150R GET
+
+-- robots.txt file
+/robots.txt RobotsR GET

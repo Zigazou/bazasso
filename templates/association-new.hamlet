@@ -6,13 +6,17 @@
                 <h2>#{rnawaldecTitre association}
             <p>
                 <div>
-                    Activité principale 1&nbsp;:
+                    <strong>RNA&nbsp;:
+                    #{rnawaldecIdent association}
+                <div>
+                    <strong>Activité principale 1&nbsp;:
                     ^{themeIdentifiedBy (rnawaldecObjetsocial1 association)}
                 <div>
-                    Activité principale 2&nbsp;:
+                    <strong>Activité principale 2&nbsp;:
                     ^{themeIdentifiedBy (rnawaldecObjetsocial2 association)}
                 <div>
-                    SIRET&nbsp;: #{rnawaldecSiret association}
+                    <strong>SIRET&nbsp;:
+                    #{rnawaldecSiret association}
         $nothing
             <h1>Association introuvable
 

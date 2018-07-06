@@ -79,3 +79,7 @@ testAllLinks startPage = do
         statusIs 200
         get oneLink
         statusIs 200
+
+-- | Make the test fail
+assertFailure :: String -> YesodExample site ()
+assertFailure msg = assertEq msg True False

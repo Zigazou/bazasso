@@ -4,13 +4,16 @@
             <h1 .header>#{rnaimportTitre association}
             <p>
                 <div>
-                    Activité principale 1&nbsp;:
+                    <strong>RNA&nbsp;:
+                    #{rnaimportIdent association}
+                <div>
+                    <strong>Activité principale 1&nbsp;:
                     ^{themeIdentifiedBy (rnaimportObjetsocial1 association)}
                 <div>
-                    Activité principale 2&nbsp;:
+                    <strong>Activité principale 2&nbsp;:
                     ^{themeIdentifiedBy (rnaimportObjetsocial2 association)}
                 <div>
-                    SIRET&nbsp;:
+                    <strong>SIRET&nbsp;:
                     #{rnaimportSiret association}
         $nothing
             <h1>Association introuvable

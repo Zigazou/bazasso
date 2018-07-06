@@ -1,5 +1,6 @@
 module Handler.SearchSpec (spec) where
 
+import qualified Data.Text  as T
 import           TestImport
 
 spec :: Spec
@@ -24,8 +25,14 @@ spec = withApp $
                 setMethod "POST"
                 setUrl SearchR
 
-            statusIs 200
-            htmlAnyContain "a" "EXPOTEC 103"
+            statusIs 303
+            redirection <- followRedirect
+            case redirection of
+                Left msg -> assertFailure (T.unpack msg)
+                Right url -> do
+                    get url
+                    statusIs 200
+                    htmlAnyContain "h2" "EXPOTEC 103"
 
         it "processes a bad search request on EXPOTEC" $ do
             get SearchR

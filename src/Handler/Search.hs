@@ -20,6 +20,7 @@ import           Widgets.SearchForm    (SearchForm (..), searchForm)
 import           Widgets.SearchResults (searchResults)
 
 import qualified Data.Text             as T
+import           Helpers.KeyToText     (keyToText)
 
 -- | Query to retrieve associations in the new database according to the
 --   values entered in the search form
@@ -59,16 +60,27 @@ postSearchR :: Handler Html
 postSearchR = do
     ((formResult, formWidget), formEnctype) <- runFormPost searchForm
 
+    -- Look for association in the current database
     newassos <- case formResult of
         FormSuccess search -> runDB $ lookForNewAssociations search
         _                  -> return []
 
+    -- Look for association in the legacy database
     oldassos <- case formResult of
         FormSuccess search -> runDB $ lookForOldAssociations search
         _                  -> return []
 
-    defaultLayout $ do
-        let title = "Résultats de la recherche"
-            method = POST
-        setTitle title
-        $(widgetFile "search")
+    -- If there's only one result, redirect the user directly to the
+    -- corresponding page.
+    case (newassos, oldassos) of
+        ([Entity newassoId _], []) ->
+            redirect . NewAssociationR . keyToText $ newassoId
+
+        ([], [Entity oldassoId _]) ->
+            redirect . OldAssociationR . keyToText $ oldassoId
+
+        _ -> defaultLayout $ do
+            let title = "Résultats de la recherche"
+                method = POST
+            setTitle title
+            $(widgetFile "search")
