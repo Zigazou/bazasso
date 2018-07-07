@@ -7,9 +7,12 @@
 -- Home page
 / HomeR GET
 
--- Association pages and search
+-- Association pages
 /association/waldec/#Text NewAssociationR GET
 /association/legacy/#Text OldAssociationR GET
+/association ByRnaR GET POST
+
+-- Search page
 /search SearchR GET POST
 
 -- Searching by department, cities and activities

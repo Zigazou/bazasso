@@ -10,6 +10,8 @@ Handles association page requests.
 module Handler.Association
     ( getOldAssociationR
     , getNewAssociationR
+    , getByRnaR
+    , postByRnaR
     ) where
 
 import           Helpers.Clean           (clean)
@@ -22,6 +24,7 @@ import           Import
 import           Database.Persist.Class  (toPersistValue)
 import           Database.Persist.Sql    (rawSql)
 
+import           Widgets.RnaForm         (RnaForm (..), rnaForm)
 import           Widgets.SireneInfo      (sireneInfo)
 
 import qualified Data.Text               as T
@@ -120,3 +123,46 @@ getOldAssociationR ident = do
     defaultLayout $ do
         setTitle "Fiche association"
         $(widgetFile "association-old")
+
+-- | Handles GET requests of the RNA page
+getByRnaR :: Handler Html
+getByRnaR = do
+    (formWidget, formEnctype) <- generateFormPost rnaForm
+
+    defaultLayout $ do
+        let title = "Rechercher par numéro RNA"
+            method = GET
+        setTitle title
+        $(widgetFile "rna")
+
+-- | Handles POST requests of the RNA page
+postByRnaR :: Handler Html
+postByRnaR = do
+    ((formResult, formWidget), formEnctype) <- runFormPost rnaForm
+
+    -- Look for association in the current database
+    newassos <- case formResult of
+        FormSuccess (RnaForm rna) ->
+            runDB $ entitiesToMaybe <$> getNewAssociation rna
+        _ -> return Nothing
+
+    -- Look for association in the legacy database
+    oldassos <- case formResult of
+        FormSuccess (RnaForm rna) ->
+            runDB $ entitiesToMaybe <$> getOldAssociation rna
+        _ -> return Nothing
+
+    -- If there's only one result, redirect the user directly to the
+    -- corresponding page.
+    case (newassos, oldassos) of
+        (Just association, _) ->
+            redirect . NewAssociationR . rnawaldecIdent $ association
+
+        (_, Just association) ->
+            redirect . OldAssociationR . rnaimportIdent $ association
+
+        _ -> defaultLayout $ do
+            let title = "Rechercher par numéro RNA"
+                method = POST
+            setTitle title
+            $(widgetFile "rna")

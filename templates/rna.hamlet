@@ -1,0 +1,13 @@
+<div .container.space-after>
+    <div .row>
+        <div .col-lg-12>
+            <h1 .header>#{title}
+
+<div .container.space-after>
+    <div .row>
+        <div .col-lg-12.minus-button>
+            <form .form-horizontal method=post action=@{ByRnaR} enctype=#{formEnctype}>
+                ^{formWidget}
+
+$if method == POST
+    <p>Aucune association ne correspond au numéro fourni.

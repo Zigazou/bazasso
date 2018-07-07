@@ -101,6 +101,11 @@ instance Yesod App where
                     , menuItemRoute = DepartmentListR
                     , menuItemAccessCallback = True
                     }
+                , NavbarLeft MenuItem
+                    { menuItemLabel = "Rechercher par numéro RNA"
+                    , menuItemRoute = ByRnaR
+                    , menuItemAccessCallback = True
+                    }
                 ]
 
         let navbarLeftMenuItems = [x | NavbarLeft x <- menuItems]
@@ -165,11 +170,14 @@ instance YesodBreadcrumbs App where
     breadcrumb HomeR                 = return ("Home", Nothing)
     breadcrumb (OldAssociationR _)   = return ("Association", Just HomeR)
     breadcrumb (NewAssociationR _)   = return ("Association", Just HomeR)
+    breadcrumb ByRnaR                = return ("Numéro RNA", Just HomeR)
     breadcrumb SearchR               = return ("Recherche", Just HomeR)
-    breadcrumb (DepartmentCitiesR _) = return ("Villes", Just HomeR)
+    breadcrumb (DepartmentCitiesR _) = return ("Villes", Just DepartmentListR)
     breadcrumb DepartmentListR       = return ("Départements", Just HomeR)
-    breadcrumb (CityActivityR _)     = return ("Activités", Just HomeR)
-    breadcrumb  _                    = return ("home", Nothing)
+    breadcrumb (CityActivityR _)     = return ("Activités"
+                                              , Just HomeR
+                                              )
+    breadcrumb  _                    = return ("Home", Nothing)
 
 -- How to run database actions.
 instance YesodPersist App where
