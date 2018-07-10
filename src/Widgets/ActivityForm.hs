@@ -14,12 +14,12 @@ module Widgets.ActivityForm
 
 import           Import
 
-import           Helpers.GeneralTheme (gtOptionList)
+import           Helpers.GeneralTheme (GeneralTheme, gtOptionList)
 
 -- | A structure holding the results of an activity form.
 data ActivityForm = ActivityForm
-    { activityInsee  :: Text   -- ^ Insee code (specifies a city in France)
-    , activityThemes :: [Text] -- ^ List of selected activity themes
+    { activityInsee  :: Text           -- ^ Insee code (a city in France)
+    , activityThemes :: [GeneralTheme] -- ^ List of selected activity themes
     }
 
 -- | Settings for the themes field.

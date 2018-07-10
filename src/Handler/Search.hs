@@ -12,35 +12,69 @@ module Handler.Search
     , postSearchR
     ) where
 
-import           Helpers.GeneralTheme  (themesFilterNew, themesFilterOld)
-import           Helpers.Like          (match)
+import           Helpers.GeneralTheme  (GeneralTheme, themesFilterNew,
+                                        themesFilterOld)
+import           Helpers.Like          (match, startsLike)
 import           Import
 
-import           Widgets.SearchForm    (SearchForm (..), searchForm)
+import           Widgets.SearchForm    (SearchDept (OneDepartment),
+                                        SearchFields (..), SearchForm (..),
+                                        searchForm)
 import           Widgets.SearchResults (searchResults)
 
 import qualified Data.Text             as T
-import           Helpers.KeyToText     (keyToText)
 
 -- | Query to retrieve associations in the new database according to the
 --   values entered in the search form
 lookForNewAssociations :: DBparam SearchForm [Entity Rnawaldec]
-lookForNewAssociations (SearchForm title Nothing) = selectList
-    [RnawaldecTitre `match` T.toUpper title]
-    [LimitTo 1000]
-lookForNewAssociations (SearchForm title (Just theme)) = selectList
-    ( RnawaldecTitre `match` T.toUpper title : themesFilterNew [theme] )
-    [LimitTo 1000]
+lookForNewAssociations form = selectList (filters form) [LimitTo 1000]
+    where
+        filters :: SearchForm -> [Filter Rnawaldec]
+        filters sf = concat [ keywordsF (searchString sf) (searchFields sf)
+                            , themeF (searchTheme sf)
+                            , deptF (searchDept sf)
+                            ]
+
+        keywordsF :: Text -> SearchFields -> [Filter Rnawaldec]
+        keywordsF title TitleOnly = [RnawaldecTitre `match` T.toUpper title]
+        keywordsF title AllFields =
+            [ RnawaldecTitre `match` T.toUpper title ]
+            ||. [ RnawaldecObjet `match` title ]
+            ||. [ RnawaldecObjet `match` T.toUpper title ]
+
+        themeF :: GeneralTheme -> [Filter Rnawaldec]
+        themeF = themesFilterNew . return
+
+        deptF :: SearchDept -> [Filter Rnawaldec]
+        deptF (OneDepartment deptId _) =
+            [RnawaldecAdrscodeinsee `startsLike` deptId]
+        deptF _ = []
 
 -- | Query to retrieve associations in the old database according to the
 --   values entered in the search form
 lookForOldAssociations :: DBparam SearchForm [Entity Rnaimport]
-lookForOldAssociations (SearchForm title Nothing) = selectList
-    [RnaimportTitre `match` T.toUpper title]
-    [LimitTo 1000]
-lookForOldAssociations (SearchForm title (Just theme)) = selectList
-    ( RnaimportTitre `match` T.toUpper title : themesFilterOld [theme] )
-    [LimitTo 1000]
+lookForOldAssociations form = selectList (filters form) [LimitTo 1000]
+    where
+        filters :: SearchForm -> [Filter Rnaimport]
+        filters sf = concat [ keywordsF (searchString sf) (searchFields sf)
+                            , themeF (searchTheme sf)
+                            , deptF (searchDept sf)
+                            ]
+
+        keywordsF :: Text -> SearchFields -> [Filter Rnaimport]
+        keywordsF title TitleOnly = [RnaimportTitre `match` T.toUpper title]
+        keywordsF title AllFields =
+            [ RnaimportTitre `match` T.toUpper title ]
+            ||. [ RnaimportObjet `match` title ]
+            ||. [ RnaimportObjet `match` T.toUpper title ]
+
+        themeF :: GeneralTheme -> [Filter Rnaimport]
+        themeF = themesFilterOld . return
+
+        deptF :: SearchDept -> [Filter Rnaimport]
+        deptF (OneDepartment deptId _) =
+            [RnaimportAdrscodeinsee `startsLike` deptId]
+        deptF _ = []
 
 -- | Handles GET requests of the search page
 getSearchR :: Handler Html
@@ -74,10 +108,10 @@ postSearchR = do
     -- corresponding page.
     case (newassos, oldassos) of
         ([Entity newassoId _], []) ->
-            redirect . NewAssociationR . keyToText $ newassoId
+            redirect . NewAssociationR . unRnawaldecKey $ newassoId
 
         ([], [Entity oldassoId _]) ->
-            redirect . OldAssociationR . keyToText $ oldassoId
+            redirect . OldAssociationR . unRnaimportKey $ oldassoId
 
         _ -> defaultLayout $ do
             let title = "Résultats de la recherche"

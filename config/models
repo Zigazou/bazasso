@@ -81,6 +81,7 @@ Departement
     Id Text
     libelle Text
     prefecture Text
+    deriving Eq Show
 
 Commune
     idregion RegionId sql=id_region

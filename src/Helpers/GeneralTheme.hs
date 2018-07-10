@@ -20,21 +20,43 @@ module Helpers.GeneralTheme
 
 import           Import
 
-import           Data.List (foldl)
-import qualified Data.Text as T
+import           Data.Either (either)
+import           Data.List   (foldl)
+import qualified Data.Text   as T
+
+-- | A general theme is composed of the first 3 digits and a name describing
+--   the general theme.
+data GeneralTheme = AllGeneralTheme
+                  | GeneralTheme
+                        { gtStart :: Text -- ^ The first 3 digits of the theme
+                        , gtName  :: Text -- ^ The name of the general theme
+                        }
+                  deriving (Eq, Show)
+
+gtFirst :: GeneralTheme -> Text
+gtFirst gt = T.concat [ gtStart gt, "000" ]
+
+gtLast :: GeneralTheme -> Text
+gtLast gt = T.concat [ gtLast gt, "999" ]
 
 -- | Generates a pair of (starting, ending) keys which allows to search for
 --   specific themes pertaining to a general theme.
-generateKeys :: T.Text -- ^ The general theme (3 digits)
+generateKeys :: GeneralTheme -- ^ The general theme (3 digits)
              -> Maybe (Key Jotheme, Key Jotheme) -- ^ The resulting pair
-generateKeys theme = case eKeys of
-                        Left _          -> Nothing
-                        Right themeKeys -> Just themeKeys
+generateKeys AllGeneralTheme = either (const Nothing) Just eKeys
     where
         eKeys :: Either T.Text (Key Jotheme, Key Jotheme)
         eKeys = do
-            fstKey <- keyFromValues [PersistText (T.concat [theme, "000"])]
-            sndKey <- keyFromValues [PersistText (T.concat [theme, "999"])]
+            fstKey <- keyFromValues [PersistText "000000"]
+            sndKey <- keyFromValues [PersistText "999999"]
+            return (fstKey, sndKey)
+
+generateKeys theme = either (const Nothing) Just eKeys
+    where
+        eKeys :: Either T.Text (Key Jotheme, Key Jotheme)
+        eKeys = do
+            fstKey <- keyFromValues [PersistText (gtFirst theme)]
+            sndKey <- keyFromValues [PersistText (gtLast theme)]
             return (fstKey, sndKey)
 
 -- | Adds filters to an existing list of filters
@@ -50,7 +72,7 @@ addTheme fstField sndField a b = a ||. addTheme fstField sndField [] b
 
 -- | Generates a list of `or` filters searching for themes in the new database.
 --   This list can then be used with the `selectList` function
-themesFilterNew :: [T.Text]           -- ^ List of general themes
+themesFilterNew :: [GeneralTheme]     -- ^ List of general themes
                 -> [Filter Rnawaldec] -- ^ Resulting list of filters
 themesFilterNew themes =
     foldl (addTheme RnawaldecObjetsocial1 RnawaldecObjetsocial2)
@@ -59,24 +81,18 @@ themesFilterNew themes =
 
 -- | Generates a list of `or` filters searching for themes in the old database.
 --   This list can then be used with the `selectList` function
-themesFilterOld :: [T.Text]           -- ^ List of general themes
+themesFilterOld :: [GeneralTheme]     -- ^ List of general themes
                 -> [Filter Rnaimport] -- ^ Resulting list of filters
 themesFilterOld themes =
     foldl (addTheme RnaimportObjetsocial1 RnaimportObjetsocial2)
           []
           (catMaybes (generateKeys <$> themes))
 
--- | A general theme is composed of the first 3 digits and a name describing
---   the general theme.
-data GeneralTheme = GeneralTheme
-    { gtStart :: Text -- ^ The first 3 digits of the theme
-    , gtName  :: Text -- ^ The name of the general theme
-    }
-
 -- | List of a known general themes.
 generalThemes :: [GeneralTheme]
 generalThemes =
-    [ GeneralTheme "001" "activités politiques"
+    [ AllGeneralTheme
+    , GeneralTheme "001" "activités politiques"
     , GeneralTheme "002" "clubs, cercles de réflexion"
     , GeneralTheme "003" "défense de droits fondamentaux, activités civiques"
     , GeneralTheme "004" "justice"
@@ -115,6 +131,7 @@ generalThemes =
 
 -- | Helper function giving the list of general themes in a form suitable for
 --   use with a SelectField.
-gtOptionList :: [(Text, Text)]
+gtOptionList :: [(Text, GeneralTheme)]
 gtOptionList = toOption <$> generalThemes
-    where toOption (GeneralTheme a b) = (b, a)
+    where toOption theme@(GeneralTheme _ b) = (b, theme)
+          toOption theme                    = ("Dans tous les thèmes", theme)
